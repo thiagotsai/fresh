@@ -1,0 +1,2 @@
+module BusinessPlacesHelper
+end
