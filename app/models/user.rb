@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
       user.facebook_picture_url = auth.info.image # assuming the user model has an image
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
+      user.confirmed_at = Time.now
     end
   end
 end
