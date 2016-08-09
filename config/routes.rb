@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'business_places/index'
+
+  get 'business_places/new'
+
+  get 'business_places/show'
+
+  get 'business_places/create'
+
+  get 'business_places/edit'
+
+  get 'business_places/update'
+
+  get 'business_places/destroy'
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
