@@ -11,10 +11,144 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808162105) do
+ActiveRecord::Schema.define(version: 20160809095857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "business_cuisines", force: :cascade do |t|
+    t.integer  "business_place_id"
+    t.integer  "cuisine_id"
+    t.boolean  "main"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "business_cuisines", ["business_place_id"], name: "index_business_cuisines_on_business_place_id", using: :btree
+  add_index "business_cuisines", ["cuisine_id"], name: "index_business_cuisines_on_cuisine_id", using: :btree
+
+  create_table "business_place_users", force: :cascade do |t|
+    t.integer  "business_place_id"
+    t.integer  "user_id"
+    t.boolean  "main"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "business_place_users", ["business_place_id"], name: "index_business_place_users_on_business_place_id", using: :btree
+  add_index "business_place_users", ["user_id"], name: "index_business_place_users_on_user_id", using: :btree
+
+  create_table "business_places", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "city_id"
+    t.string   "post_code"
+    t.string   "status"
+    t.string   "name"
+    t.string   "opening_time"
+    t.string   "cover_photo"
+    t.string   "average_cost"
+    t.string   "phone_number"
+    t.float    "lat"
+    t.float    "lon"
+    t.string   "from_status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "business_places", ["city_id"], name: "index_business_places_on_city_id", using: :btree
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_infos", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "ingredient_id"
+    t.string   "preparation"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "item_infos", ["ingredient_id"], name: "index_item_infos_on_ingredient_id", using: :btree
+  add_index "item_infos", ["item_id"], name: "index_item_infos_on_item_id", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "menu_id"
+    t.string   "name"
+    t.datetime "ready_at"
+    t.decimal  "available_qty"
+    t.integer  "user_id"
+    t.string   "photo"
+    t.string   "description"
+    t.decimal  "price"
+    t.string   "currency"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "items", ["menu_id"], name: "index_items_on_menu_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+
+  create_table "menus", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "business_place_id"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "menus", ["business_place_id"], name: "index_menus_on_business_place_id", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,10 +167,26 @@ ActiveRecord::Schema.define(version: 20160808162105) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.float    "lat"
+    t.float    "lon"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "business_cuisines", "business_places"
+  add_foreign_key "business_cuisines", "cuisines"
+  add_foreign_key "business_place_users", "business_places"
+  add_foreign_key "business_place_users", "users"
+  add_foreign_key "business_places", "cities"
+  add_foreign_key "cities", "states"
+  add_foreign_key "item_infos", "ingredients"
+  add_foreign_key "item_infos", "items"
+  add_foreign_key "items", "menus"
+  add_foreign_key "items", "users"
+  add_foreign_key "menus", "business_places"
+  add_foreign_key "states", "countries"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
 end
