@@ -12,5 +12,6 @@ class BusinessPlace < ActiveRecord::Base
   validates :phone_number, presence: true
   validates :lat, presence: true
   validates :lon, presence: true
+  mount_uploader :cover_photo, PhotoUploader
 end
 
