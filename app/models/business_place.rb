@@ -4,7 +4,7 @@ class BusinessPlace < ActiveRecord::Base
   has_many :users, through: :business_place_user
   has_many :menus
   has_many :items, through: :menus
-  validates :name, presence: true, uniqueness: { scope: :address, :city }
+  validates :name, presence: true, uniqueness: { scope: [:address, :city] }
   validates :address, presence: true
   validates :post_code, presence: true
   validates :city, presence: true
