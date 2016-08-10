@@ -19,9 +19,9 @@ Ingredient.create(name: "Wheat flour")
 Ingredient.create(name: "Chocolate")
 Ingredient.create(name: "Rice")
 
-BusinessPlace.create(address: Faker::Address.street_name, city: City.first,
-                     post_code: Faker::Address.postcode, name: Faker::App.name,
-                     opening_time: "10am-10pm" , cover_photo: Faker::Company.logo,
-                     average_cost: Faker::Commerce.price,
-                     lat: Faker::Address.latitude, lon: Faker::Address.longitude,
-                     city: Faker::Address.city, country: Faker::Address.country )
+BusinessPlace.create(address: Faker::Address.street_name,
+                     zip_code: Faker::Address.zip_code, name: Faker::App.name,
+                     opening_time: "10am-10pm", average_cost: Faker::Commerce.price,
+                     lat: Faker::Address.latitude, lng: Faker::Address.longitude,
+                     city: Faker::Address.city, country: Faker::Address.country,
+                     phone_number: Faker::PhoneNumber.phone_number)
