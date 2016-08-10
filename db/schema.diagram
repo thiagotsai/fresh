@@ -144,7 +144,7 @@
 <row name="address" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="post_code" null="1" autoincrement="0">
+<row name="zip_code" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="status" null="1" autoincrement="0">
