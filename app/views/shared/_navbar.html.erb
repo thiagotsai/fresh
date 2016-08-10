@@ -1,6 +1,50 @@
 <div class="navbar-wagon">
   <% unless user_signed_in? %>
-  <!-- Modal -->
+  <!-- Modal Sign Up -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+<!--         <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Log in</h4>
+        </div> -->
+        <div class="modal-body">
+          <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook" do %>
+                <span class="icon-container">
+                  <i class="fa fa-facebook"></i>
+                </span>
+                <span class="text-container">
+                  <%= "Sign up with #{OmniAuth::Utils.camelize(provider)}" %>
+                </span>
+              <% end %>
+            <% end -%>
+          <% end -%>
+          <div class="text-center">or</div>
+          <br>
+          <%= link_to new_registration_path(resource_name), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-signup-email" do %>
+                <span class="text-container">
+                  <%= "Sign up with email" %>
+                </span>
+          <% end %>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <hr>
+            <div class="flex-wrapper-sp-between">
+              <div>
+                <span>Already a Fresh member?</span>
+              </div>
+              <div>
+                <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Login -->
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -21,6 +65,7 @@
               <% end %>
             <% end -%>
           <% end -%>
+          <div class="text-center">or</div>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%# simple_form_for(:user, :url => user_session_path) do |f| %>
           <div class="form-inputs">
@@ -42,13 +87,13 @@
           <%= f.button :submit, "Log in", class: "btn btn-primary"%>
 
             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <div class="class="flex-wrapper-sp-between"">
-              <hr>
+            <hr>
+            <div class="flex-wrapper-sp-between">
               <div>
-                <p>Don't have an account</p>
+                <span>Don't have an account?</span>
               </div>
               <div>
-                <%= link_to "Sign up", new_registration_path(resource_name) %>
+                <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary" %>
               </div>
             </div>
             <% end -%>
@@ -111,7 +156,7 @@
     <!-- Signup text link -->
     <%# link_to t(".sign_up", default: "Sign up"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %>
 
-    <%= link_to "Sign up", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %>
+    <%= link_to "Sign up", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#signUpModal" } %>
 
     <%= link_to "Login", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %>
 
