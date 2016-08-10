@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809114537) do
+ActiveRecord::Schema.define(version: 20160810101254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,7 @@ ActiveRecord::Schema.define(version: 20160809114537) do
 
   create_table "business_places", force: :cascade do |t|
     t.string   "address"
-    t.integer  "city_id"
-    t.string   "post_code"
+    t.string   "zip_code"
     t.string   "status"
     t.string   "name"
     t.string   "opening_time"
@@ -49,27 +48,12 @@ ActiveRecord::Schema.define(version: 20160809114537) do
     t.string   "average_cost"
     t.string   "phone_number"
     t.float    "lat"
-    t.float    "lon"
+    t.float    "lng"
     t.string   "from_status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  add_index "business_places", ["city_id"], name: "index_business_places_on_city_id", using: :btree
-
-  create_table "cities", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "state_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
-
-  create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "city"
+    t.string   "country"
   end
 
   create_table "cuisines", force: :cascade do |t|
@@ -131,15 +115,6 @@ ActiveRecord::Schema.define(version: 20160809114537) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "states", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "country_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
-
   create_table "user_roles", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "role_id"
@@ -168,7 +143,7 @@ ActiveRecord::Schema.define(version: 20160809114537) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.float    "lat"
-    t.float    "lon"
+    t.float    "lng"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
@@ -186,14 +161,11 @@ ActiveRecord::Schema.define(version: 20160809114537) do
   add_foreign_key "business_cuisines", "cuisines"
   add_foreign_key "business_place_users", "business_places"
   add_foreign_key "business_place_users", "users"
-  add_foreign_key "business_places", "cities"
-  add_foreign_key "cities", "states"
   add_foreign_key "item_infos", "ingredients"
   add_foreign_key "item_infos", "items"
   add_foreign_key "items", "menus"
   add_foreign_key "items", "users"
   add_foreign_key "menus", "business_places"
-  add_foreign_key "states", "countries"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end
