@@ -19,18 +19,9 @@ Ingredient.create(name: "Wheat flour")
 Ingredient.create(name: "Chocolate")
 Ingredient.create(name: "Rice")
 
-3.times do
-  c = Country.create(name: Faker::Address.country)
-  3.times do
-    s = State.create(name: Faker::Address.state, country: c)
-    3.times do
-      City.create(name: Faker::Address.city, state: s)
-    end
-  end
-end
-
-BusinessPlace.create(address: Faker::Address.street_name, city: City.first,
-                     post_code: Faker::Address.postcode, name: Faker::App.name,
-                     opening_time: "10am-10pm" , cover_photo: Faker::Company.logo,
-                     average_cost: Faker::Commerce.price,
-                     lat: Faker::Address.latitude, lon: Faker::Address.longitude)
+BusinessPlace.create(address: Faker::Address.street_name,
+                     zip_code: Faker::Address.zip_code, name: Faker::App.name,
+                     opening_time: "10am-10pm", average_cost: Faker::Commerce.price,
+                     lat: Faker::Address.latitude, lng: Faker::Address.longitude,
+                     city: Faker::Address.city, country: Faker::Address.country,
+                     phone_number: Faker::PhoneNumber.phone_number)
