@@ -41,8 +41,9 @@ class BusinessPlacesController < ApplicationController
   private
 
   def business_place_params
-    params.require(:business_place).permit(:address, :city_id, :post_code, :name,
-                   :opening_time, :cover_photo, :average_cost, :phone_number, :lat, :lon)
+    params.require(:business_place).permit(:address, :city, :country, :zip_code,
+                   :name, :opening_time, :cover_photo, :average_cost, :phone_number,
+                   :lat, :lng, :description)
   end
 
   def set_business_place
