@@ -1,2 +1,14 @@
-<h1>BusinessPlaces#new</h1>
-<p>Find me in app/views/business_places/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <h2>New Business Place</h2>
+      <%= simple_form_for @business_place do |f| %>
+      <%= f.input :name, placeholder: "Name" %>
+      <%= f.input :phone_number, placeholder: "Phone Number" %>
+      <%= f.input :description, placeholder: "Description" %>
+      <%= f.input :average_cost, placeholder: "Average Cost" %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

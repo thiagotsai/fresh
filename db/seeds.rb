@@ -24,4 +24,5 @@ BusinessPlace.create(address: Faker::Address.street_name,
                      opening_time: "10am-10pm", average_cost: Faker::Commerce.price,
                      lat: Faker::Address.latitude, lng: Faker::Address.longitude,
                      city: Faker::Address.city, country: Faker::Address.country,
-                     phone_number: Faker::PhoneNumber.phone_number)
+                     phone_number: Faker::PhoneNumber.phone_number,
+                     description: Faker::Lorem.sentence(3))
