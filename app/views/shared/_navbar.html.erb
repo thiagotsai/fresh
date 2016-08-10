@@ -112,8 +112,9 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-
+    <div class="nav-bar-wagon-item">
+      <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
+    </div>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
@@ -174,9 +175,11 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <% if user_signed_in? %>
+      <% else %>
         <li><%= link_to "Sign up", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#signUpModal" } %></li>
         <li><%= link_to "Login", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %></li>
-        <li><a href="#">Other one</a></li>
+      <% end %>
       </ul>
     </div>
   </div>
