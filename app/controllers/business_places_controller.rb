@@ -1,5 +1,6 @@
 class BusinessPlacesController < ApplicationController
   before_action :set_business_place, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @business_places = BusinessPlace.all
