@@ -1,5 +1,6 @@
 class BusinessPlacesController < ApplicationController
   before_action :set_business_place, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @business_places = BusinessPlace.all
@@ -18,6 +19,7 @@ class BusinessPlacesController < ApplicationController
       redirect_to business_place_path(@business_place)
     else
       render :new
+    end
   end
 
   def edit
@@ -28,6 +30,7 @@ class BusinessPlacesController < ApplicationController
       redirect_to business_place_path(@business_place)
     else
       render :edit
+    end
   end
 
   def destroy

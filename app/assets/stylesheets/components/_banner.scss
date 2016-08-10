@@ -21,3 +21,26 @@
 .logo img {
   height: 100px;
 }
+
+.banner-small {
+  background-size: cover;
+  color: white;
+  height: 60vh;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.banner-small-content h2 {
+  margin-top: 35vh;
+  margin-left: 10vh;
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner-small-content p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: white;
+  margin-left: 10vh;
+}
