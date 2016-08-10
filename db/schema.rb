@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810103431) do
+ActiveRecord::Schema.define(version: 20160810144832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20160810103431) do
     t.string   "cover_photo"
     t.string   "average_cost"
     t.string   "phone_number"
-    t.float    "lat"
-    t.float    "lng"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "from_status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -143,8 +143,8 @@ ActiveRecord::Schema.define(version: 20160810103431) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.float    "lat"
-    t.float    "lng"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"

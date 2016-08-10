@@ -3,6 +3,10 @@
     <div class="col-xs-4 col-xs-offset-4">
       <h2>New Business Place</h2>
       <%= simple_form_for @business_place do |f| %>
+      <%= f.input :address %>
+      <%= f.input :zip_code %>
+      <%= f.input :city %>
+      <%= f.input :country, priority: [ 'PT' ] %>
       <%= f.input :name, placeholder: "Name" %>
       <%= f.input :phone_number, placeholder: "Phone Number" %>
       <%= f.input :description, placeholder: "Description" %>
@@ -12,3 +16,7 @@
     </div>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<% end %>
