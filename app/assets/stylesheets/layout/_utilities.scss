@@ -23,3 +23,24 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+.flex-wrapper-sp-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  outline : none;
+}
+
+a:active {
+outline: none;
+border: none;
+}
+
+a:focus {
+outline: none;
+border: none;
+}

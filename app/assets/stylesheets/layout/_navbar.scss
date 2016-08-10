@@ -129,3 +129,39 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.signup-login-form__btn-xl {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 27px !important;
+    padding-right: 27px !important;
+    font-weight: normal;
+}
+
+.icon-btn.btn-large {
+    position: relative;
+    padding-left: 51px;
+}
+
+.icon-btn.btn-large .fa {
+    position: absolute;
+    font-size: 24px;
+    top: 19px;
+    left: 26px;
+}
+
+.btn-facebook {
+    border-color: #3B5998;
+    border-bottom-color: #263a63;
+    background-color: #3B5998;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.btn-signup-email {
+    border-color: #3B5998;
+    border-bottom-color: #263a63;
+    background-color: white;
+    // color: #fff;
+    margin-bottom: 18px;
+}
