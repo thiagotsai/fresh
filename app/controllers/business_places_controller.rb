@@ -1,13 +1,13 @@
 class BusinessPlacesController < ApplicationController
-  before_action :set_business_place, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_business_place, only: [:show, :edit, :update, :destroy, :map]
+  skip_before_action :authenticate_user!, only: [:index, :show, :map]
 
   def index
     @business_places = BusinessPlace.all
   end
 
   def new
-    @business_place = BusinessPlace.new()
+    @business_place = BusinessPlace.new
   end
 
   def show
@@ -37,6 +37,9 @@ class BusinessPlacesController < ApplicationController
     @business_place.destroy
     flash[:success] = "Business place deleted"
     redirect_to business_places_path
+  end
+
+  def map
   end
 
   private
