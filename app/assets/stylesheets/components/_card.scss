@@ -49,27 +49,35 @@
   opacity: 0.1;
 }
 
-.dish-card {
-  height: 500px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover;
-  color: white;
+.dish-container {
   position: relative;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }
-.dish-card-description {
+.dish-image {
+  border-radius: 1vh;
+}
+.dish-info {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  background-color: transparent;
+  top: 0vh;
+  left: 0vh;
+  right: 0vh;
+  bottom: 0vh;
 }
-.dish-card-description h2 {
-  font-size: 22px;
+.dish-info-text {
+  position: absolute;
+  left: 5vh;
+  bottom: 3vh;
+  color: white;
 }
-.dish-card-description p {
-  font-size: 18px;
+.dish-info-text-name {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
-.dish-card-link {
+.dish-info-text-price {
+  color: #EF6C00;
+}
+.dish-link {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -80,6 +88,6 @@
   background: black;
   opacity: 0;
 }
-.dish-card-link:hover{
+.dish-link:hover{
   opacity: 0.1;
 }
