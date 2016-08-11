@@ -12,30 +12,66 @@
   <!-- map_business_place_path(@business_place) -->
 </div>
 
-<div class="container">
-  <h2 class="text-center" style="padding-top: 5vh;">Today's dishes</h2>
+<div class="wrapper-white text-center">
+  <h2>Today's dishes</h2>
+</div>
+
+<div class="wrapper-lightgrey">
+  <div class="container">
+<!--   <%# @business_place.items.each do |item| %>
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-       <div class="dish-container">
-          <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-          <div class="dish-info">
-            <div class="dish-info-text">
-              <h3 class="dish-info-text-name">Spring salad with potatoes</h3>
-              <p class="dish-info-text-price">Price: 8€</p>
+      <div class="col-sm-6">
+        <div class="dish-container">
+            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
+            <div class="dish-info">
+              <div class="dish-info-text wrapper-transp-grey">
+                <div class="dish-info-text-name">Spring salad with potatoes</div>
+                <div class="dish-info-text-price">Price: 8€</div>
+              </div>
             </div>
-          </div>
-          <a class="dish-link" href="#" ></a>
+            <a class="dish-link" href="#" ></a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="dish-container">
+          <div class="description">Description</div>
+          <div class="description description-text"><%# item.description %></div>
         </div>
       </div>
     </div>
+    <%# end %> -->
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dish-container">
+            <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
+            <div class="dish-info">
+              <div class="dish-info-text wrapper-transp-grey">
+                <div class="dish-info-text-name">Spring salad with potatoes</div>
+                <div class="dish-info-text-price">Price: 8€</div>
+              </div>
+            </div>
+            <a class="dish-link" href="#" ></a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="dish-container">
+          <div class="description">Description</div>
+          <div class="description description-text">Mix leaves, cooked eggs, grilled chicken, parmesan cheese, artichokes, potatoes and olive oil-based sauce.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="directions">
+<div class="wrapper-white">
+  <div id="directions">
   <form action="http://maps.google.com/maps" method="get" target="_blank">
     <input type="text" name="saddr" placeholder="Starting address" />
     <input type="hidden" name="daddr" value="<%= @business_place.full_address %>"/>
     <input type="submit" value="get directions" class= "btn btn-info"/>
   </form>
+</div>
 </div>
 
   <div id="map" style="width: 100%; height: 400px;"></div>

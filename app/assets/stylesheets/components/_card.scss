@@ -52,7 +52,7 @@
 .dish-container {
   position: relative;
   margin-top: 5vh;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 .dish-image {
   border-radius: 1vh;
@@ -67,15 +67,19 @@
 }
 .dish-info-text {
   position: absolute;
-  left: 5vh;
-  bottom: 3vh;
-  color: white;
+  bottom: 5vh;
 }
 .dish-info-text-name {
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  font-size: 4vh;
+  margin-left: 2vh;
+  color: white;
 }
 .dish-info-text-price {
-  color: #EF6C00;
+  color: #FB8C00;
+  font-size: 3vh;
+  margin-left: 2vh;
+  font-weight: normal;
 }
 .dish-link {
   position: absolute;
@@ -90,4 +94,15 @@
 }
 .dish-link:hover{
   opacity: 0.1;
+}
+.description {
+  font-size: 3vh;
+  margin-left: 2vh;
+  color: #424242;
+  margin-left: 6vh;
+
+}
+.description-text {
+  padding-top: 2vh;
+
 }
