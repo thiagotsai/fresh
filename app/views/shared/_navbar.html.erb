@@ -180,6 +180,16 @@
         <li>
           <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
+        <li>
+          <%= link_to edit_user_registration_path(current_user) do %>
+          <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       <% else %>
         <li><%= link_to "Add your Business", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %></li>
         <li><%= link_to "Sign up", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#signUpModal" } %></li>
