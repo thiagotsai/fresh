@@ -4,6 +4,25 @@
  * Feel free to change them and create your own
  * ------------------------------------- */
 
+// Wrappers
+.wrapper-lightgrey {
+  background-color: #EEEEEE;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.wrapper-white {
+  background-color: white;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.wrapper-transp-grey {
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+
+}
+
 // Paddings
 .padded {
   padding-top: 5em;
