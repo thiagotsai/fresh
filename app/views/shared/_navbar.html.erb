@@ -112,11 +112,10 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div class="nav-bar-wagon-item">
-      <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
-    </div>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
+
+    <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Notification -->
     <%# link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
@@ -157,6 +156,8 @@
     <!-- Signup text link -->
     <%# link_to t(".sign_up", default: "Sign up"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %>
 
+    <%= link_to "Add your Business", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %>
+
     <%= link_to "Sign up", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#signUpModal" } %>
 
     <%= link_to "Login", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %>
@@ -173,10 +174,14 @@
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <i class="fa fa-bars fa-2x dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
+        <li>
+          <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
       <% else %>
+        <li><%= link_to "Add your Business", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %></li>
         <li><%= link_to "Sign up", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#signUpModal" } %></li>
         <li><%= link_to "Login", "#" , class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#loginModal" } %></li>
       <% end %>
