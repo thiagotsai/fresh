@@ -8,7 +8,8 @@
 </div>
 
 <div class="badge-yellow">
-  <%= link_to "Get me there", map_business_place_path(@business_place) %>
+  <%= link_to "Get me there", "#directions" %>
+  <!-- map_business_place_path(@business_place) -->
 </div>
 
 <div class="container">
@@ -28,5 +29,42 @@
       </div>
     </div>
 </div>
+
+<div id="directions">
+  <form action="http://maps.google.com/maps" method="get" target="_blank">
+    <input type="text" name="saddr" placeholder="Starting address" />
+    <input type="hidden" name="daddr" value="<%= @business_place.full_address %>"/>
+    <input type="submit" value="get directions" class= "btn btn-info"/>
+  </form>
+</div>
+
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE">
+    console.log('google_api')
+  </script>
+
+
+  <script type="text/javascript">
+    var myLatlng = new google.maps.LatLng(<%= @business_place.latitude %> , <%= @business_place.longitude %>);
+
+    var myOptions = {
+      zoom: 16,
+      center: myLatlng,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+  styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit.station.bus","elementType":"geometry","stylers":[{"visibility":"on"},{"hue":"#ff0000"}]},{"featureType":"transit.station.bus","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"transit.station.bus","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#4690ec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"}]}] // TODO: replace [] by array from https://snazzymaps.com/
+};
+
+var map = new google.maps.Map(document.getElementById('map'), myOptions);
+var marker = new google.maps.Marker({
+  position: myLatlng,
+  map: map,
+  title: "You are here!"
+});
+</script>
+<% end %>
+
 
 
