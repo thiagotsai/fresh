@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
-      <h2>New Cuisine</h2>
-      <%= simple_form_for @cuisine do |f| %>
+      <h2>New Item for <%= @menu.name %></h2>
+      <%= simple_form_for [@menu, @item] do |f| %>
       <%= f.input :name %>
+      <%= f.input :ready_at %>
+      <%= f.input :available_qty %>
       <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :currency %>
       <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
     </div>

@@ -4,11 +4,27 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
-  resources :business_places
+  # resources :business_places
 
   resources :cuisines, only: [:new, :create]
 
   resources :ingredients, only: [:new, :create]
+
+  # resources :business_places do
+  #   resources :menus
+  # end
+
+  resources :business_places do
+    resources :menus, except: [:show, :index, :destroy] do
+      resources :items, except: [:show, :index, :destroy]
+    end
+  end
+
+  resources :menus, only: :destroy
+
+  resources :items, only: :destroy
+
+  resources :roles, except: [:index, :show]
 
   get "business_places/:id/map" => "business_places#map", as: :map_business_place
 
