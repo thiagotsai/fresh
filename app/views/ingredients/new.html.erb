@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <h2>New Ingredient</h2>
+      <%= simple_form_for @ingredient do |f| %>
+      <%= f.input :name %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
