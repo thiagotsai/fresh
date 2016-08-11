@@ -16,6 +16,7 @@ class BusinessPlacesController < ApplicationController
   def create
     @business_place = BusinessPlace.new(business_place_params)
     @business_place.current_user = current_user
+    raise
     if @business_place.save
       redirect_to business_place_path(@business_place)
     else

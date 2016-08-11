@@ -14,6 +14,7 @@
       <%= f.input :opening_time, placeholder: "Enter working time e.g. 12pm - 9pm", label: "Opening Time" %>
       <%= f.input :cover_photo %>
       <%= f.input :cover_photo_cache, as: :hidden %>
+      <%= f.association :cuisines, as: :radio_buttons, label: "Main cuisine type" %>
       <%= f.button :submit, class: "btn btn-primary btn-block" %>
       <% end %>
     </div>

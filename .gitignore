@@ -5,6 +5,8 @@ tmp/*
 *.swp
 .DS_Store
 public/assets
+public/uploads/*
+public/uploads/**/*
 
 # Ignore application configuration
 /config/application.yml
