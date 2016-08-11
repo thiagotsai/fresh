@@ -20,13 +20,15 @@ Rails.application.routes.draw do
     end
   end
 
+  get "business_places/:id/map" => "business_places#map", as: :map_business_place
+
   resources :menus, only: :destroy
 
   resources :items, only: :destroy
+  get "items/search" => "items#search", as: :search_items
+
 
   resources :roles, except: [:index, :show]
-
-  get "business_places/:id/map" => "business_places#map", as: :map_business_place
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

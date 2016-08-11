@@ -44,10 +44,10 @@
 <row name="first_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="lat" null="1" autoincrement="0">
+<row name="latitude" null="1" autoincrement="0">
 <datatype>DOUBLE</datatype>
 <default>NULL</default></row>
-<row name="lon" null="1" autoincrement="0">
+<row name="longitude" null="1" autoincrement="0">
 <datatype>FLOAT</datatype>
 <default>NULL</default></row>
 <row name="last_name" null="1" autoincrement="0">
@@ -165,10 +165,10 @@
 <row name="phone_number" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="lat" null="1" autoincrement="0">
+<row name="latitude" null="1" autoincrement="0">
 <datatype>DOUBLE</datatype>
 <default>NULL</default></row>
-<row name="lon" null="1" autoincrement="0">
+<row name="longitude" null="1" autoincrement="0">
 <datatype>DOUBLE</datatype>
 <default>NULL</default></row>
 <row name="form_status" null="1" autoincrement="0">
