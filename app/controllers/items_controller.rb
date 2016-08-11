@@ -1,6 +1,13 @@
 class ItemsController < ApplicationController
    #before_action :set_item, only: [:edit, :update, :destroy]
 
+  def search
+    @items = []
+    BusinessPlace.near(params[:location]).each do |bp|
+      @items += bp.items.where("description LIKE ? OR name LIKE ?", params[:query])
+    end
+  end
+
   def new
     #@business_place = BusinessPlace.find(params[:business_place_id])
     @menu = @business_place.menus.find(params[:menu_id])

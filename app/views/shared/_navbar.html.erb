@@ -35,7 +35,7 @@
                 <span>Already a Fresh member?</span>
               </div>
               <div>
-                <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
+                <%= link_to "Log in", user_session_path, class: "btn btn-info" %>
               </div>
             </div>
           <% end -%>
@@ -82,9 +82,7 @@
               <% end -%>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <%= f.button :submit, "Log in", class: "btn btn-primary"%>
+          <%= f.button :submit, "Log in", class: "btn btn-info btn-block"%>
 
             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
             <hr>
@@ -93,7 +91,7 @@
                 <span>Don't have an account?</span>
               </div>
               <div>
-                <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary" %>
+                <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-info" %>
               </div>
             </div>
             <% end -%>
