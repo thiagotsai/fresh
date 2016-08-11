@@ -57,5 +57,4 @@ class BusinessPlacesController < ApplicationController
   def set_business_place
     @business_place = BusinessPlace.find(params[:id])
   end
-
 end

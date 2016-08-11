@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <h2>New Menu for <%= @business_place.name %></h2>
+      <%= simple_form_for [@business_place, @menu] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :start_datetime, as: :datetime, html5: true %>
+      <%= f.input :end_datetime, as: :datetime, html5: true %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
