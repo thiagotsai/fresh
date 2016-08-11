@@ -38,5 +38,10 @@ class BusinessPlace < ActiveRecord::Base
     bpu.save
   end
 
+  def owner
+    bpu = BusinessPlaceUser.where(business_place: self, main: true).first
+    return bpu.user unless bpu.nil?
+    return nil
+  end
 end
 
