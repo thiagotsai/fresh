@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :business_places
 
+  resources :cuisines, only: [:new, :create]
+
+  resources :ingredients, only: [:new, :create]
+
   get "business_places/:id/map" => "business_places#map", as: :map_business_place
 
   # The priority is based upon order of creation: first created -> highest priority.
