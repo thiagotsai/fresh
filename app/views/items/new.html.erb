@@ -9,8 +9,8 @@
       <%# f.input :available_qty %>
       <%= f.input :price %>
       <%= f.input :currency, collection: ["USD", "EUR"], prompt: "Select the currency", selected: "EUR" %>
-      <%= f.input :start_datetime, default: Date.today %>
-      <%= f.input :end_datetime, default: Date.today + 1 %>
+      <%= f.input :start_datetime, default: Date.today + 1.minute %>
+      <%= f.input :end_datetime, default: Date.today + 1 - 1.minute %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.association :ingredients, as: :check_boxes, label: "Which ingredients does it have?" %>

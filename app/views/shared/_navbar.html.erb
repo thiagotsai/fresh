@@ -35,7 +35,7 @@
                 <span>Already a Fresh member?</span>
               </div>
               <div>
-                <%= link_to "Log in", user_session_path, class: "btn btn-info" %>
+                <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
               </div>
             </div>
           <% end -%>
@@ -82,7 +82,7 @@
               <% end -%>
             </div>
           </div>
-          <%= f.button :submit, "Log in", class: "btn btn-info btn-block"%>
+          <%= f.button :submit, "Log in", class: "btn btn-primary btn-block"%>
 
             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
             <hr>
@@ -91,7 +91,7 @@
                 <span>Don't have an account?</span>
               </div>
               <div>
-                <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-info" %>
+                <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary" %>
               </div>
             </div>
             <% end -%>
@@ -140,6 +140,13 @@
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
+          <% unless current_user.business_places.empty? %>
+          <li>
+          <%= link_to "/business_places/owned", class: "navbar-wagon-item navbar-wagon-link" do %>
+          <i class="fa fa-cog"></i> Manage Business Places
+          <% end %>
+          </li>
+          <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -176,13 +183,22 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
-        </li>
-        <li>
           <%= link_to edit_user_registration_path(current_user) do %>
           <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
           <% end %>
         </li>
+        <li>
+          <%= link_to new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" do %>
+          <i class="fa fa-plus"></i> Add new Business
+          <% end %>
+        </li>
+        <% unless current_user.business_places.empty? %>
+          <li>
+          <%= link_to "/business_places/owned", class: "navbar-wagon-item navbar-wagon-link" do %>
+          <i class="fa fa-cog"></i> Manage Business Places
+          <% end %>
+          </li>
+        <% end %>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>

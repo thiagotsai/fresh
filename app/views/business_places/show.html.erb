@@ -1,9 +1,9 @@
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
-<div class="banner-small" style="background-image: url('https://static.pexels.com/photos/3540/restaurant-alcohol-bar-drinks.jpg');">
+<div class="banner-small" style="background-image: url('<%= image_url @business_place.cover_photo.url %>');">
   <div class="banner-small-content">
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
-      <p><%= @business_place.phone_number %>   |   <%= @business_place.address %></p>
+      <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
 
   </div>
 </div>
@@ -13,66 +13,79 @@
   <!-- map_business_place_path(@business_place) -->
 </div>
 
+<% unless @items.empty? %>
+
 <div class="wrapper-white text-center">
   <h2>Today's dishes</h2>
 </div>
 
 <div class="wrapper-lightgrey">
   <div class="container">
-<!--   <%# @business_place.items.each do |item| %>
-    <div class="row">
+   <% @items.each do |item| %>
+   <div class="row">
       <div class="col-sm-6">
         <div class="dish-container">
-            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <div class="dish-info">
+            <%= image_tag  item.photo.url, class: "img-responsive img-rounded dish-image"%>
+            <!-- <div class="dish-info">
               <div class="dish-info-text wrapper-transp-grey">
                 <div class="dish-info-text-name">Spring salad with potatoes</div>
                 <div class="dish-info-text-price">Price: 8€</div>
               </div>
-            </div>
-            <a class="dish-link" href="#" ></a>
+            </div> -->
+            <!-- <a class="dish-link" href="#" ></a> -->
         </div>
       </div>
       <div class="col-sm-6">
         <div class="dish-container">
-          <div class="description">Description</div>
-          <div class="description description-text"><%# item.description %></div>
+          <div class="dish-info-text-name dish-info-text-name-description"><%= item.name %></div>
+          <div class="dish-info-text-price dish-info-text-price-description">Price: <%= item.price.round %>€</div>
+          <!-- <div class="description">Description</div> -->
+          <div class="description description-text"><%= item.description %></div>
         </div>
       </div>
     </div>
-    <%# end %> -->
+    <% end %>
+  </div>
+</div>
+<% end %>
 
-    <div class="row">
+<% if user_signed_in? && current_user.business_places.include?(@business_place) %>
+  <br>
+  <br>
+  <div class="container text-center">
+  <%= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
+  </div>
+<% end %>
+
+ <!--    <div class="row">
       <div class="col-sm-6">
         <div class="dish-container">
             <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name">Spring salad with potatoes</div>
-                <div class="dish-info-text-price">Price: 8€</div>
-              </div>
-            </div>
             <a class="dish-link" href="#" ></a>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="dish-container">
+          <div class="dish-info-text-name dish-info-text-name-description">Spring salad with potatoes</div>
+          <div class="dish-info-text-price dish-info-text-price-description">Price: 8€</div>
           <div class="description">Description</div>
           <div class="description description-text">Mix leaves, cooked eggs, grilled chicken, parmesan cheese, artichokes, potatoes and olive oil-based sauce.</div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="wrapper-white">
-  <div id="directions">
-  <form action="http://maps.google.com/maps" method="get" target="_blank">
-    <input type="text" name="saddr" placeholder="Starting address" />
-    <input type="hidden" name="daddr" value="<%= @business_place.full_address %>"/>
-    <input type="submit" value="get directions" class= "btn btn-info"/>
-  </form>
-</div>
+<div class="container text-center">
+  <div class="wrapper-white">
+    <div id="directions">
+    <form action="http://maps.google.com/maps" method="get" target="_blank">
+      <input type="text" name="saddr" placeholder="Starting address" />
+      <input type="hidden" name="daddr" value="<%= @business_place.full_address %>"/>
+      <input type="submit" value="get directions" class= "btn btn-primary"/>
+    </form>
+    </div>
+  </div>
 </div>
 
   <div id="map" style="width: 100%; height: 400px;"></div>

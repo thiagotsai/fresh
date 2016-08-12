@@ -12,6 +12,7 @@ class BusinessPlacesController < ApplicationController
   end
 
   def show
+    @items = @business_place.items
   end
 
   def create
@@ -37,9 +38,12 @@ class BusinessPlacesController < ApplicationController
 
   def owned
     @business_places = current_user.business_places
+    redirect_unauthorized_user
   end
 
   def update
+    redirect_unauthorized_user
+
     if @business_place.update(business_place_params)
       redirect_to business_place_path(@business_place)
     else
@@ -48,6 +52,8 @@ class BusinessPlacesController < ApplicationController
   end
 
   def destroy
+    redirect_unauthorized_user
+
     @business_place.destroy
     flash[:success] = "Business place deleted"
     redirect_to request.referer
@@ -66,5 +72,12 @@ class BusinessPlacesController < ApplicationController
 
   def set_business_place
     @business_place = BusinessPlace.find(params[:id])
+  end
+
+  def redirect_unauthorized_user
+    unless current_user.business_places.include?(@business_place)
+      flash[:alert] = "You don't have access change to this Business Place"
+      redirect_to business_place_path(@business_place)
+    end
   end
 end
