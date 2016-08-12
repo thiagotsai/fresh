@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811150439) do
+ActiveRecord::Schema.define(version: 20160812095739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20160811150439) do
   add_index "item_infos", ["item_id"], name: "index_item_infos_on_item_id", using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.integer  "menu_id"
     t.string   "name"
     t.datetime "ready_at"
     t.decimal  "available_qty"
@@ -91,23 +90,15 @@ ActiveRecord::Schema.define(version: 20160811150439) do
     t.string   "description"
     t.decimal  "price"
     t.string   "currency"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "items", ["menu_id"], name: "index_items_on_menu_id", using: :btree
-  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
-
-  create_table "menus", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "business_place_id"
-    t.datetime "start_datetime"
-    t.datetime "end_datetime"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.integer  "business_place_id"
   end
 
-  add_index "menus", ["business_place_id"], name: "index_menus_on_business_place_id", using: :btree
+  add_index "items", ["business_place_id"], name: "index_items_on_business_place_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -164,9 +155,8 @@ ActiveRecord::Schema.define(version: 20160811150439) do
   add_foreign_key "business_place_users", "users"
   add_foreign_key "item_infos", "ingredients"
   add_foreign_key "item_infos", "items"
-  add_foreign_key "items", "menus"
+  add_foreign_key "items", "business_places"
   add_foreign_key "items", "users"
-  add_foreign_key "menus", "business_places"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end

@@ -8,16 +8,16 @@ class ItemsController < ApplicationController
     end
   end
 
+
+
   def new
-    #@business_place = BusinessPlace.find(params[:business_place_id])
-    @menu = @business_place.menus.find(params[:menu_id])
-    @item = @menu.items.new
+    @business_place = BusinessPlace.find(params[:business_place_id])
+    @item = @business_place.items.new
   end
 
   def create
-    #@business_place = BusinessPlace.find(params[:business_place_id])
-    @menu = @business_place.menus.find(params[:menu_id])
-    @item = @menu.items.new(item_params)
+    @business_place = BusinessPlace.find(params[:business_place_id])
+    @item = @business_place.items.new(item_params)
     if @item.save
       redirect_to item_path(@item)
     else
@@ -26,14 +26,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    #@business_place = BusinessPlace.find(params[:business_place_id])
-    @menu = @business_place.menus.find(params[:menu_id])
+    @business_place = BusinessPlace.find(params[:business_place_id])
     @item = Item.find(params[:id])
   end
 
   def update
-    #@business_place = BusinessPlace.find(params[:business_place_id])
-    @menu = @business_place.menus.find(params[:menu_id])
+    @business_place = BusinessPlace.find(params[:business_place_id])
     @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(@item)

@@ -15,9 +15,7 @@ Rails.application.routes.draw do
   # end
 
   resources :business_places do
-    resources :menus, except: [:show, :index, :destroy] do
-      resources :items, except: [:show, :index, :destroy]
-    end
+    resources :items, only: [:new, :create, :edit, :update]
   end
 
   get "business_places/:id/map" => "business_places#map", as: :map_business_place
@@ -25,8 +23,8 @@ Rails.application.routes.draw do
   resources :menus, only: :destroy
 
   resources :items, only: :destroy
-  get "items/search" => "items#search", as: :search_items
 
+  get "items/search" => "items#search", as: :search_items
 
   resources :roles, except: [:index, :show]
 

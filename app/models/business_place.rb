@@ -1,10 +1,9 @@
 class BusinessPlace < ActiveRecord::Base
-  has_many :business_cuisines
+  has_many :business_cuisines, dependent: :destroy
   has_many :cuisines, through: :business_cuisines
-  has_many :business_place_users
+  has_many :business_place_users, dependent: :destroy
   has_many :users, through: :business_place_users
-  has_many :menus
-  has_many :items, through: :menus
+  has_many :items
   validates :name, presence: true, uniqueness: { scope: [:address, :city] }
   validates :description, presence: true
   validates :address, presence: true
