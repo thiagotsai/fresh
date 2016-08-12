@@ -75,6 +75,7 @@
   margin-left: 2vh;
   color: white;
 }
+
 .dish-info-text-name-small {
   font-size: 3vh;
   margin-left: 1vh;
@@ -102,14 +103,25 @@
 .dish-link:hover{
   opacity: 0.1;
 }
+// description of the card
+
+.dish-info-text-name-description {
+  color: #424242;
+  text-shadow: none;
+  margin-left: 6vh;
+}
+.dish-info-text-price-description {
+  margin-left: 6vh;
+}
+
 .description {
+  padding-top: 2vh;
   font-size: 3vh;
-  margin-left: 2vh;
   color: #424242;
   margin-left: 6vh;
 
 }
 .description-text {
-  padding-top: 2vh;
-
+  padding-top: 4vh;
+  font-weight: lighter;
 }
