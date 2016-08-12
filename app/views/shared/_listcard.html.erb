@@ -10,7 +10,13 @@
           <%= link_to "", business_place_path(item.business_place), class: "dish-link" unless item.business_place.nil? %>
           <!-- <a class="dish-link" href="#" ></a> -->
       </div>
-
+      <div class="dish-container">
+          <div class="description description-text description-text-title"><%= item.business_place.name %></div>
+          <div class="description description-text description-text-small description-text-small-grey">Cuisines</div>
+            <div class="description description-text description-text-small"><%= item.business_place.cuisines.first.name %></div>
+          <div class="description description-text description-text-small description-text-small-grey">Average cost</div>
+            <div class="description description-text description-text-small"><%= item.business_place.average_cost %></div>
+      </div>
 
 
 <!-- <div class="container">
