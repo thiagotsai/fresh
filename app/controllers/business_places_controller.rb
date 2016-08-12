@@ -12,6 +12,7 @@ class BusinessPlacesController < ApplicationController
   end
 
   def show
+    @items = @business_place.items
   end
 
   def create
