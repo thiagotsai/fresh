@@ -1,0 +1,17 @@
+<%= link_to "New", new_business_place_path, class: "btn btn-primary" %>
+
+<% @business_places.each do |x| %>
+  <p><%= x.name %></p>
+  <p><%= x.description %></p>
+  <p><%= x.opening_time %></p>
+  <p><%= x.address %></p>
+  <p><%= x.city %></p>
+  <p><%= x.country %></p>
+  <p><%= x.zip_code %></p>
+  <p><%= x.phone_number %></p>
+
+  <%= link_to "Delete", business_place_path(x), class: "btn btn-primary", method: :delete,
+                                  data: { confirm: "You sure?" } %>
+
+  <%= link_to "Edit", edit_business_place_path(x), class: "btn btn-primary" %>
+<% end %>

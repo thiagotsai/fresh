@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # resources :business_places do
   #   resources :menus
   # end
+  get "business_places/owned" => "business_places#owned", as: :owned_business_places
 
   resources :business_places do
     resources :items, only: [:new, :create, :edit, :update]

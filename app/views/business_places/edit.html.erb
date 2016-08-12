@@ -1,2 +1,27 @@
-<h1>BusinessPlaces#edit</h1>
-<p>Find me in app/views/business_places/edit.html.erb</p>
+<div class="container">
+  <div class="row" <%= @cuisine_id %>>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <h2>Edit your business:</h2>
+      <%= simple_form_for @business_place do |f| %>
+      <%= f.input :address %>
+      <%= f.input :zip_code %>
+      <%= f.input :city %>
+      <%= f.input :country, priority: [ 'PT' ] %>
+      <%= f.input :name, placeholder: "Enter the name" %>
+      <%= f.input :phone_number, placeholder: "Enter the Phone Number" %>
+      <%= f.input :description, placeholder: "Enter a punch line description" %>
+      <%= f.input :average_cost, placeholder: "Enter the average cost e.g. 30 euros for 2 people", label: "Cost" %>
+      <%= f.input :opening_time, placeholder: "Enter working time e.g. 12pm - 9pm", label: "Opening Time" %>
+      <%= f.input :cover_photo %>
+      <%= f.input :cover_photo_cache, as: :hidden %>
+      <%= f.input :cuisines, collection: @cuisines, selected: @cuisine_id, prompt: "Select the main cuisine", label: "Main cuisine" %>
+      <%= f.association :cuisines, as: :check_boxes, label: "What other cuisines does it have?" %>
+      <%= f.button :submit, class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE"></script>
+<% end %>
