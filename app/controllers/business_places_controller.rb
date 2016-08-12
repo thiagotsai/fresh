@@ -28,6 +28,16 @@ class BusinessPlacesController < ApplicationController
   end
 
   def edit
+    @cuisines = Cuisine.all
+    @cuisine_id = 1
+    unless @business_place.business_cuisines.where(main: true).empty?
+      @cuisine_id = @business_place.business_cuisines.where(main: true).first.cuisine_id
+    end
+    #byebug
+  end
+
+  def owned
+    @business_places = current_user.business_places
     redirect_unauthorized_user
   end
 
@@ -46,7 +56,7 @@ class BusinessPlacesController < ApplicationController
 
     @business_place.destroy
     flash[:success] = "Business place deleted"
-    redirect_to business_places_path
+    redirect_to request.referer
   end
 
   def map
