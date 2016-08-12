@@ -6,7 +6,7 @@
     <form action="items/search" class="form-inline" method="get">
       <select name="location" class="form-control input-lg">
         <% BusinessPlace.select(:city).distinct.each do |e| %>
-          <option value="<%= e.city.downcase %>"><%= e.city.capitalize %></option>
+          <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == "lisboa" %>><%= e.city.capitalize %></option>
         <!-- <option value="1">location</option> -->
         <% end %>
       </select>

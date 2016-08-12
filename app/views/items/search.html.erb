@@ -15,7 +15,7 @@ Here are the dishes nearby
  -->
 <div class="container">
 
-<% Item.all.in_groups_of(4) do |item1, item2, item3, item4| %>
+<% @items.in_groups_of(4) do |item1, item2, item3, item4| %>
   <div class="row">
     <div class="col-sm-3">
       <%= render 'shared/listcard', item: item1 %>

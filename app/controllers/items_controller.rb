@@ -5,16 +5,13 @@ class ItemsController < ApplicationController
   def search
     @items = []
     BusinessPlace.near(params[:location]).each do |bp|
-      @items += bp.items.where("description LIKE ? OR name LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
+      @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
     end
   end
 
   def new
     @business_place = BusinessPlace.find(params[:business_place_id])
-    unless current_user.business_places.include?(@business_place)
-      flash[:alert] = "You don't have access change to this Business Place"
-      redirect_to business_place_path(@business_place)
-    end
+    redirect_unauthorized_user
     @item = @business_place.items.new
   end
 
