@@ -3,7 +3,7 @@
   <div class="banner-small-content">
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
-      <p><%= @business_place.phone_number %>   |   <%= @business_place.address %></p>
+      <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
 
   </div>
 </div>
@@ -47,6 +47,14 @@
     <% end %>
   </div>
 </div>
+<% end %>
+
+<% if current_user.business_places.include?(@business_place) %>
+  <br>
+  <br>
+  <div class="container text-center">
+  <%= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
+  </div>
 <% end %>
 
  <!--    <div class="row">
