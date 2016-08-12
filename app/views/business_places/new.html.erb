@@ -16,7 +16,7 @@
       <%= f.input :cover_photo_cache, as: :hidden %>
       <%= f.input :cuisines, collection: @cuisines, prompt: "Select the main cuisine", label: "Main cuisine" %>
       <%= f.association :cuisines, as: :check_boxes, label: "What other cuisines does it have?" %>
-      <%= f.button :submit, class: "btn btn-info btn-block" %>
+      <%= f.button :submit, class: "btn btn-primary btn-block" %>
       <% end %>
     </div>
   </div>
