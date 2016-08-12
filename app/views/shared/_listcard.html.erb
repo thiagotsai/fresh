@@ -1,5 +1,5 @@
 
-      <div class="dish-container">
+      <div class="dish-container dish-container-searchlist">
           <%= image_tag item.photo.url, class: "img-responsive img-rounded dish-image" unless item.photo.nil? %>
           <div class="dish-info">
             <div class="dish-info-text wrapper-transp-grey">
@@ -10,7 +10,7 @@
           <%= link_to "", business_place_path(item.business_place), class: "dish-link" unless item.business_place.nil? %>
           <!-- <a class="dish-link" href="#" ></a> -->
       </div>
-      <div class="dish-container">
+      <div class="dish-container dish-container-searchlist-info">
           <div class="description description-text description-text-title"><%= item.business_place.name %></div>
           <div class="description description-text description-text-small description-text-small-grey">Cuisines</div>
             <div class="description description-text description-text-small"><%= item.business_place.cuisines.first.name %></div>
@@ -23,7 +23,7 @@
   <div class="row">
       <div class="col-sm-3">
         <div class="dish-container">
-            <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
+            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
             <div class="dish-info">
               <div class="dish-info-text wrapper-transp-grey">
                 <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
@@ -35,7 +35,7 @@
       </div>
       <div class="col-sm-3">
         <div class="dish-container">
-            <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
+            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
             <div class="dish-info">
               <div class="dish-info-text wrapper-transp-grey">
                 <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
@@ -47,7 +47,7 @@
       </div>
       <div class="col-sm-3">
         <div class="dish-container">
-            <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
+            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
             <div class="dish-info">
               <div class="dish-info-text wrapper-transp-grey">
                 <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
@@ -59,7 +59,7 @@
       </div>
       <div class="col-sm-3">
         <div class="dish-container">
-            <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
+            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
             <div class="dish-info">
               <div class="dish-info-text wrapper-transp-grey">
                 <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
