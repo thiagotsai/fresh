@@ -43,13 +43,15 @@ b = BusinessPlace.new(address: "Rua Sao Bento 41, Lisboa",
 b.cuisine = Cuisine.find_by_name("Bar")
 b.save
 
-m = b.menus.create(name: "Daily specials", start_datetime: Date.today, end_datetime: Date.today + 1)
-i = m.items.create(name: "Spring salad with potatoes",
-                user_id: User.first,
-                photo: "image/upload/v1470952476/pexels-photo-128388_cgzls9.jpg",
-                price: "8.00",
-                description: "This vegetarian salad is simply bursting with the fresh flavours of spring, the perfect meal for a sun soaked day.",
-                ingredient_ids: [8, 7, 4])
+i = b.items.new(name: "Spring salad with potatoes",
+                   user_id: User.first,
+                   photo: "image/upload/v1470952476/pexels-photo-128388_cgzls9.jpg",
+                   price: "8.00",
+                   description: "This vegetarian salad is simply bursting with the fresh flavours of spring, the perfect meal for a sun soaked day.",
+                   start_datetime: Date.today,
+                   end_datetime: Date.today + 1,
+                   ingredient_ids: [8, 7, 4])
+i.save
 
 
 
