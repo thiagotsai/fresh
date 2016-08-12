@@ -1,18 +1,4 @@
-Here are the dishes nearby
-<!-- <div class="container">
-  <%# counter = 0 %>
-  <%# Item.all.each do |item| %>
-    <%# counter += 1 %>
-    <%# if counter > 4 %>
-      <%# counter = 0 %>
-      <div class="row">
-    <%# end %>
-    <div class="col-sm-3">
-    <%# render 'shared/listcard' %>
-    </div>
-  <%# end %>
-</div>
- -->
+
 <div class="container">
 
 <% @items.in_groups_of(4) do |item1, item2, item3, item4| %>
