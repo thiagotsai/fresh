@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  background-position: 50% 15%;
 }
 .banner h1 {
   font-size: 50px;
@@ -31,6 +33,7 @@
   align-items: center;
   justify-content: left;
   position: relative;
+  box-sizing: border-box;
 }
 .banner-small-content h2 {
   font-size: 45px;
