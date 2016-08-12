@@ -1,15 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4">
-      <h2>New Item for <%= @menu.name %></h2>
-      <%= simple_form_for [@menu, @item] do |f| %>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <h2>New Item for <%= @business_place.name %></h2>
+      <%= simple_form_for [@business_place, @item] do |f| %>
       <%= f.input :name %>
-      <%= f.input :ready_at %>
-      <%= f.input :available_qty %>
       <%= f.input :description %>
+      <%# f.input :ready_at, default: Time.now + 1.hour %>
+      <%# f.input :available_qty %>
       <%= f.input :price %>
-      <%= f.input :currency %>
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.input :currency, collection: ["USD", "EUR"], prompt: "Select the currency", selected: "EUR" %>
+      <%= f.input :start_datetime, default: Date.today %>
+      <%= f.input :end_datetime, default: Date.today + 1 %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.association :ingredients, as: :check_boxes, label: "Which ingredients does it have?" %>
+      <%= f.button :submit, class: "btn btn-primary btn-block" %>
       <% end %>
     </div>
   </div>
