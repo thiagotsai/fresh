@@ -49,7 +49,7 @@
 </div>
 <% end %>
 
-<% if current_user.business_places.include?(@business_place) %>
+<% if user_signed_in? && current_user.business_places.include?(@business_place) %>
   <br>
   <br>
   <div class="container text-center">
