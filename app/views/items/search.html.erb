@@ -1,5 +1,29 @@
-Hi
-<% @items.each do |item| %>
-  <%= item.name %>
-  <%= item.description %>
+Here are the dishes nearby
+<!-- <div class="container">
+  <%# counter = 0 %>
+  <%# Item.all.each do |item| %>
+    <%# counter += 1 %>
+    <%# if counter > 4 %>
+      <%# counter = 0 %>
+      <div class="row">
+    <%# end %>
+    <div class="col-sm-3">
+    <%# render 'shared/listcard' %>
+    </div>
+  <%# end %>
+</div>
+ -->
+
+<% Item.all.in_groups_of(4) do |item1, item2, item3, item4| %>
+  <div class="row">
+    <div class="col-sm-3"><%= item1.attribute1 %></div>
+    <div class="col-sm-3"><%= item1.attribute2 %></div>
+    <div class="col-sm-3"><%= item1.attribute3 %></div>
+    <div class="col-sm-3"><%= item1.attribute4 %></div>
+
+    <% if item2 %> <%# To take care of odd groups %>
+      <div class="col-sm-3"><%= item2.attribute1 %></div>
+      <div class="col-sm-3"><%= item2.attribute2 %></div>
+    <% end %>
+  </div>
 <% end %>
