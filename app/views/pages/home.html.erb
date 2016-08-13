@@ -2,7 +2,7 @@
 <div class="banner" style="background-image: url(<%= image_url "food_home_01.jpg" %>);">
   <div class="banner-content">
     <div class= "logo"><%= image_tag "logo_white.png" %></div>
-    <p><strong>Let's eat a fresh food today!</strong></p>
+    <p><strong>Let's eat a fresh food today! <%= @city %></strong></p>
     <form action="items/search" class="form-inline" method="get">
       <select name="location" class="form-control input-lg">
         <% BusinessPlace.select(:city).distinct.each do |e| %>
