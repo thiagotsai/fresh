@@ -2,7 +2,7 @@
       <div class="dish-container dish-container-searchlist">
           <%= image_tag item.photo.url, class: "img-responsive img-rounded dish-image" unless item.photo.nil? %>
           <div class="dish-info">
-            <div class="dish-info-text wrapper-transp-grey">
+            <div class="dish-info-tag dish-info-tag-grey">
               <div class="dish-info-text-name dish-info-text-name-small"><%= item.name %></div>
               <div class="dish-info-text-price dish-info-text-price-small">Price: <%= item.price.round %>€</div>
             </div>
