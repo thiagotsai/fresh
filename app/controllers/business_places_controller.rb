@@ -19,6 +19,7 @@ class BusinessPlacesController < ApplicationController
     @business_place = BusinessPlace.new(business_place_params)
     @business_place.current_user = current_user
     # "cuisines"=>"2", "cuisine_ids"=>["1", "3", ""]}
+    # params { business_place: { address: "", cuisines: "2", cuisine_ids }}
     @business_place.cuisine = Cuisine.find(params[:business_place][:cuisines])
     if @business_place.save
       redirect_to business_place_path(@business_place)

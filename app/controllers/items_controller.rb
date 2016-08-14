@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def redirect_unauthorized_user
+    #@business_place.users.include?(current_user)
     unless current_user.business_places.include?(@business_place)
       flash[:alert] = "You don't have access change to this Business Place"
       redirect_to business_place_path(@business_place)

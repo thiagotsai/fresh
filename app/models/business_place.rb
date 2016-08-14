@@ -33,18 +33,11 @@ class BusinessPlace < ActiveRecord::Base
 
   def create_business_place_user
     bpu = BusinessPlaceUser.new(business_place: self, user: current_user, main: true)
-    if BusinessPlaceUser.where(business_place: self).empty?
-      bpu.main = false
-    end
     bpu.save
   end
 
-
   def create_business_place_cuisine
     bpc = BusinessCuisine.new(business_place: self, cuisine: cuisine, main: true)
-    if BusinessCuisine.where(business_place: self).empty?
-      bpc.main = false
-    end
     bpc.save
   end
 

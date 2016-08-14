@@ -4,6 +4,7 @@
     <div class= "logo"><%= image_tag "logo_white.png" %></div>
     <p><strong>Let's eat a fresh food today!</strong></p>
     <form action="items/search" class="form-inline" method="get">
+      <!-- combo_box -->
       <select name="location" class="form-control input-lg">
         <% BusinessPlace.select(:city).distinct.each do |e| %>
           <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == "lisboa" %>><%= e.city.capitalize %></option>
