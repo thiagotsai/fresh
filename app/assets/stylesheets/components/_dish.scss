@@ -1,0 +1,114 @@
+// dish shared
+
+.dish-image {
+  border-radius: 1vh;
+}
+
+.dish-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+
+.dish-link:hover{
+  opacity: 0.1;
+}
+
+// dish show
+
+.dish-show-container {
+  position: relative;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.dish-name {
+  font-size: 4vh;
+  color: #424242;
+  text-shadow: none;
+  margin-left: 6vh;
+}
+
+.dish-price {
+  color: #FB8C00;
+  font-size: 3vh;
+  font-weight: normal;
+  margin-left: 6vh;
+}
+
+.dish-description {
+  font-size: 3vh;
+  color: #424242;
+  margin-left: 6vh;
+  padding-top: 4vh;
+  font-weight: lighter;
+}
+
+// dish list
+
+.dishlist-container {
+  position: relative;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+}
+
+.dishlist-info-wrapper {
+  position: absolute;
+  bottom: 25px;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+}
+
+.dishlist-name {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  color: white;
+  font-size: calc(100% + 0.4vw);
+  margin-left: 0.5vw;
+}
+
+.dishlist-price {
+  color: #FB8C00;
+  font-size: calc(100% + 0.3vw);
+  font-weight: normal;
+  margin-left: 0.5vw;
+}
+
+// dish details
+
+.dishdetails-container {
+  position: relative;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+}
+
+.dishdetails-h1 {
+  font-size: 3vh;
+  color: #424242;
+  font-weight: lighter;
+  padding-top: 0;
+  margin-left: 0;
+  margin-bottom: 1vh;
+  font-weight: bold;
+}
+
+.dishdetails-h2 {
+  font-weight: lighter;
+  padding-top: 0;
+  font-size: 2.5vh;
+  margin-left: 0;
+  color: #9E9E9E;
+}
+
+.dishdetails-p {
+  font-weight: lighter;
+  padding-top: 0;
+  font-size: 2.5vh;
+  margin-left: 0;
+  color: #424242;
+}

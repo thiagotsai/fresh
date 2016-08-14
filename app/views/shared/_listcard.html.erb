@@ -1,73 +1,18 @@
 
-      <div class="dish-container dish-container-searchlist">
+      <div class="dishlist-container">
           <%= image_tag item.photo.url, class: "img-responsive img-rounded dish-image" unless item.photo.nil? %>
-          <div class="dish-info">
-            <div class="dish-info-tag dish-info-tag-grey">
-              <div class="dish-info-text-name dish-info-text-name-small"><%= item.name %></div>
-              <div class="dish-info-text-price dish-info-text-price-small">Price: <%= item.price.round %>€</div>
-            </div>
+          <div class="dishlist-info-wrapper">
+            <div class="dishlist-name"><%= item.name %></div>
+            <div class="dishlist-price">Price: <%= item.price.round %>€</div>
           </div>
           <%= link_to "", business_place_path(item.business_place), class: "dish-link" unless item.business_place.nil? %>
           <!-- <a class="dish-link" href="#" ></a> -->
       </div>
-      <div class="dish-container dish-container-searchlist-info">
-          <div class="description description-text description-text-title"><%= item.business_place.name %></div>
-          <div class="description description-text description-text-small description-text-small-grey">Cuisines</div>
-            <div class="description description-text description-text-small"><%= item.business_place.cuisines.first.name %></div>
-          <div class="description description-text description-text-small description-text-small-grey">Average cost</div>
-            <div class="description description-text description-text-small"><%= item.business_place.average_cost %></div>
+      <div class="dishdetails-container">
+          <div class="dishdetails-h1"><%= item.business_place.name %></div>
+          <div class="dishdetails-h2">Cuisines</div>
+            <div class="dishdetails-p"><%= item.business_place.cuisines.first.name %></div>
       </div>
 
 
-<!-- <div class="container">
-  <div class="row">
-      <div class="col-sm-3">
-        <div class="dish-container">
-            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
-                <div class="dish-info-text-price dish-info-text-price-small">Price: 8€</div>
-              </div>
-            </div>
-            <a class="dish-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="dish-container">
-            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
-                <div class="dish-info-text-price dish-info-text-price-small">Price: 8€</div>
-              </div>
-            </div>
-            <a class="dish-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="dish-container">
-            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
-                <div class="dish-info-text-price dish-info-text-price-small">Price: 8€</div>
-              </div>
-            </div>
-            <a class="dish-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="dish-container">
-            <%# image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name dish-info-text-name-small">Spring salad with potatoes</div>
-                <div class="dish-info-text-price dish-info-text-price-small">Price: 8€</div>
-              </div>
-            </div>
-            <a class="dish-link" href="#" ></a>
-        </div>
-      </div>
-  </div>
-</div> -->
+<!-- 'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg' -->

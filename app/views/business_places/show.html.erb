@@ -24,7 +24,7 @@
    <% @items.each do |item| %>
    <div class="row">
       <div class="col-sm-6">
-        <div class="dish-container">
+        <div class="dish-show-container">
             <%= image_tag  item.photo.url, class: "img-responsive img-rounded dish-image"%>
             <!-- <div class="dish-info">
               <div class="dish-info-text wrapper-transp-grey">
@@ -36,11 +36,10 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="dish-container">
-          <div class="dish-info-text-name dish-info-text-name-description"><%= item.name %></div>
-          <div class="dish-info-text-price dish-info-text-price-description">Price: <%= item.price.round %>€</div>
-          <!-- <div class="description">Description</div> -->
-          <div class="description description-text"><%= item.description %></div>
+        <div class="dish-show-container">
+          <div class="dish-name"><%= item.name %></div>
+          <div class="dish-price">Price: <%= item.price.round %>€</div>
+          <div class="dish-description"><%= item.description %></div>
         </div>
       </div>
     </div>
@@ -57,24 +56,11 @@
   </div>
 <% end %>
 
- <!--    <div class="row">
-      <div class="col-sm-6">
-        <div class="dish-container">
-            <%= image_tag  'https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg', class: "img-responsive img-rounded dish-image"%>
-            <a class="dish-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="dish-container">
-          <div class="dish-info-text-name dish-info-text-name-description">Spring salad with potatoes</div>
-          <div class="dish-info-text-price dish-info-text-price-description">Price: 8€</div>
-          <div class="description">Description</div>
-          <div class="description description-text">Mix leaves, cooked eggs, grilled chicken, parmesan cheese, artichokes, potatoes and olive oil-based sauce.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+ <!--
+Spring salad with potatoes
+Price: 8€
+Mix leaves, cooked eggs, grilled chicken, parmesan cheese, artichokes, potatoes and olive oil-based sauce.
+ -->
 
 <div class="container text-center">
   <div class="wrapper-white">
