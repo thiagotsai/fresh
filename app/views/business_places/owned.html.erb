@@ -1,7 +1,7 @@
 <%= link_to "New", new_business_place_path, class: "btn btn-primary" %>
 
 <% @business_places.each do |x| %>
-  <p><%= x.name %></p>
+  <p> <%= link_to x.name, business_place_path(x) %> </p>
   <p><%= x.description %></p>
   <p><%= x.opening_time %></p>
   <p><%= x.address %></p>
