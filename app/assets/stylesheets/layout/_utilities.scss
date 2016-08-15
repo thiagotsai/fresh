@@ -70,6 +70,12 @@ a:visited {
   text-decoration: none;
 }
 
+.alert-info {
+  border-color: $green;
+  background: $green;
+  color: white;
+}
+
 // a:focus {
 //   outline: none;
 //   border: none;
