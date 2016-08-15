@@ -1,0 +1,39 @@
+<!-- Modal Sign Up -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook" do %>
+                <span class="icon-container">
+                  <i class="fa fa-facebook"></i>
+                </span>
+                <span class="text-container">
+                  <%= "Sign up with #{OmniAuth::Utils.camelize(provider)}" %>
+                </span>
+              <% end %>
+            <% end -%>
+          <% end -%>
+          <div class="text-center">or</div>
+          <br>
+          <%= link_to new_registration_path(resource_name), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-signup-email" do %>
+                <span class="text-container">
+                  <%= "Sign up with email" %>
+                </span>
+          <% end %>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <hr>
+            <div class="flex-wrapper-sp-between">
+              <div>
+                <span>Already a Fresh member?</span>
+              </div>
+              <div>
+                <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+  </div>
