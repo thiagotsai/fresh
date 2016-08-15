@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-wagon-fixed">
   <% unless user_signed_in? %>
   <!-- Modal Sign Up -->
   <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -108,12 +108,22 @@
 <%= image_tag "logo_f.png" %>
 <% end %>
 
+
+  <!-- Search form -->
+    <form action="/items/search" class="navbar-wagon-search">
+      <input type="hidden" name="location" value="<%= "Lisboa" if @city.blank? %> <%= @city unless @city.blank? %>">
+      <input type="text" name="query" class="navbar-wagon-search-input" placeholder="What do you want to eat today?">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-    <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Add your Business", new_business_place_path , class: "btn-medium btn-medium-sm" %>
 
     <!-- Notification -->
     <%# link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
@@ -124,9 +134,9 @@
     <%# end %>
 
     <!-- Profile picture and dropdown -->
-    <div class="nav-bar-wagon-item">
-      <%= current_user.first_name %>
-    </div>
+<!--     <div class="nav-bar-wagon-item">
+      <%# current_user.first_name %>
+    </div> -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if user_signed_in? && current_user.facebook_picture_url %>
