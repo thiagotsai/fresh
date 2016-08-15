@@ -17,19 +17,44 @@
     font-size: 15px;
   }
 
-  .btn-medium-white {
-    color: rgba(120,120,120,1);
-    border: 1px solid rgba(120,120,120,1);
+  .btn-medium:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: white;
   }
 
-.btn-medium:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #999999;
+  .btn-medium-white {
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+  }
+
+  .btn-medium-white:hover {
+    background: rgba(255,255,255,0.3);
+  }
+
+  .btn-medium-yellow {
+    color: white;
+    background-color: $fresh-yellow;
+    opacity: 1;
+    border: 1px solid white;
+  }
+
+
+
+  .btn-medium-yellow:hover {
+    background-color: darken($fresh-yellow, 8%)
+  }
+
+#btn-home {
+  font-weight: normal;
+  padding: 6px 36px;
 }
+
 
 #edit-button {
   position: absolute;
-  top: 12vh;
-  left: 10vh;
+  // top: 90px;
+  left: 4vw;
+  bottom: 26vh;
 }
