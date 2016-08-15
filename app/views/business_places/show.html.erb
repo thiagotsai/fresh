@@ -36,7 +36,8 @@
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
       <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
-
+      <%= link_to "Edit Business Place", edit_business_place_path, class: "btn-medium btn-medium-white", id: "edit-button" %>
+      <!--  why does this work without an ID?-->
   </div>
 </div>
 
