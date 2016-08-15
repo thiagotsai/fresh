@@ -29,7 +29,7 @@
                 <span>Already a Fresh member?</span>
               </div>
               <div>
-                <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
+                <%= link_to "Log in", "#", class: "btn-medium", data: { dismiss: "modal", toggle: "modal", target: "#loginModal" } %>
               </div>
             </div>
           <% end -%>

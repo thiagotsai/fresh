@@ -41,7 +41,7 @@
                 <span>Don't have an account?</span>
               </div>
               <div>
-                <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary" %>
+                <%= link_to "Sign up", "#", class: "btn btn-primary", data: { dismiss: "modal", toggle: "modal", target: "#signUpModal" } %>
               </div>
             </div>
             <% end -%>

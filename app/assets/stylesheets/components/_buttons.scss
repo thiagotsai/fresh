@@ -4,7 +4,10 @@
     padding: 10px 12px;
 }
 
-.btn-medium {
+.btn-medium,
+.btn-medium:active,
+.btn-medium:focus,
+.btn-medium:visited {
   color: $brand-primary;
   border: 1px solid $brand-primary;
   padding: 5px 15px;
@@ -13,15 +16,23 @@
   opacity: 0.8;
 }
 
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  border: 1px solid $brand-primary;
+  background-color: $fresh-yellow;
+}
+
   .btn-medium-sm {
     font-size: 15px;
   }
 
-  .btn-medium:hover {
-    opacity: 1;
-    text-decoration: none;
-    color: white;
-  }
+  // .btn-medium:hover {
+  //   opacity: 1;
+  //   text-decoration: none;
+  //   color: white;
+  // }
 
   .btn-medium-white {
     color: white;
@@ -31,6 +42,7 @@
 
   .btn-medium-white:hover {
     background: rgba(255,255,255,0.3);
+    border: 1px solid white;
   }
 
   .btn-medium-yellow {
@@ -39,8 +51,6 @@
     opacity: 1;
     border: 1px solid white;
   }
-
-
 
   .btn-medium-yellow:hover {
     background-color: darken($fresh-yellow, 8%)
@@ -54,7 +64,6 @@
 
 #edit-button {
   position: absolute;
-  // top: 90px;
   left: 4vw;
   bottom: 26vh;
 }

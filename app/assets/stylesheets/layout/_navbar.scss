@@ -42,7 +42,7 @@
 /* Navbar standard link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 15px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -93,7 +93,7 @@
   border: 1px solid #E6E6E6;
   border-radius: 5px;
   padding: 0 10px;
-  font-size: 14px;
+  font-size: calc(40% + 0.6vw);
   outline: none;
 }
 .navbar-wagon-search-input:focus  {
@@ -165,10 +165,6 @@
     background-color: white;
     // color: #fff;
     margin-bottom: 18px;
-}
-
-.items.search {
-  margin-top: 70px;
 }
 
 // .pages.home .navbar-wagon {
