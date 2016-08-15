@@ -62,14 +62,24 @@ a {
   outline : none;
 }
 
-a:active {
-outline: none;
-border: none;
-}
-
-a:focus {
+a:active,
+a:focus,
+a:visited {
   outline: none;
   border: none;
   text-decoration: none;
-  color: #616668;
 }
+
+// a:focus {
+//   outline: none;
+//   border: none;
+//   text-decoration: none;
+//   color: #616668;
+// }
+
+// a:visited {
+//   outline: none;
+//   border: none;
+//   text-decoration: none;
+//   color: #616668;
+// }
