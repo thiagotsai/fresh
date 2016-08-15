@@ -2,28 +2,29 @@
 <div class="banner" style="background-image: url(<%= image_url "food_home_01.jpg" %>);">
   <div class="banner-content">
     <div class= "logo"><%= image_tag "logo_white.png" %></div>
-    <p><strong>Let's eat a fresh food today!</strong></p>
+    <p>Let's eat a fresh food today!</p>
     <form action="items/search" class="form-inline" method="get">
+    <input type="hidden" name="location" value="<%= @city.blank? ? "Lisboa" : @city %>">
       <!-- combo_box -->
-      <select name="location" class="form-control input-lg">
-        <% BusinessPlace.select(:city).distinct.each do |e| %>
-          <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == "lisboa" %>><%= e.city.capitalize %></option>
-        <!-- <option value="1">location</option> -->
-        <% end %>
-      </select>
-      <input name="query" type="text" class="form-control input-lg" placeholder="food type">
-      <input type="submit" value="Go" class="btn btn-primary btn-lg">
+      <!-- <select name="location" class="form-control input-lg">
+        <%# BusinessPlace.select(:city).distinct.each do |e| %>
+          <option value="<%# e.city.downcase %>" <%# "selected" if e.city.downcase == "lisboa" %>><%# e.city.capitalize %></option>
+        <%# end %>
+      </select> -->
+      <!-- <input name="query" type="text" class="form-control input-lg" placeholder="food type"> -->
+      <input type="submit" value="Find it nearby" class="btn-medium btn-medium-yellow btn-lg" id="btn-home">
     </form>
   </div>
 </div>
 
+
 <!-- Your cards code -->
-<div class="padded">
+<!-- <div class="padded">
   <div class="container">
     <h2 class="text-center">Your next meal</h2>
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
+
         <div class="card" style="background-image: url('https://static.pexels.com/photos/7765/food.jpg');">
           <div class="card-category">Italian</div>
           <div class="card-description">
@@ -34,7 +35,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
+
         <div class="card" style="background-image: url('https://static.pexels.com/photos/2436/bread-food-healthy-breakfast.jpg');">
           <div class="card-category">Bread</div>
           <div class="card-description">
@@ -45,7 +46,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
+
         <div class="card" style="background-image: url('https://static.pexels.com/photos/128388/pexels-photo-128388.jpeg');">
           <div class="card-category">Contemporary</div>
           <div class="card-description">
@@ -57,21 +58,21 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Your features code -->
-<!-- <div class="text-center padded features">
+<div class="text-center padded features">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
         <img src="images/globe.png" alt="">
-        <h2>Discover the gastronomy</h2>
-        <p>Gastronomy is your new passion.</p>
+        <h2>Why fresh</h2>
+        <p>Discover the gastronomy near you.</p>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <img src="images/beer.png" alt="">
         <h2>Meet foodies</h2>
-        <p>Discover new culture and lifestyle.</p>
+        <p>People who loves gastronomy as much as you.</p>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <img src="images/heart.png" alt="">
@@ -80,7 +81,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 <!-- </div>
 </div> -->
 
