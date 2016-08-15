@@ -13,6 +13,9 @@ class BusinessPlacesController < ApplicationController
 
   def show
     @items = @business_place.items
+
+    @item = Item.new
+    @item.business_place = @business_place
   end
 
   def create
@@ -39,7 +42,6 @@ class BusinessPlacesController < ApplicationController
 
   def owned
     @business_places = current_user.business_places
-    redirect_unauthorized_user
   end
 
   def update

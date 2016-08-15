@@ -49,11 +49,30 @@
 <% end %>
 
 <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
-  <br>
+<div class="wrapper-white text-center">
+  <h2>Today's dishes</h2>
+</div>
+
+<div class="wrapper-lightgrey">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="dish-show-container">
+            <a class="dish-add dish-add-pin">
+              <i></i>
+              <span>Create a Dish</span>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- <br>
   <br>
   <div class="container text-center">
   <%= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
-  </div>
+  </div> -->
 <% end %>
 
  <!--
