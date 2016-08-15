@@ -70,11 +70,16 @@ a:visited {
   text-decoration: none;
 }
 
+// bootstrap overrides
 .alert-info {
   border-color: $green;
   background: $green;
   color: white;
 }
+
+// .modal-open {
+//     overflow-y:scroll
+// }
 
 // a:focus {
 //   outline: none;

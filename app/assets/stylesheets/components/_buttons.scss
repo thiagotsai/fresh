@@ -4,7 +4,10 @@
     padding: 10px 12px;
 }
 
-.btn-medium {
+.btn-medium,
+.btn-medium:active,
+.btn-medium:focus,
+.btn-medium:visited {
   color: $brand-primary;
   border: 1px solid $brand-primary;
   padding: 5px 15px;
@@ -17,17 +20,6 @@
     font-size: 15px;
   }
 
-.btn-medium:active,
-.btn-medium:focus,
-.btn-medium:visited {
-  color: $brand-primary;
-  border: 1px solid $brand-primary;
-  padding: 5px 15px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.8;
-}
-
   .btn-medium-white {
     color: rgba(120,120,120,1);
     border: 1px solid rgba(120,120,120,1);
@@ -38,7 +30,7 @@
   text-decoration: none;
   color: white;
   border: 1px solid $brand-primary;
-  background-color: $fresh-orange;
+  background-color: $fresh-yellow;
 }
 
 #edit-button {
