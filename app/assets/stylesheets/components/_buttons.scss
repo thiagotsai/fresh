@@ -48,11 +48,15 @@
     border: 1px solid white;
   }
 
-  .btn-medium-yellow {
+  .btn-medium-yellow,
+  .btn-medium-yellow:active,
+  .btn-medium-yellow:focus,
+  .btn-medium-yellow:visited {
     color: white;
     background-color: $fresh-yellow;
     opacity: 1;
     border: 1px solid white;
+    outline: 0;
   }
 
   .btn-medium-yellow:hover {
