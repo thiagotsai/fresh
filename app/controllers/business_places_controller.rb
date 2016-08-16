@@ -12,7 +12,7 @@ class BusinessPlacesController < ApplicationController
   end
 
   def show
-    @items = @business_place.items
+    @items = @business_place.items.where('start_datetime >= :start AND end_datetime <= :end', start: Date.today, end: 1.day.from_now.to_date)
 
     @item = Item.new
     @item.business_place = @business_place

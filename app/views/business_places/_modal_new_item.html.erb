@@ -1,4 +1,4 @@
-<!-- Modal Sign Up -->
+<!-- Modal Add Dish -->
   <div class="modal fade" id="add-dish-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -36,6 +36,13 @@
     </div>
   </div>
 
+
+<div class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+
 <%= content_for(:after_js) do %>
 <script>
   // Action for item-copy-link to change hidden field and post the form
@@ -44,6 +51,15 @@
 
       $('#item_id').val($(this).data("id"));
       $('#js-copy-form').submit();
+  });
+
+  //Spinned test
+  $(".spinner").hide();
+
+  $(document).ajaxStart(function() {
+    $(".spinner").fadeIn('slow');
+  }).ajaxStop(function() {
+      $(".spinner").hide();
   });
 </script>
 <% end %>

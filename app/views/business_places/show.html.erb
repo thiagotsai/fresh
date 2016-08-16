@@ -24,12 +24,10 @@
   <h2>Today's dishes</h2>
 </div>
 
-<div class="wrapper-lightgrey">
-  <div class="container js-items-list">
-   <% @items.each do |item| %>
-      <%= render "item_show", item: item %>
+<div class="js-items-list">
+    <% @items.each do |item| %>
+        <%= render "item_show", item: item %>
     <% end %>
-  </div>
 </div>
 <% end %>
 
