@@ -2,7 +2,7 @@
 
 <!-- add filters: by price, by distance, by cuisines, by location -->
 
-<div class="wrapper-yellow text-center">We found <%= pluralize @items.count, "fresh dish" %> nearby
+<div class="wrapper-yellow text-center">We found <%= pluralize @items.count, "fresh dish" %> nearby</div>
 
   <!-- combo_box -->
   <div>
@@ -22,11 +22,11 @@
         <option value="2">Price High to Low</option>
         <option value="3">Distance</option>
       </select>
-        <input type="submit" value="Go" class="btn-medium btn-medium-sm btn-medium-white">
+        <input type="submit" value="Go" class="btn-medium btn-medium-sm btn-medium-yellow">
       </form>
   </div>
 
-</div>
+
   <div class="container">
 <% unless @items.empty? %>
   <% @items.in_groups_of(3) do |item1, item2, item3| %>
