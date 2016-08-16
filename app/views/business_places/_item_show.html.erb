@@ -1,3 +1,5 @@
+<div class="wrapper-lightgrey" id="<%= "item-id-#{item.id}" %>">
+<div class="container">
 <div class="row">
   <div class="col-sm-6">
     <div class="dish-show-container">
@@ -13,9 +15,16 @@
     </div>
     <div class="col-sm-6">
       <div class="dish-show-container">
+      <%= link_to item_path(item), method: :delete, remote: true, class: "close close-large", aria: { label: "Close" } do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+      <!-- <a href="#" class="close close-large" aria-label="Close"><span aria-hidden="true">&times;</span></a> -->
       <div class="dish-name"><%= item.name %></div>
       <div class="dish-price">Price: <%= item.price.round %>€</div>
       <div class="dish-description"><%= item.description %></div>
     </div>
   </div>
 </div>
+</div>
+</div>
+<div style="height: 2px; background-color: white;"></div>

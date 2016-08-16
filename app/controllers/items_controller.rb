@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     @city = request.location.city
     @items = []
     BusinessPlace.near(params[:location]).each do |bp|
+      # bp.cuisines.where(name: params[:cuisines].each do
       @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
     end
   end
@@ -82,7 +83,11 @@ class ItemsController < ApplicationController
 
     @item.destroy
     flash[:success] = "Item deleted"
-    redirect_to request.referer
+    respond_to do |format|
+      format.html { redirect_to request.referer }
+      format.js
+    end
+
   end
 
   private

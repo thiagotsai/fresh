@@ -1,0 +1,6 @@
+// Capture what the html will need to display for the new item and hide it
+var new_item = $("<%= j render '/business_places/item_show', item: @item %>").hide();
+
+$('#item-id-<%= @item.id%>').slideUp();
+$('a[data-id=<%= @item.id %>]').hide();
+
