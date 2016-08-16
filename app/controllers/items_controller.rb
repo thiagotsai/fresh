@@ -28,6 +28,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def copy
+  end
+
   def edit
     @business_place = BusinessPlace.find(params[:business_place_id])
 

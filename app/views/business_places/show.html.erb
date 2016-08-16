@@ -2,13 +2,27 @@
   <div class="modal fade" id="add-dish-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-<!--   <div class="modal-header">
+        <!-- <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Log in</h4>
+          <h4 class="modal-title" id="myModalLabel">New Today's Dish for <%= @business_place.name %></h4>
         </div> -->
         <div class="modal-body">
-
-            <h2>New Item for <%= @business_place.name %></h2>
+            <h4>Select a Previous Dish</h4>
+            <div class="row-fluid">
+              <div class="col-lg-12 col-md-10 ">
+                  <div class="cover-container">
+                      <!-- START PANEL -->
+                      <% @items.each do |i| %>
+                        <%= link_to copy_item_path(i), method: "post", remote: true do %>
+                          <div class="cover-item" style="background-image: url('<%= i.photo.url %>')"></div>
+                        <% end %>
+                      <% end %>
+                      <!-- END PANEL -->
+                  </div>
+              </div>
+            </div>
+            <div>or</div>
+            <h4>Create Today's Dish</h4>
 
             <%= simple_form_for [@business_place, @item] do |f| %>
             <%= f.input :name, label: false, placeholder: "Dish's name" %>
