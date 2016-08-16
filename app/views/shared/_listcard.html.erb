@@ -3,7 +3,7 @@
           <%= image_tag item.photo.url, class: "img-responsive img-rounded dish-image" unless item.photo.nil? %>
           <div class="dishlist-info-wrapper">
             <div class="dishlist-name"><%= item.name %></div>
-            <div class="dishlist-price">Price: <%= item.price.round %>€</div>
+            <div class="dishlist-price"><%= item.price.round %>€</div>
           </div>
           <%= link_to "", business_place_path(item.business_place), class: "dish-link" unless item.business_place.nil? %>
           <!-- <a class="dish-link" href="#" ></a> -->
@@ -12,6 +12,7 @@
           <div class="dishdetails-h1"><%= item.business_place.name %></div>
           <div class="dishdetails-h2">Cuisines</div>
             <div class="dishdetails-p"><%= item.business_place.cuisines.first.name %></div>
+          <div><%= image_tag "icon_walk.svg" %></div>
       </div>
 
 

@@ -1,24 +1,43 @@
 <div class="margin-top"></div>
-<div class="container">
+
+<!-- add filters: by price, by distance, by cuisines, by location -->
+
+<div class="wrapper-yellow text-center">We found <%= @items.count %> fresh dishes nearby
+
+  <!-- combo_box -->
+  <div>
+    <form action="search" class="form-inline" method="get">
+      <select name="location" class="form-control">
+          <% BusinessPlace.select(:city).distinct.each do |e| %>
+            <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == "lisboa" %>><%= e.city.capitalize %></option>
+          <% end %>
+      </select>
+      <select name="cuisines" class="form-control">
+          <% Cuisine.all.each do |cuisine| %>
+            <option value="<%= cuisine.name.downcase %>" ><%= cuisine.name.capitalize %></option>
+          <% end %>
+      </select>
+        <input name="query" type="text" class="form-control" placeholder="cuisines">
+        <input type="submit" value="Go" class="btn-medium btn-medium-sm btn-medium-white">
+      </form>
+  </div>
+
+</div>
+  <div class="container">
 <% unless @items.empty? %>
-  <% @items.in_groups_of(4) do |item1, item2, item3, item4| %>
+  <% @items.in_groups_of(3) do |item1, item2, item3| %>
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <%= render 'shared/listcard', item: item1 %>
       </div>
       <% if item2 %>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <%= render 'shared/listcard', item: item2 %>
       </div>
       <% end %>
       <% if item3 %>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <%= render 'shared/listcard', item: item3 %>
-      </div>
-      <% end %>
-      <% if item4 %>
-      <div class="col-sm-3">
-        <%= render 'shared/listcard', item: item4 %>
       </div>
       <% end %>
     </div>
@@ -31,4 +50,6 @@
   </div>
   <br>
 <% end %>
+</div>
+
 </div>
