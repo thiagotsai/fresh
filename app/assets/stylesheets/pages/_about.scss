@@ -1,0 +1,24 @@
+.wrapper-lightgrey-about {
+  background-color: #EEEEEE;
+}
+  .wrapper-lightgrey-about img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  }
+.wrapper-white-about {
+  length: 500px;
+  width: 300px;
+  background-color: white;
+  border: 10px solid;
+  border-color: rgba(0,0,0,0);
+
+}
+.avatar-xlarge {
+  width: 170px;
+  border-radius: 50%;
+}
+.name-title-about {
+
+}
+
