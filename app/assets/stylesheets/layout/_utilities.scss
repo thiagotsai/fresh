@@ -105,6 +105,12 @@ a:visited {
   opacity: .2;
 }
 
+.centered {
+  position: fixed; /* or absolute */
+  top: 35%;
+  left: 50%;
+}
+
 // a:focus {
 //   outline: none;
 //   border: none;
