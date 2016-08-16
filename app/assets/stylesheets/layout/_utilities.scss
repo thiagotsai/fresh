@@ -17,6 +17,16 @@
   padding-bottom: 5vh;
 }
 
+.wrapper-yellow {
+  background-color: $fresh-yellow;
+  color: white;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  font-size: calc(100% + 0.9vw);
+  font-weight: lighter;
+  margin-bottom: 2.5vh;
+}
+
 .wrapper-transp-grey {
   background-color: rgba(0,0,0,0.5);
   width: 100%;

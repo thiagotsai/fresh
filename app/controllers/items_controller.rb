@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
    skip_before_action :authenticate_user!, only: [:search]
 
   def search
+    @city = request.location.city
     @items = []
     BusinessPlace.near(params[:location]).each do |bp|
       @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
