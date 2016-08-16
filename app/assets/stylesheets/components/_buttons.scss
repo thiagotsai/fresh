@@ -34,7 +34,10 @@
   //   color: white;
   // }
 
-  .btn-medium-white {
+  .btn-medium-white,
+  .btn-medium-white:active,
+  .btn-medium-white:focus,
+  .btn-medium-white:visited {
     color: white;
     border: 1px solid white;
     background-color: transparent;

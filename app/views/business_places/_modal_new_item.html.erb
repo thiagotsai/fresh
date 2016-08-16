@@ -1,0 +1,49 @@
+<!-- Modal Sign Up -->
+  <div class="modal fade" id="add-dish-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Today's Dish for <%= @business_place.name %></h4>
+        </div> -->
+        <%= form_tag "/items/copy", method: :post, id: "js-copy-form", remote: true %>
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+          <%= hidden_field_tag :item_id %>
+        </form>
+        <div class="modal-body">
+            <h4>Select a Previous Dish</h4>
+            <div class="row-fluid">
+              <div class="col-lg-12 col-md-10 ">
+                  <div class="cover-container">
+                      <!-- START PANEL -->
+                      <% @items.each do |i| %>
+                        <%# f.button :submit, value: i.id, style: "background-image: url(#{i.photo.url}) no-repeat;", class: "" %>
+                        <%= link_to "#", class: "item-copy-link", data: { id: i.id } do %>
+                          <div class="cover-item" style="background-image: url('<%= i.photo.url %>')"></div>
+                        <% end %>
+                      <% end %>
+                      <!-- END PANEL -->
+                  </div>
+              </div>
+            </div>
+            <div>or</div>
+            <div class="js-new-dish-form">
+            <h4>Create Today's Dish</h4>
+            <%= render 'items/form' %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%= content_for(:after_js) do %>
+<script>
+  // Action for item-copy-link to change hidden field and post the form
+  $('.item-copy-link').on('click', function(e) {
+      e.preventDefault();
+
+      $('#item_id').val($(this).data("id"));
+      $('#js-copy-form').submit();
+  });
+</script>
+<% end %>

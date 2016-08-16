@@ -1,0 +1,14 @@
+<%= simple_form_for [@business_place, @item], remote: true do |f| %>
+  <%= f.input :name, label: false, placeholder: "Dish's name" %>
+  <%= f.input :description, label: false, placeholder: "Description" %>
+  <%# f.input :ready_at, default: Time.now + 1.hour %>
+  <%# f.input :available_qty %>
+  <%= f.input :price, label: false, placeholder: "Price" %>
+  <%# f.input :currency, collection: ["USD", "EUR"], prompt: "Select the currency", selected: "EUR" %>
+  <%# f.input :start_datetime, default: Date.today + 1.minute %>
+  <%# f.input :end_datetime, default: Date.today + 1 - 1.minute %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%# f.association :ingredients, as: :check_boxes, label: "Which ingredients does it have?" %>
+  <%= f.button :submit, class: "btn btn-primary btn-block" %>
+<% end %>
