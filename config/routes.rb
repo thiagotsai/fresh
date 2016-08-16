@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create]
   end
 
+  post "items/copy" => "items#copy", as: :copy_items
+
   resources :items, only: [:edit, :update, :destroy]
 
   get "items/search" => "items#search", as: :search_items

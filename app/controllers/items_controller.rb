@@ -21,18 +21,43 @@ class ItemsController < ApplicationController
     redirect_unauthorized_user
 
     @item = @business_place.items.new(item_params)
+    @item.start_datetime ||= Date.today
+    @item.end_datetime ||= Date.today + 1
     if @item.save
-      redirect_to business_place_path(@business_place)
+      flash[:notice] = "New item sucessfully created!"
+      respond_to do |format|
+        format.html { redirect_to business_place_path(@business_place) }
+        format.js  # <-- will render `app/views/items/create.js.erb`
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js # <-- will render `app/views/items/create.js.erb`
+      end
+    end
+  end
+
+  def copy
+    copy_item = Item.find(params[:item_id])
+    @item = copy_item.dup
+    @item.start_datetime = Date.today
+    @item.end_datetime = Date.today + 1
+    if @item.save
+      respond_to do |format|
+        format.html { redirect_to business_place_path(@business_place) }
+        format.js  { render :create }
+      end
+    else
+      respond_to do |format|
+        format.html { render :new }
+        format.js  { render :create }
+      end
     end
   end
 
   def edit
     @business_place = BusinessPlace.find(params[:business_place_id])
-
     redirect_unauthorized_user
-
     @item = Item.find(params[:id])
   end
 

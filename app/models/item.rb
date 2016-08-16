@@ -6,4 +6,8 @@ class Item < ActiveRecord::Base
   validates :name, length: { minimum: 3, maximum: 30 }
   mount_uploader :photo, PhotoUploader
   accepts_nested_attributes_for :ingredients
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
 end

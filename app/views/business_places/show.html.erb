@@ -1,34 +1,4 @@
-<!-- Modal Sign Up -->
-  <div class="modal fade" id="add-dish-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-<!--   <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Log in</h4>
-        </div> -->
-        <div class="modal-body">
-
-            <h2>New Item for <%= @business_place.name %></h2>
-
-            <%= simple_form_for [@business_place, @item] do |f| %>
-            <%= f.input :name, label: false, placeholder: "Dish's name" %>
-            <%= f.input :description, label: false, placeholder: "Description" %>
-            <%# f.input :ready_at, default: Time.now + 1.hour %>
-            <%# f.input :available_qty %>
-            <%= f.input :price, label: false, placeholder: "Price" %>
-            <%# f.input :currency, collection: ["USD", "EUR"], prompt: "Select the currency", selected: "EUR" %>
-            <%# f.input :start_datetime, default: Date.today + 1.minute %>
-            <%# f.input :end_datetime, default: Date.today + 1 - 1.minute %>
-            <%= f.input :photo %>
-            <%= f.input :photo_cache, as: :hidden %>
-            <%# f.association :ingredients, as: :check_boxes, label: "Which ingredients does it have?" %>
-            <%= f.button :submit, class: "btn btn-primary btn-block" %>
-            <% end %>
-
-        </div>
-      </div>
-    </div>
-  </div>
+<%= render "modal_new_item" %>
 
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
 <div class="banner-small" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 55%), url('<%= image_url @business_place.cover_photo.url %>');">
@@ -36,8 +6,10 @@
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
       <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
-      <%= link_to "Edit Business Place", edit_business_place_path, class: "btn-medium btn-medium-white", id: "edit-button" %>
-      <!--  why does this work without an ID?-->
+      <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
+        <%= link_to "Edit Business Place", edit_business_place_path, class: "btn-medium btn-medium-white", id: "edit-button" %>
+        <!--  why does this work without an ID?-->
+      <% end %>
   </div>
 </div>
 
@@ -53,29 +25,9 @@
 </div>
 
 <div class="wrapper-lightgrey">
-  <div class="container">
+  <div class="container js-items-list">
    <% @items.each do |item| %>
-   <div class="row">
-      <div class="col-sm-6">
-        <div class="dish-show-container">
-            <%= image_tag  item.photo.url, class: "img-responsive img-rounded dish-image"%>
-            <!-- <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name">Spring salad with potatoes</div>
-                <div class="dish-info-text-price">Price: 8€</div>
-              </div>
-            </div> -->
-            <!-- <a class="dish-link" href="#" ></a> -->
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="dish-show-container">
-          <div class="dish-name"><%= item.name %></div>
-          <div class="dish-price">Price: <%= item.price.round %>€</div>
-          <div class="dish-description"><%= item.description %></div>
-        </div>
-      </div>
-    </div>
+      <%= render "item_show", item: item %>
     <% end %>
   </div>
 </div>
@@ -85,6 +37,8 @@
 <div class="wrapper-white text-center">
   <h2>Today's dishes</h2>
 </div>
+
+
 
 <div class="wrapper-lightgrey">
   <div class="container">
@@ -151,6 +105,7 @@ var marker = new google.maps.Marker({
   map: map,
   title: "You are here!"
 });
+
 </script>
 <% end %>
 
