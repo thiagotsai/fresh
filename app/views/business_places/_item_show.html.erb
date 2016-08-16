@@ -1,30 +1,24 @@
 <div class="wrapper-lightgrey" id="<%= "item-id-#{item.id}" %>">
-<div class="container">
-<div class="row">
-  <div class="col-sm-6">
-    <div class="dish-show-container">
-      <%= image_tag  item.photo.url, class: "img-responsive img-rounded dish-image"%>
-            <!-- <div class="dish-info">
-              <div class="dish-info-text wrapper-transp-grey">
-                <div class="dish-info-text-name">Spring salad with potatoes</div>
-                <div class="dish-info-text-price">Price: 8€</div>
-              </div>
-            </div> -->
-            <!-- <a class="dish-link" href="#" ></a> -->
-    </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="dish-show-container">
-      <%= link_to item_path(item), method: :delete, remote: true, class: "close close-large", aria: { label: "Close" } do %>
-        <span aria-hidden="true">&times;</span>
-      <% end %>
-      <!-- <a href="#" class="close close-large" aria-label="Close"><span aria-hidden="true">&times;</span></a> -->
-      <div class="dish-name"><%= item.name %></div>
-      <div class="dish-price">Price: <%= item.price.round %>€</div>
-      <div class="dish-description"><%= item.description %></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dish-show-container">
+          <%= image_tag  item.photo.url, class: "img-responsive img-rounded dish-image"%>
+        </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="dish-show-container">
+          <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
+            <%= link_to item_path(item), method: :delete, remote: true, class: "close close-large", aria: { label: "Close" } do %>
+              <span aria-hidden="true">&times;</span>
+            <% end %>
+          <% end %>
+          <div class="dish-name"><%= item.name %></div>
+          <div class="dish-price">Price: <%= item.price.round %>€</div>
+          <div class="dish-description"><%= item.description %></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </div>
 <div style="height: 2px; background-color: white;"></div>
