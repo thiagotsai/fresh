@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
     @item = copy_item.dup
     @item.start_datetime = Date.today
     @item.end_datetime = Date.today + 1
+    @close_button = true
     if @item.save
       respond_to do |format|
         format.html { redirect_to business_place_path(@business_place) }
@@ -81,7 +82,17 @@ class ItemsController < ApplicationController
     @business_place = @item.business_place
     redirect_unauthorized_user
 
+
     @item.destroy
+
+    # Logic to remove the item if it was the last one using js
+    # If can find one element then flag as last item
+    unique_name = @item.name
+    item = @business_place.items.find_by_name(unique_name)
+    unless item.nil?
+      @last_item = true
+    end
+
     flash[:success] = "Item deleted"
     respond_to do |format|
       format.html { redirect_to request.referer }

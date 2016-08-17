@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-6">
           <div class="dish-show-container">
-          <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
+          <% if (user_signed_in? and current_user.business_places.include?(@business_place)) or @close_button %>
             <%= link_to item_path(item), method: :delete, remote: true, class: "close close-large", aria: { label: "Close" } do %>
               <span aria-hidden="true">&times;</span>
             <% end %>

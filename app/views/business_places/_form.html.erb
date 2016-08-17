@@ -1,0 +1,21 @@
+<%= simple_form_for @business_place do |f| %>
+  <%= f.input :name, placeholder: "Enter the name" %>
+  <%= f.input :description, placeholder: "Enter a punch line description" %>
+  <%= f.input :phone_number, placeholder: "Enter the Phone Number" %>
+  <%= f.input :address %>
+  <%= f.input :zip_code %>
+  <%= f.input :city %>
+  <%= f.input :country, priority: [ 'PT' ] %>
+  <%#= f.input :average_cost, placeholder: "Enter the average cost e.g. 30 euros for 2 people", label: "Cost" %>
+  <%#= f.input :opening_time, placeholder: "Enter working time e.g. 12pm - 9pm", label: "Opening Time" %>
+  <%= f.input :cover_photo %>
+  <%= f.input :cover_photo_cache, as: :hidden %>
+  <%= f.input :cuisine_id, collection: @cuisines, prompt: "Select the main cuisine", label: "Main cuisine" %>
+  <%# f.input :cuisine_id, collection: @cuisines, selected: @business_place.cuisine.id, prompt: "Select the main cuisine", label: "Main cuisine" %>
+  <%#= f.association :cuisines, as: :check_boxes, label: "What other cuisines does it have?" %>
+  <%= f.button :submit, class: "btn btn-primary btn-block" %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE"></script>
+<% end %>

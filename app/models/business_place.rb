@@ -1,5 +1,6 @@
 class BusinessPlace < ActiveRecord::Base
   has_many :business_cuisines, dependent: :destroy
+  belongs_to :cuisine
   has_many :cuisines, through: :business_cuisines
   has_many :business_place_users, dependent: :destroy
   has_many :users, through: :business_place_users
@@ -11,6 +12,7 @@ class BusinessPlace < ActiveRecord::Base
   validates :city, presence: true
   validates :country, presence: true
   validates :phone_number, presence: true
+  validates :cuisine, presence: true
   # validates :latitude, presence: true
   # validates :longitude, presence: true
   mount_uploader :cover_photo, PhotoUploader
@@ -18,10 +20,10 @@ class BusinessPlace < ActiveRecord::Base
 
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
-  after_create :create_business_place_user, :create_business_place_cuisine
+  after_create :create_business_place_user
 
   attr_accessor :current_user
-  attr_accessor :cuisine
+  #attr_accessor :cuisine
 
   def full_address
     "#{address}, #{zip_code} #{city} #{ISO3166::Country[country].name}"
@@ -36,10 +38,10 @@ class BusinessPlace < ActiveRecord::Base
     bpu.save
   end
 
-  def create_business_place_cuisine
-    bpc = BusinessCuisine.new(business_place: self, cuisine: cuisine, main: true)
-    bpc.save
-  end
+  # def create_business_place_cuisine
+  #   bpc = BusinessCuisine.new(business_place: self, cuisine: cuisine, main: true)
+  #   bpc.save
+  # end
 
   def owner
     bpu = BusinessPlaceUser.where(business_place: self, main: true).first
