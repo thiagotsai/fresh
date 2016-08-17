@@ -1,0 +1,75 @@
+.align-center {
+  text-align: center;
+  margin: 0;
+}
+
+.min-height-name {
+  height: 120px;
+}
+
+.min-height-name h2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.no-margin-row {
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-arounds;
+}
+
+.min-height-text {
+  height: 115px;
+}
+
+.wrapper-lightgrey-about {
+  background-color: #EEEEEE;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+  .wrapper-lightgrey-about img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  }
+
+.wrapper-white-about {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #EEEEEE;
+  max-width: 500px;
+  min-width: 400px;
+
+}
+.wrapper-white-about-title {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #EEEEEE;
+
+}
+.avatar-xlarge {
+  width: 300px;
+  border-radius: 50%;
+}
+.description {
+  padding: 15px;
+}
+.section-title-about {
+  padding: 15px;
+}
+#intro-text-about {
+  padding: 15px;
+}
+#main-title-about {
+  padding: 15px;
+}
