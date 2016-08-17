@@ -3,9 +3,12 @@ class ItemsController < ApplicationController
    skip_before_action :authenticate_user!, only: [:search]
 
   def search
-    @city = request.location.city
+    default_city = request.location.city.blank? ? "Lisboa" : request.location.city
+    @city = params[:location].blank? ? default_city : params[:location]
+    @sort = params[:sort].to_i
+    @cuisine_id = params[:cuisine_id].to_i
     @items = []
-    BusinessPlace.near(params[:location]).each do |bp|
+    BusinessPlace.near(@city).each do |bp|
       # bp.cuisines.where(name: params[:cuisines].each do
       @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
     end

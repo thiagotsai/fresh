@@ -1,3 +1,9 @@
+// search container
+.search-container {
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+}
+
 // dish shared
 
 .dish-image {
@@ -54,7 +60,7 @@
 
 .dishlist-container {
   position: relative;
-  margin-top: 5vh;
+  margin-top: 2.5vh;
   margin-bottom: 1vh;
 }
 
@@ -87,23 +93,23 @@
 .dishdetails-container {
   position: relative;
   margin-top: 1vh;
-  margin-bottom: 5vh;
+  margin-bottom: 2.5vh;
 }
 
 .dishdetails-h1 {
-  font-size: 3vh;
+  font-size: calc(100% + 0.25vw);
   color: #424242;
   font-weight: lighter;
   padding-top: 0;
   margin-left: 0;
-  margin-bottom: 1vh;
+  margin-bottom: 0vh;
   font-weight: bold;
 }
 
 .dishdetails-h2 {
   font-weight: lighter;
   padding-top: 0;
-  font-size: 2.5vh;
+  font-size: calc(100% + 0.1vw);
   margin-left: 0;
   color: #9E9E9E;
 }
@@ -111,7 +117,7 @@
 .dishdetails-p {
   font-weight: lighter;
   padding-top: 0;
-  font-size: 2.5vh;
+  font-size: calc(100% + 0.1vw);
   margin-left: 0;
   color: #424242;
 }

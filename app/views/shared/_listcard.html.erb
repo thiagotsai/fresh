@@ -9,10 +9,14 @@
           <!-- <a class="dish-link" href="#" ></a> -->
       </div>
       <div class="dishdetails-container">
-          <div class="dishdetails-h1"><%= item.business_place.name %></div>
-          <div class="dishdetails-h2">Cuisines</div>
-            <div class="dishdetails-p"><%= item.business_place.cuisines.first.name %></div>
-          <div><%= image_tag "icon_walk.svg" %></div>
+      <!-- <div style="display: flex; justify-content: space-between;">
+        <div class="dishdetails-h1"><%= item.business_place.name %></div>
+        <div><%= image_tag "icon_walk.svg" %> <span style="vertical-align: bottom;">10 min</span></div>
+      </div> -->
+            <div class="dishdetails-h1"><%= item.business_place.name %></div>
+            <!-- <div class="dishdetails-h2"><%= item.business_place.cuisine.name %></div> -->
+            <div><%= image_tag "icon_walk.svg" %> <span style="vertical-align: bottom;">10 min</span></div>
+            <!-- <div class="dishdetails-p"><%#= item.business_place.cuisine.name %></div> -->
       </div>
 
 
