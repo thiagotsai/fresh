@@ -15,7 +15,7 @@ We found <%= pluralize @items.count, "fresh dish" %> nearby
     <form action="search" class="form-inline" method="get">
       <select name="location" class="form-control">
           <% BusinessPlace.select(:city).distinct.each do |e| %>
-            <option value="<%= e.city.downcase %>" <%= "selected" if e.city == @city %>><%= e.city.capitalize %></option>
+            <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == @city %>><%= e.city.capitalize %></option>
           <% end %>
       </select>
       <select name="cuisine_id" class="form-control">
