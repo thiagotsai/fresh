@@ -25,7 +25,9 @@ class ItemsController < ApplicationController
       end
     end
 
-    if @sort == 2 #Low to High
+    if @sort == 1 #Name
+      @items.sort! { |a,b| a.name <=> b.name }
+    elsif @sort == 2 #Low to High
       @items.sort! { |a,b| a.price <=> b.price }
     elsif @sort == 3
       @items.sort! { |a,b| b.price <=> a.price }

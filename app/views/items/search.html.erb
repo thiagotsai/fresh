@@ -24,8 +24,10 @@ We found <%= pluralize @items.count, "fresh dish" %> nearby
             <option value="<%= cuisine.id %>" <%= "selected" if @cuisine_id == cuisine.id %>><%= cuisine.name.capitalize %></option>
           <% end %>
       </select>
+      &nbsp; Sort by: &nbsp;
       <select name="sort" class="form-control">
         <!-- <option value="1" <%= "selected" if @sort == 1 or @sort == 0 %>>Distance</option> -->
+        <option value="0" <%= "selected" if @sort == 0 %>>Name</option>
         <option value="2" <%= "selected" if @sort == 2 %>>Price Low to High</option>
         <option value="3" <%= "selected" if @sort == 3 %>>Price High to Low</option>
       </select>
