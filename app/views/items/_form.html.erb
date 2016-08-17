@@ -1,4 +1,4 @@
-<%= simple_form_for [@business_place, @item], remote: true do |f| %>
+<%= simple_form_for [@business_place, @item] do |f| %>
   <%= f.input :name, label: false, placeholder: "Dish's name" %>
   <%= f.input :description, label: false, placeholder: "Description" %>
   <%# f.input :ready_at, default: Time.now + 1.hour %>

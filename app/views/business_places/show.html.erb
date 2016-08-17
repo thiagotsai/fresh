@@ -21,17 +21,16 @@
 </div>
 
 <% unless @items.empty? %>
-
-<div class="wrapper-white text-center">
-  <h2>Today's dishes</h2>
-</div>
+  <div class="wrapper-white text-center">
+    <h2>Today's dishes</h2>
+  </div>
+<% end %>
 
 <div class="js-items-list">
     <% @items.each do |item| %>
         <%= render "item_show", item: item %>
     <% end %>
 </div>
-<% end %>
 
 <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
 
