@@ -3,14 +3,34 @@ class ItemsController < ApplicationController
    skip_before_action :authenticate_user!, only: [:search]
 
   def search
+    # Preparation to search view filters form
     default_city = request.location.city.blank? ? "Lisboa" : request.location.city
     @city = params[:location].blank? ? default_city : params[:location]
-    @sort = params[:sort].to_i
+    @sort = params[:sort].blank? ? 0 : params[:sort].to_i
     @cuisine_id = params[:cuisine_id].to_i
+
+    # Filter items to be listed
     @items = []
-    BusinessPlace.near(@city).each do |bp|
-      # bp.cuisines.where(name: params[:cuisines].each do
-      @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
+
+    if @cuisine_id == 0
+      # Filter ignoring Cuisine
+      BusinessPlace.near(@city).each do |bp|
+        @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
+      end
+    else
+      # Filter only Business Places with the cuisine selected
+      BusinessPlace.where(cuisine_id: @cuisine_id).near(@city).each do |bp|
+        @items += bp.items.where("lower(description) LIKE ? OR lower(name) LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").flatten
+        # bp.cuisines.where(name: params[:cuisines].each do
+      end
+    end
+
+    if @sort == 2 #Low to High
+      @items.sort! { |a,b| a.price <=> b.price }
+    elsif @sort == 3
+      @items.sort! { |a,b| b.price <=> a.price }
+    else
+      # TODO Distance!!!
     end
   end
 

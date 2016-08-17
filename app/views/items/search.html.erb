@@ -2,23 +2,30 @@
 
 <!-- add filters: by price, by distance, by cuisines, by location -->
 
-<div class="wrapper-yellow text-center">We found <%= pluralize @items.count, "fresh dish" %> nearby</div>
+<div class="wrapper-yellow text-center">
+<% unless @items.empty? %>
+We found <%= pluralize @items.count, "fresh dish" %> nearby
+<% else %>
+<i class="fa fa-meh-o" aria-hidden="true"></i> Opps! No matches for your query
+<% end %>
+</div>
 
   <!-- combo_box -->
   <div class="container">
     <form action="search" class="form-inline" method="get">
       <select name="location" class="form-control">
           <% BusinessPlace.select(:city).distinct.each do |e| %>
-            <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == "lisboa" %>><%= e.city.capitalize %></option>
+            <option value="<%= e.city.downcase %>" <%= "selected" if e.city == @city %>><%= e.city.capitalize %></option>
           <% end %>
       </select>
       <select name="cuisine_id" class="form-control">
+          <option value="0">All Cuisines</option>
           <% Cuisine.all.each do |cuisine| %>
             <option value="<%= cuisine.id %>" <%= "selected" if @cuisine_id == cuisine.id %>><%= cuisine.name.capitalize %></option>
           <% end %>
       </select>
       <select name="sort" class="form-control">
-        <option value="1" <%= "selected" if @sort == 1 or @sort == 0 %>>Distance</option>
+        <!-- <option value="1" <%= "selected" if @sort == 1 or @sort == 0 %>>Distance</option> -->
         <option value="2" <%= "selected" if @sort == 2 %>>Price Low to High</option>
         <option value="3" <%= "selected" if @sort == 3 %>>Price High to Low</option>
       </select>
@@ -47,14 +54,10 @@
       </div>
     <% end %>
     </div>
-<% else %>
-  <br>
-  <div class="alert alert-danger" role="alert" style="color: #d9534f; font-size: 1.2em;">
-  <i class="fa fa-meh-o" aria-hidden="true"></i>
-  Opps! No matches for your query.
-  </div>
-  <br>
-<% end %>
+  <% else %>
+    <div class="margin-top"></div>
+  <% end %>
+
 </div>
 
 </div>
