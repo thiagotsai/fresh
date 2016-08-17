@@ -52,7 +52,7 @@
           </li>
           <% unless current_user.business_places.empty? %>
           <li>
-          <%= link_to "/business_places/owned", class: "navbar-wagon-item navbar-wagon-link" do %>
+          <%= link_to "/business_places/#{current_user.business_places.last.id}", class: "navbar-wagon-item navbar-wagon-link" do %>
           <i class="fa fa-cog"></i> Manage Business Places
           <% end %>
           </li>
@@ -104,7 +104,7 @@
         </li>
         <% unless current_user.business_places.empty? %>
           <li>
-          <%= link_to "/business_places/owned", class: "navbar-wagon-item navbar-wagon-link" do %>
+          <%= link_to "/business_places/#{current_user.business_places.last.id}", class: "navbar-wagon-item navbar-wagon-link" do %>
           <i class="fa fa-cog"></i> Manage Business Places
           <% end %>
           </li>
