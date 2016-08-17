@@ -2,5 +2,8 @@
 var new_item = $("<%= j render '/business_places/item_show', item: @item %>").hide();
 
 $('#item-id-<%= @item.id%>').slideUp();
-$('a[data-id=<%= @item.id %>]').hide();
+
+//Hide item from the modal list
+//$('a[data-id=<%= @item.id %>]').hide();
+
 

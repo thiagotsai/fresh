@@ -14,7 +14,6 @@
     <type label="Single precision" length="0" sql="FLOAT" quote=""/>
     <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
   </group>
-
   <group label="Character" color="rgb(255,200,200)">
     <type label="Char" length="1" sql="CHAR" quote="'"/>
     <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
@@ -60,7 +59,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="897" y="360" name="ingredients">
+<table x="948" y="360" name="ingredients">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -71,7 +70,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="563" y="357" name="items">
+<table x="620" y="357" name="items">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -146,7 +145,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="247" y="350" name="business_places">
+<table x="304" y="361" name="business_places">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -192,11 +191,14 @@
 <row name="description" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="cuisine_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="726" y="177" name="cuisines">
+<table x="787" y="180" name="cuisines">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -210,7 +212,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="490" y="176" name="business_cuisines">
+<table x="532" y="185" name="business_cuisines">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -222,14 +224,11 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default><relation table="cuisines" row="id" />
 </row>
-<row name="main" null="1" autoincrement="0">
-<datatype>bit</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="740" y="359" name="item_info">
+<table x="790" y="354" name="item_info">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -248,7 +247,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="58" y="221" name="business_place_users">
+<table x="47" y="223" name="business_place_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -262,6 +261,29 @@
 </row>
 <row name="main" null="1" autoincrement="0">
 <datatype>bit</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="500" y="726" name="dishes">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="photo" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="price" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="business_place_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
