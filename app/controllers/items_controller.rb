@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
   def search
     # Preparation to search view filters form
     default_city = request.location.city.blank? ? "Lisboa" : request.location.city
-    @city = params[:location].blank? ? default_city : params[:location]
-    @sort = params[:sort].blank? ? 0 : params[:sort].to_i
+    default_city = "Lisboa" if default_city == "Lisbon"
+    @city = (params[:location].nil? or params[:location].blank?) ? default_city : params[:location]
+    @sort = (params[:sort].nil? or params[:sort].blank?) ? 0 : params[:sort].to_i
     @cuisine_id = params[:cuisine_id].to_i
 
     # Filter items to be listed
