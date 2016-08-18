@@ -1,5 +1,6 @@
 <%= render "modal_new_item" %>
 <%= render "modal_edit_business_place" %>
+<%= render "modal_manage_dishes" %>
 
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
 <div class="banner-small" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 55%), url('<%= image_url @business_place.cover_photo.url %>');">
@@ -54,6 +55,35 @@
   <div class="container text-center">
   <%= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
   </div> -->
+<% end %>
+
+<!-- testing a new layout with manage dishes -->
+<% if user_signed_in? && current_user.business_places.include?(@business_place) %>
+
+<div class="wrapper-lightgrey">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dish-show-container">
+          <%= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#add-dish-modal"} do %>
+            <i></i>
+            <span>Create a Dish</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="dish-show-container">
+          <%= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#manage-dishes-modal"} do %>
+            <i></i>
+            <span>Manage your Dishes Portfolio</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <% end %>
 
  <!--
