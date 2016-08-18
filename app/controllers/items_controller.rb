@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-   #before_action :set_item, only: [:edit, :update, :destroy]
+   before_action :set_item, only: [:edit, :update, :destroy]
    skip_before_action :authenticate_user!, only: [:search]
 
   def search
@@ -46,11 +46,30 @@ class ItemsController < ApplicationController
   def create
     @business_place = BusinessPlace.find(params[:business_place_id])
 
+    # Redirect user if he does not have access to the business place
     redirect_unauthorized_user
 
+    # Create a new Item
     @item = @business_place.items.new(item_params)
     @item.start_datetime ||= Date.today
     @item.end_datetime ||= Date.today + 1
+    @item.user = current_user
+
+    #Check is Dish does not exist by name, then create a new one
+    @dish = Dish.find_by_name(@item.name)
+
+    # If dish not found, create it
+    unless @dish
+      #Create a new dish
+      @dish = Dish.new(dish_params)
+      @dish.business_place = @business_place
+      @dish.status = "active"
+      @dish.save
+    end
+
+    # Link the dish to the new item
+    @item.dish = @dish
+
     if @item.save
       flash[:notice] = "New item sucessfully created!"
       respond_to do |format|
@@ -66,12 +85,24 @@ class ItemsController < ApplicationController
   end
 
   def copy
-    copy_item = Item.find(params[:item_id])
-    @item = copy_item.dup
+    dish = Dish.find(params[:dish_id])
+
+    # Create a new item based on the dish
+    @item = Item.new(name: dish.name, description: dish.description,
+                     price: dish.price,
+                     business_place: dish.business_place,
+                     dish: dish, user: current_user)
+
+    # To save the remote url of the photo you need to do this
+    @item.remote_photo_url = dish.photo_url
     @item.start_datetime = Date.today
     @item.end_datetime = Date.today + 1
-    @close_button = true
+
     if @item.save
+      # Variable to use in view for the ajax js
+      # to send the item_show with close button
+      @close_button = true
+
       respond_to do |format|
         format.html { redirect_to business_place_path(@business_place) }
         format.js  { render :create }
@@ -97,6 +128,10 @@ class ItemsController < ApplicationController
 
     @item = Item.find(params[:id])
     if @item.update(item_params)
+      #Find the dish related to the item and also update it
+      if @item.dish
+        @item.dish.update(dish_params)
+      end
       redirect_to business_place_path(@business_place)
     else
       render :edit
@@ -135,6 +170,10 @@ class ItemsController < ApplicationController
                    :start_datetime, :end_datetime, ingredient_ids: [])
   end
 
+  def dish_params
+    params.require(:item).permit(:photo, :name, :price, :description)
+  end
+
   def redirect_unauthorized_user
     #@business_place.users.include?(current_user)
     unless current_user.business_places.include?(@business_place)
@@ -143,7 +182,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def set_item
-  #   @item = Item.find(params[:id])
-  # end
+  def set_item
+   @item = Item.find(params[:id])
+  end
 end

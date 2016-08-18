@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817123619) do
+ActiveRecord::Schema.define(version: 20160818114700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,19 @@ ActiveRecord::Schema.define(version: 20160817123619) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "dishes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "photo"
+    t.decimal  "price"
+    t.integer  "business_place_id"
+    t.string   "status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "dishes", ["business_place_id"], name: "index_dishes_on_business_place_id", using: :btree
+
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -97,9 +110,11 @@ ActiveRecord::Schema.define(version: 20160817123619) do
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.integer  "business_place_id"
+    t.integer  "dish_id"
   end
 
   add_index "items", ["business_place_id"], name: "index_items_on_business_place_id", using: :btree
+  add_index "items", ["dish_id"], name: "index_items_on_dish_id", using: :btree
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
@@ -156,9 +171,11 @@ ActiveRecord::Schema.define(version: 20160817123619) do
   add_foreign_key "business_place_users", "business_places"
   add_foreign_key "business_place_users", "users"
   add_foreign_key "business_places", "cuisines"
+  add_foreign_key "dishes", "business_places"
   add_foreign_key "item_infos", "ingredients"
   add_foreign_key "item_infos", "items"
   add_foreign_key "items", "business_places"
+  add_foreign_key "items", "dishes"
   add_foreign_key "items", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

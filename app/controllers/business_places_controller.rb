@@ -15,19 +15,19 @@ class BusinessPlacesController < ApplicationController
     # Find only the dishes of today to show
     @items = @business_place.items.where('start_datetime >= :start AND end_datetime <= :end', start: Date.today, end: Date.today + 1)
 
+
+    # Prepare previous dishes for the modal new item view
+    @dishes = @business_place.dishes.where(status: "active")
+
     # This logic is because we don't have a Dishes Table
-    distinct_names = Item.where(business_place_id: @business_place.id).distinct.pluck(:name)
-    @previous_items = []
-    distinct_names.each do |n|
-      @previous_items << @business_place.items.find_by_name(n)
-    end
+    # distinct_names = Item.where(business_place_id: @business_place.id).distinct.pluck(:name)
+    # @previous_items = []
+    # distinct_names.each do |n|
+    #   @previous_items << @business_place.items.find_by_name(n)
+    # end
 
     # This is for the Edit Business Place to show combo-box of Cuisines
     @cuisines = Cuisine.all
-    # @cuisine_id = 1
-    # unless @business_place.business_cuisines.where(main: true).empty?
-    #   @cuisine_id = @business_place.business_cuisines.where(main: true).first.cuisine_id
-    # end
 
     # Prepare to show the modal simple form for of the New Dish
     @item = Item.new
