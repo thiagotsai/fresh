@@ -17,12 +17,15 @@ Rails.application.routes.draw do
   get "business_places/owned" => "business_places#owned", as: :owned_business_places
 
   resources :business_places do
+    resources :dishes, only: [:create, :edit, :update]
     resources :items, only: [:new, :create, :edit, :update]
   end
 
   post "items/copy" => "items#copy", as: :copy_items
 
+  resources :dishes, only: [:destroy]
   resources :items, only: [:destroy]
+
 
   get "items/search" => "items#search", as: :search_items
 

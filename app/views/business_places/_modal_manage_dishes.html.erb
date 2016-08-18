@@ -1,3 +1,5 @@
+<!-- Manage Dishes Modal -->
+
 <div class="modal fade" id="manage-dishes-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -5,28 +7,16 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">New Today's Dish for <%= @business_place.name %></h4>
         </div> -->
-        <%= form_tag "/items/copy", method: :post, id: "js-copy-form", remote: true %>
-          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-          <%= hidden_field_tag :item_id %>
-        </form>
         <div class="modal-body">
-        <% unless @previous_items.empty? %>
-            <h4>Select the Dish to Edit</h4>
-            <div class="row-fluid">
-              <div class="col-lg-12 col-md-10 ">
-                  <div class="cover-container">
-                      <!-- START PANEL -->
-                      <% @previous_items.each do |i| %>
-                        <%# f.button :submit, value: i.id, style: "background-image: url(#{i.photo.url}) no-repeat;", class: "" %>
-                        <%= link_to "#", class: "item-copy-link", data: { id: i.id } do %>
-                          <div class="cover-item" style="background-image: url('<%= i.photo.url %>')"></div>
-                        <% end %>
-                      <% end %>
-                      <!-- END PANEL -->
-                  </div>
-              </div>
-            </div>
-            <div class="wrapper-white wrapper-white-lg"></div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <% unless @dishes.empty? %>
+            <h4>Select the dish to edit</h4>
+              <% @dishes.each do |d| %>
+                <%# f.button :submit, value: i.id, style: "background-image: url(#{i.photo.url}) no-repeat;", class: "" %>
+                <%= link_to "/business_places/#{@business_place.id}/dishes/#{d.id}/edit", class: "dish-manage-link", id: "dish-id-#{d.id}", data: { dismiss: "modal", toggle: "modal", target: "#edit-dish-modal", dish_id: d.id} do %>
+                  <div class="cover-item" style="background-image: url('<%= d.photo.url %>')"></div>
+                <% end %>
+              <% end %>
         <% end %>
         </div>
       </div>

@@ -1,0 +1,9 @@
+<%= simple_form_for [@business_place, @dish], remote: true do |f| %>
+  <%= f.input :name, placeholder: "Dish's name" %>
+  <%= f.input :description, placeholder: "Description" %>
+  <%= f.input :price, placeholder: "Price" %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <button type="button" class="btn btn-medium" data-dismiss="modal" aria-label="Close">Cancel</button>
+  <%= f.button :submit, class: "btn btn-medium btn-medium-yellow", value: "Save", id: "dish-edit-save" %>
+<% end %>

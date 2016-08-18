@@ -1,4 +1,4 @@
-<!-- Modal Add Dish -->
+<!-- New Item Modal -->
   <div class="modal fade" id="add-dish-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -11,6 +11,7 @@
           <%= hidden_field_tag :dish_id %>
         </form>
         <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <% unless @dishes.empty? %>
             <h4>Select a Previous Dish</h4>
             <div class="row-fluid">

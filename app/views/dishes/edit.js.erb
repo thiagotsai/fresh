@@ -1,0 +1,16 @@
+// Here you will write *javascript* that would be executed by the browser
+<% if @dish.errors.any? %>
+  // Render new review form with errors
+  $('#edit_dish_<%= @dish.id%>').html("<%= j render 'dishes/form', business_place: @business_place, dish: @dish %>");
+<% else %>
+
+  $(function () {
+     // Disable modal - Do not work on IOS Safari
+     $('#edit-dish-modal').modal('hide');
+
+     // Disable Modal - IOS Safari - DON'T WORK YET!!!!
+     $('body').removeClass('modal-open');
+     $('.modal-backdrop').remove();
+  });
+<% end %>
+
