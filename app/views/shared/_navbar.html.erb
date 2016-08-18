@@ -51,11 +51,18 @@
             <% end %>
           </li>
           <% unless current_user.business_places.empty? %>
-          <li>
-          <%= link_to "/business_places/#{current_user.business_places.last.id}", class: "navbar-wagon-item navbar-wagon-link" do %>
+            <% current_user.business_places.each do |bp| %>
+              <li>
+                <%= link_to business_place_path(bp), class: "navbar-wagon-item navbar-wagon-link" do %>
+              <i class="fa fa-cutlery" aria-hidden="true"></i> <%= bp.name %>
+              <% end %>
+              </li>
+            <% end %>
+          <!-- <li>
+          <%#= link_to "/business_places/#{current_user.business_places.last.id}", class: "navbar-wagon-item navbar-wagon-link" do %>
           <i class="fa fa-cog"></i> Manage Business Places
-          <% end %>
-          </li>
+          <%# end %>
+          </li> -->
           <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
