@@ -4,6 +4,7 @@ class BusinessPlace < ActiveRecord::Base
   has_many :cuisines, through: :business_cuisines
   has_many :business_place_users, dependent: :destroy
   has_many :users, through: :business_place_users
+  has_many :dishes, dependent: :destroy
   has_many :items, dependent: :destroy
   validates :name, presence: true, uniqueness: { scope: [:address, :city] }
   validates :description, presence: true
@@ -23,7 +24,6 @@ class BusinessPlace < ActiveRecord::Base
   after_create :create_business_place_user
 
   attr_accessor :current_user
-  #attr_accessor :cuisine
 
   def full_address
     "#{address}, #{zip_code} #{city} #{ISO3166::Country[country].name}"
@@ -38,21 +38,10 @@ class BusinessPlace < ActiveRecord::Base
     bpu.save
   end
 
-  # def create_business_place_cuisine
-  #   bpc = BusinessCuisine.new(business_place: self, cuisine: cuisine, main: true)
-  #   bpc.save
-  # end
-
   def owner
     bpu = BusinessPlaceUser.where(business_place: self, main: true).first
     return bpu.user unless bpu.nil?
     return nil
   end
-
-  # def cuisine
-  #   bpc = BusinessCuisine.where(business_place: self, main: true).first
-  #   return bpc.cuisine unless bpc.nil?
-  #   return nil
-  # end
 end
 

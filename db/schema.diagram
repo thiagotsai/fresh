@@ -59,7 +59,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="948" y="360" name="ingredients">
+<table x="1120" y="570" name="ingredients">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -70,13 +70,14 @@
 <part>id</part>
 </key>
 </table>
-<table x="620" y="357" name="items">
+<table x="721" y="282" name="items">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
-<row name="menu_id" null="1" autoincrement="0">
+<row name="dish_id" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="dishes" row="id" />
+</row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -156,7 +157,7 @@
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="status" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
@@ -193,12 +194,13 @@
 <default>NULL</default></row>
 <row name="cuisine_id" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="cuisines" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="787" y="180" name="cuisines">
+<table x="75" y="616" name="cuisines">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -212,7 +214,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="532" y="185" name="business_cuisines">
+<table x="59" y="441" name="business_cuisines">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -228,7 +230,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="790" y="354" name="item_info">
+<table x="934" y="515" name="item_info">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -266,7 +268,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="500" y="726" name="dishes">
+<table x="530" y="174" name="dishes">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -284,6 +286,10 @@
 <default>NULL</default></row>
 <row name="business_place_id" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
+<default>NULL</default><relation table="business_places" row="id" />
+</row>
+<row name="status" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
