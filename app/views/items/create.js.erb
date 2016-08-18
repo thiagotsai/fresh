@@ -3,10 +3,16 @@
   // Render new review form with errors
   $('#new_item').html("<%= j render 'items/form', business_place: @business_place, item: @item %>");
 <% else %>
-  // Disable modal
+
   $(function () {
+     // Disable modal - Do not work on IOS Safari
      $('#add-dish-modal').modal('hide');
+     // Disable Modal - IOS Safari
+     $('body').removeClass('modal-open');
+     $('.modal-backdrop').remove();
   });
+
+
 
   function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
