@@ -13,7 +13,7 @@ class BusinessPlacesController < ApplicationController
 
   def show
     # Find only the dishes of today to show
-    @items = @business_place.items.where('start_datetime >= :start AND end_datetime <= :end', start: Date.today, end: Date.today + 1)
+    @items = @business_place.today_items
 
 
     # Prepare previous dishes for the modal new item view

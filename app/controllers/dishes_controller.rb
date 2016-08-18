@@ -28,9 +28,22 @@ class DishesController < ApplicationController
   end
 
   def destroy
+    @business_place = @dish.business_place
     redirect_unauthorized_user
 
-    @dish.destroy
+    # Delete instead of destroy because we don't want
+    # the callbacks to be called (we want items to still be available)
+    # and not destroied together with the dish
+    @dish.delete
+
+    # Destroy also is there is any item in the day
+    # with the destroied dish, get the ids in @today_destroied_items
+    # to send in ajax and remove with animation
+    @destroied_item_ids = @dish.business_place.today_items.where(dish: @dish).distinct.pluck(:id)
+    @dish.business_place.today_items.where(dish: @dish).each do |i|
+      i.destroy
+    end
+
     flash[:success] = "Dish deleted"
     respond_to do |format|
       format.html { redirect_to request.referer }
