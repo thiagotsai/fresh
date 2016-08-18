@@ -22,7 +22,6 @@ gem 'cloudinary'
 gem 'carrierwave'
 gem 'geocoder'
 gem 'country_select'
-gem 'copy_carrierwave_file'
 
 group :development, :test do
   gem 'binding_of_caller'

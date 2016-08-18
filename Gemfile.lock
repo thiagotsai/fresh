@@ -63,8 +63,6 @@ GEM
       rest-client
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
-    copy_carrierwave_file (1.2.0)
-      carrierwave (~> 0.9)
     countries (0.11.5)
       currencies (~> 0.4.2)
       i18n_data (~> 0.7.0)
@@ -237,7 +235,6 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave
   cloudinary
-  copy_carrierwave_file
   country_select
   devise
   faker
