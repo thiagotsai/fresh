@@ -5,7 +5,6 @@ class Item < ActiveRecord::Base
   has_many :item_info, dependent: :destroy
   has_many :ingredients, through: :item_info
   validates :name, length: { minimum: 3, maximum: 30 }
-  include CopyCarrierwaveFile
   mount_uploader :photo, PhotoUploader
   accepts_nested_attributes_for :ingredients
 
@@ -15,9 +14,4 @@ class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
-
-  def duplicate_photo(original)
-    copy_carrierwave_file(original, self, :photo)
-    self.save!
-  end
 end
