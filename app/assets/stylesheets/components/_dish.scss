@@ -139,7 +139,7 @@
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 120px;
+  height: 350px;
   display: block;
   text-align: text-center;
   text-shadow: 0 1px 1px #fff;
@@ -188,6 +188,13 @@
   text-align: center;
 }
 
+.dish-add:hover,
+.dish-add:active {
+  color: $fresh-green;
+  border: 2px dashed $fresh-green;
+
+}
+
 
 // manage tasks
 
@@ -234,14 +241,6 @@
   // position: absolute;
   // top: 40%;
   // left: 50%;
-
-}
-
-
-.dish-add:hover,
-.dish-add:active {
-  color: $fresh-orange;
-  border: 2px dashed $fresh-yellow;
 
 }
 

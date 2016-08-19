@@ -17,6 +17,11 @@
                   <div class="cover-item" style="background-image: url('<%= d.photo.url %>')"></div>
                 <% end %>
               <% end %>
+        <% else %>
+          <h4>You have no dishes yet</h4>
+          <div>
+            <%= link_to "Add Dish", "#", class: "btn btn-medium", data: { dismiss: "modal", toggle: "modal", target: "#add-dish-modal"} %>
+          </div>
         <% end %>
         </div>
       </div>

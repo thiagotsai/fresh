@@ -27,7 +27,9 @@ class ItemsController < ApplicationController
     end
 
     #Calculate distance of user from each business_place
-    if session[:lat] && session[:lng]
+    session[:lat] ||= params[:lat]
+    session[:lng] ||= params[:lng]
+    unless (session[:lat].blank? and session[:lng].blank?)
       @items.each do |item|
         if item.business_place.geocoded?
           item.distance = item.business_place.distance_from([session[:lat],session[:lng]])

@@ -5,6 +5,8 @@
     <p>Let's eat a fresh food today!</p>
     <form action="items/search" class="form-inline" method="get">
     <input type="hidden" name="location" value="<%= @city.blank? ? "Lisboa" : @city %>">
+    <input type="hidden" name="lat" value="<%= session[:lat] %>">
+    <input type="hidden" name="lng" value="<%= session[:lng] %>">
       <!-- combo_box -->
       <!-- <select name="location" class="form-control input-lg">
         <%# BusinessPlace.select(:city).distinct.each do |e| %>

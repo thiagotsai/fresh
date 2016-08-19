@@ -16,7 +16,7 @@
             <div class="dishdetails-h1"><%= item.business_place.name %></div>
             <!-- <div class="dishdetails-h2"><%= item.business_place.cuisine.name %></div> -->
             <div>
-            <% unless item.walking_time.nil? or item.walking_time.nan? %>
+            <% unless session[:lat].blank? and session[:lng].blank? %>
               <%= image_tag "icon_walk.svg" %>
               <span style="vertical-align: bottom;"><%= item.walking_time.round %> min </span>
             <% end %>

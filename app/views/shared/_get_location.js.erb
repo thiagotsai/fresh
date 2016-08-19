@@ -28,6 +28,11 @@ if (navigator.geolocation) {
    //    "lng": user_location.lng,
    //    "accuracy": user_location.accuracy
    //  });
+   //
+
+   // Insert in the form in case user clicks before json response
+   $('input[name=lat]').val(position.coords.latitude)
+   $('input[name=lng]').val(position.coords.longitude)
 
 
    // Send via AJAX to Backend
@@ -41,6 +46,9 @@ if (navigator.geolocation) {
       console.log(data);
    }
    });
+
+
+
  }
 
  function displayError(error) {

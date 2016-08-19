@@ -46,7 +46,7 @@
 <!-- testing a new layout with manage dishes -->
 <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
 
-<div class="wrapper-white">
+<!-- <div class="wrapper-white">
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
@@ -77,32 +77,32 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <% end %>
 
-<%# if user_signed_in? && current_user.business_places.include?(@business_place) %>
+<% if user_signed_in? && current_user.business_places.include?(@business_place) %>
 
-<!-- <div class="wrapper-lightgrey">
+<div class="wrapper-lightgrey">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <div class="dish-show-container"> -->
-          <%#= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#add-dish-modal"} do %>
-            <!-- <i></i>
-            <span>Create a Dish</span>
-          <%# end %>
+        <div class="dish-show-container">
+          <%= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#add-dish-modal"} do %>
+            <i></i>
+            <span>Add Dish</span>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
- -->
-  <!-- <br>
+
   <br>
-  <div class="container text-center">
-  <%#= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
+  <br>
+  <!-- <div class="container text-center">
+  <%= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
   </div> -->
-<%# end %>
+<% end %>
 
 
 
@@ -113,7 +113,7 @@
     <div id="directions">
     <form action="http://maps.google.com/maps" method="get" target="_blank">
 
-      <% if session[:location_accepted] %>
+      <% unless session[:lat].blank? and session[:lng].blank? %>
         <input type="hidden" name="saddr" value="<%= session[:lat] %>,<%= session[:lng] %>">
         <input type="hidden" name="daddr" value="<%= @business_place.latitude %>,<%= @business_place.longitude %>">
         <input type="hidden" name="travel_mode" value="WALKING">

@@ -27,7 +27,7 @@ We found <%= pluralize @items.count, "fresh dish" %> nearby
       </select>
       &nbsp; Sort by: &nbsp;
       <select name="sort" class="form-control">
-        <% if session[:location_accepted] %>
+        <% if not session[:lat].blank? and not session[:lng].blank? %>
           <option value="0" <%= "selected" if @sort.blank? or @sort == 0 %>>Distance</option>
         <% end %>
         <option value="1" <%= "selected" if @sort == 1 %>>Name</option>

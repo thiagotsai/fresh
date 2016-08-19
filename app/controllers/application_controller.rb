@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :location
   protect_from_forgery with: :exception
 
   def location
@@ -21,7 +21,5 @@ class ApplicationController < ActionController::Base
       session[:accuracy] = nil
       render json: { :location_accepted => "false" }
     end
-
   end
-
 end
