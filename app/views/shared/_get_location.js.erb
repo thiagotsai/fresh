@@ -1,5 +1,7 @@
 <script>
+<% if session[:lat].blank? and session[:lng].blank? %>
 $('#btn-home').hide();
+<% end %>
 
 if (navigator.geolocation) {
  var timeoutVal = 10 * 1000 * 1000;
@@ -35,7 +37,10 @@ if (navigator.geolocation) {
    // Insert in the form in case user clicks before json response
    $('input[name=lat]').val(position.coords.latitude);
    $('input[name=lng]').val(position.coords.longitude);
+
+   <% if session[:lat].blank? and session[:lng].blank? %>
    $('#btn-home').slideDown();
+   <% end %>
 
 
    // Send via AJAX to Backend
@@ -76,7 +81,9 @@ if (navigator.geolocation) {
    }
    });
 
+   <% if session[:lat].blank? and session[:lng].blank? %>
    $('#btn-home').slideDown();
+   <% end %>
    // alert("Error: " + errors[error.code]);
  }
 </script>
