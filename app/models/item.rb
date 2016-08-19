@@ -14,4 +14,7 @@ class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
+
+  attr_accessor :distance, :walking_time
+
 end

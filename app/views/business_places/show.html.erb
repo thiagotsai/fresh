@@ -112,8 +112,16 @@
   <div class="wrapper-white">
     <div id="directions">
     <form action="http://maps.google.com/maps" method="get" target="_blank">
-      <input type="text" name="saddr" placeholder="Starting address" />
-      <input type="hidden" name="daddr" value="<%= @business_place.full_address %>"/>
+
+      <% if session[:location_accepted] %>
+        <input type="hidden" name="saddr" value="<%= session[:lat] %>,<%= session[:lng] %>">
+        <input type="hidden" name="daddr" value="<%= @business_place.latitude %>,<%= @business_place.longitude %>">
+        <input type="hidden" name="travel_mode" value="WALKING">
+      <% else %>
+        <input type="text" name="saddr" placeholder="Starting address"/>
+        <input type="hidden" name="daddr" value="<%= @business_place.full_address %>"/>
+      <% end %>
+
       <input type="submit" value="get directions" class= "btn-medium btn-medium-yellow"/>
     </form>
     </div>
