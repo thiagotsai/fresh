@@ -40,12 +40,17 @@
 }
 
 /* Navbar standard link */
-.navbar-wagon-link {
-  color: #616668;
-  font-size: 15px;
+.navbar-wagon-link,
+.navbar-wagon-link:visited,
+.navbar-wagon-link:focus,
+.navbar-wagon-link:active {
+  // color: #616668;
+  color: #888;
+  font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  //color: #da552f;
+  color: $fresh_yellow;
   text-decoration: none;
 }
 

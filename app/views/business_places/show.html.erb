@@ -1,6 +1,8 @@
 <%= render "modal_new_item" %>
-<%= render "modal_edit_business_place" %>
+<%= render "modal_edit_dish" %>
 <%= render "modal_manage_dishes" %>
+<%= render "modal_edit_business_place" %>
+<%= render "modal_manage_business_place" %>
 
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
 <div class="banner-small" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 55%), url('<%= image_url @business_place.cover_photo.url %>');">
@@ -9,9 +11,8 @@
       <h3><%= @business_place.description %></h3>
       <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
       <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
-        <%= link_to "Edit Business Place", "#{}", class: "btn-medium btn-medium-white", id: "edit-button", data: { toggle: "modal", target: "#edit-bp"} %>
-        <%# link_to "Edit Business Place", edit_business_place_path, class: "btn-medium btn-medium-white", id: "edit-button" %>
-        <!--  why does this work without an ID?-->
+        <%= link_to "Manage Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#manage-bp-modal"} %>
+        <%#= link_to "Edit Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#edit-bp"} %>
       <% end %>
   </div>
 </div>

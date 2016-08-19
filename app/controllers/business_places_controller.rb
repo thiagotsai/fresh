@@ -1,6 +1,6 @@
 class BusinessPlacesController < ApplicationController
-  before_action :set_business_place, only: [:show, :edit, :update, :destroy, :map]
-  skip_before_action :authenticate_user!, only: [:index, :show, :map]
+  before_action :set_business_place, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @business_places = BusinessPlace.all
@@ -13,11 +13,14 @@ class BusinessPlacesController < ApplicationController
 
   def show
     # Find only the dishes of today to show
-    @items = @business_place.items.where('start_datetime >= :start AND end_datetime <= :end', start: Date.today, end: Date.today + 1)
+    @items = @business_place.today_items
 
 
     # Prepare previous dishes for the modal new item view
     @dishes = @business_place.dishes.where(status: "active")
+
+    # Prepare for edit dish modal form
+    @dish = @business_place.dishes.new
 
     # This logic is because we don't have a Dishes Table
     # distinct_names = Item.where(business_place_id: @business_place.id).distinct.pluck(:name)
