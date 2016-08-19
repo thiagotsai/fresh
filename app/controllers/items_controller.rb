@@ -26,7 +26,19 @@ class ItemsController < ApplicationController
       end
     end
 
-    if @sort == 1 #Name
+    #Calculate distance of user from each business_place
+    if session[:lat] && session[:lng]
+      @items.each do |item|
+        if item.business_place.geocoded?
+          item.distance = item.business_place.distance_from([session[:lat],session[:lng]])
+          item.walking_time = item.distance / 0.08 #Walking pace is 5km/h or 0.08km/min
+        end
+      end
+    end
+
+    if @sort == 0 #Name
+      @items.sort! { |a,b| a.distance <=> b.distance }
+    elsif @sort == 1 #Name
       @items.sort! { |a,b| a.name <=> b.name }
     elsif @sort == 2 #Low to High
       @items.sort! { |a,b| a.price <=> b.price }

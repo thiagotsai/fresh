@@ -15,7 +15,12 @@
       </div> -->
             <div class="dishdetails-h1"><%= item.business_place.name %></div>
             <!-- <div class="dishdetails-h2"><%= item.business_place.cuisine.name %></div> -->
-            <div><%= image_tag "icon_walk.svg" %> <span style="vertical-align: bottom;">10 min</span></div>
+            <div>
+            <% unless item.walking_time.nil? or item.walking_time.nan? %>
+              <%= image_tag "icon_walk.svg" %>
+              <span style="vertical-align: bottom;"><%= item.walking_time.round %> min </span>
+            <% end %>
+            </div>
             <!-- <div class="dishdetails-p"><%#= item.business_place.cuisine.name %></div> -->
       </div>
 

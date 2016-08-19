@@ -35,6 +35,9 @@ class BusinessPlacesController < ApplicationController
     # Prepare to show the modal simple form for of the New Dish
     @item = Item.new
     @item.business_place = @business_place
+
+    # Prepare the button get directions to google directions
+    # TODO transform user geocoding to its street location
   end
 
   def create
