@@ -1,3 +1,42 @@
 
 <!-- Link to Edit Business Place -->
-<%= link_to "Edit Business Place", "#", data: { dismiss: "modal", toggle: "modal", target: "#edit-bp"} %>
+  <div class="container col-sm-12">
+    <div class="row">
+
+      <div class="col-sm-4">
+        <%= link_to "#", class: "task text-center", data: { dismiss: "modal", toggle: "modal", target: "#edit-bp"} do %>
+            <div class="manage-icon">
+              <i class="fa fa-list-alt fa-2x" aria-hidden="true"></i> &nbsp;
+            </div>
+            <span class="manage-link">Edit Basic Info</span>
+
+        <% end %>
+      </div>
+
+      <div class="col-sm-4">
+        <%= link_to "#", class: "task text-center", data: { dismiss: "modal", toggle: "modal", target: "#manage-dishes-modal"} do %>
+            <i></i>
+            <div class="manage-icon">
+              <i class="fa fa-spoon fa-2x" aria-hidden="true"></i> &nbsp;
+            </div>
+            <span class="manage-link">Manage Dishes</span>
+
+        <% end %>
+      </div>
+
+
+      <div class="col-sm-4">
+        <%= link_to "#", class: "task text-center", data: { dismiss: "modal", toggle: "modal", target: "#manage-dishes-modal"} do %>
+            <i></i>
+            <div class="manage-icon">
+              <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i> &nbsp;
+            </div>
+            <span class="manage-link">Manage Users</span>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+

@@ -22,11 +22,20 @@
   <!-- map_business_place_path(@business_place) -->
 </div>
 
+
+
+
+
+
 <% if not @items.empty? or (@items.empty? and user_signed_in? and current_user.business_places.include?(@business_place)) %>
   <div class="wrapper-white text-center">
     <h2>Today's dishes</h2>
   </div>
 <% end %>
+
+
+
+
 
 <div class="js-items-list">
     <% @items.each do |item| %>
@@ -34,64 +43,70 @@
     <% end %>
 </div>
 
-<% if user_signed_in? && current_user.business_places.include?(@business_place) %>
-
-<div class="wrapper-lightgrey">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <div class="dish-show-container">
-          <%= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#add-dish-modal"} do %>
-            <i></i>
-            <span>Create a Dish</span>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- <br>
-  <br>
-  <div class="container text-center">
-  <%= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
-  </div> -->
-<% end %>
-
 <!-- testing a new layout with manage dishes -->
 <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
 
-<div class="wrapper-lightgrey">
+<div class="wrapper-white">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
-        <div class="dish-show-container">
+      <div class="col-sm-4">
+        <div class="container-manager">
+          <%= link_to "#", class: "task text-center", data: { toggle: "modal", target: "#manage-dishes-modal"} do %>
+            <i></i>
+            <i class="fa fa-list-alt fa-2x" aria-hidden="true"></i>
+            <span>Dishes Portfolio</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="container-manager">
           <%= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#add-dish-modal"} do %>
             <i></i>
             <span>Create a Dish</span>
           <% end %>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="dish-show-container">
-          <%= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#manage-dishes-modal"} do %>
+      <div class="col-sm-4">
+        <div class="container-manager">
+          <%= link_to "#", class: "task text-center", data: { toggle: "modal", target: "#manage-dishes-modal"} do %>
             <i></i>
-            <span>Manage your Dishes Portfolio</span>
+            <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i>
+            <span>Manage Users</span>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 <% end %>
 
- <!--
-Spring salad with potatoes
-Price: 8€
-Mix leaves, cooked eggs, grilled chicken, parmesan cheese, artichokes, potatoes and olive oil-based sauce.
+<%# if user_signed_in? && current_user.business_places.include?(@business_place) %>
+
+<!-- <div class="wrapper-lightgrey">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="dish-show-container"> -->
+          <%#= link_to "#", class: "dish-add dish-add-pin", data: { toggle: "modal", target: "#add-dish-modal"} do %>
+            <!-- <i></i>
+            <span>Create a Dish</span>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
  -->
+  <!-- <br>
+  <br>
+  <div class="container text-center">
+  <%#= link_to "Add New Today's Dish", new_business_place_item_path(@business_place), class: "btn btn-default "%>
+  </div> -->
+<%# end %>
+
+
+
+
 
 <div class="container text-center">
   <div class="wrapper-white">
@@ -108,9 +123,9 @@ Mix leaves, cooked eggs, grilled chicken, parmesan cheese, artichokes, potatoes 
   <div id="map" style="width: 100%; height: 400px;"></div>
 
   <%= content_for(:after_js) do %>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE">
     console.log('google_api')
-  </script> -->
+  </script>
 
 
   <script type="text/javascript">
