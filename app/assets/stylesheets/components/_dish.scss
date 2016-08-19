@@ -28,11 +28,18 @@
 
 // dish show
 
+
 .dish-show-container {
   position: relative;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
+
+.container-manager {
+  margin-top: 0vh;
+  margin-bottom: 5vh;
+}
+
 
 .dish-name {
   font-size: 4vh;
@@ -123,7 +130,8 @@
 }
 
 .dish-add {
-  background: rgba(0,0,0,0.03);
+  // background: rgba(0,0,0,0.03);
+  background: #EEEEEE;
   border: 2px dashed #bbb;
   border-radius: 6px;
   box-sizing: border-box;
@@ -131,7 +139,7 @@
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 370px;
+  height: 120px;
   display: block;
   text-align: text-center;
   text-shadow: 0 1px 1px #fff;
@@ -179,3 +187,39 @@
   top: 50%;
   text-align: center;
 }
+
+
+// test
+
+.task {
+  background: $fresh-green;
+  border: 2px solid white;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 120px;
+  display: block;
+  text-align: text-center;
+  font-size: 15px;
+  font-weight: lighter;
+  padding-top: 50px;
+}
+
+.task:hover,
+.task:active {
+  outline: 0;
+  text-decoration: none;
+  color: white;
+  background-color: #787F56;
+}
+
+.dish-add:hover,
+.dish-add:active {
+  color: $fresh-yellow;
+  border: 2px dashed $fresh-yellow;
+
+}
+
