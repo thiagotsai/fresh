@@ -35,7 +35,7 @@ if (navigator.geolocation) {
    // Insert in the form in case user clicks before json response
    $('input[name=lat]').val(position.coords.latitude);
    $('input[name=lng]').val(position.coords.longitude);
-   $('#btn-home').show();
+   $('#btn-home').slideDown();
 
 
    // Send via AJAX to Backend
@@ -76,7 +76,7 @@ if (navigator.geolocation) {
    }
    });
 
-   $('#btn-home').show();
+   $('#btn-home').slideDown();
    // alert("Error: " + errors[error.code]);
  }
 </script>
