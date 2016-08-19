@@ -10,20 +10,40 @@
 <% end %>
 
   <!-- Search form -->
-    <form action="/items/search" class="navbar-wagon-search">
+<!--     <form action="/items/search" class="navbar-wagon-search">
       <input type="hidden" name="location" value="<%= "Lisboa" if @city.blank? %> <%= @city unless @city.blank? %>">
       <input type="text" name="query" class="navbar-wagon-search-input" placeholder="What do you want to eat today?">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
-    </form>
+    </form> -->
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
+    <!-- Dishes Portifolio Link -->
+    <%#= link_to "Manage Dishes", "#", class: "navbar-wagon-item navbar-wagon-link", data: { toggle: "modal", target: "#manage-dishes-modal"} %>
+
+    <!-- Manage Colaborators -->
+    <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Add Members</a> -->
+
+    <!-- Add your Business Link for Already Owners -->
+    <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Add new Business</a> -->
+
     <%= link_to "Add your Business", new_business_place_path , class: "btn-medium btn-medium-sm" %>
+
+<!--     <div class="navbar-wagon-item">
+      <div class="dropdown">
+      <a href="#" class="navbar-wagon-item navbar-wagon-link dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">Test Dropdown</a>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </div> -->
 
     <!-- Notification -->
     <%# link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
@@ -110,11 +130,13 @@
           <% end %>
         </li>
         <% unless current_user.business_places.empty? %>
-          <li>
-          <%= link_to "/business_places/#{current_user.business_places.last.id}", class: "navbar-wagon-item navbar-wagon-link" do %>
-          <i class="fa fa-cog"></i> Manage Business Places
+          <% current_user.business_places.each do |bp| %>
+              <li>
+                <%= link_to business_place_path(bp), class: "navbar-wagon-item navbar-wagon-link" do %>
+              <i class="fa fa-cutlery" aria-hidden="true"></i> <%= bp.name %>
+              <% end %>
+              </li>
           <% end %>
-          </li>
         <% end %>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
