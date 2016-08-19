@@ -1,4 +1,6 @@
 <script>
+$('#btn-home').hide();
+
 if (navigator.geolocation) {
  var timeoutVal = 10 * 1000 * 1000;
  navigator.geolocation.getCurrentPosition(
@@ -31,8 +33,9 @@ if (navigator.geolocation) {
    //
 
    // Insert in the form in case user clicks before json response
-   $('input[name=lat]').val(position.coords.latitude)
-   $('input[name=lng]').val(position.coords.longitude)
+   $('input[name=lat]').val(position.coords.latitude);
+   $('input[name=lng]').val(position.coords.longitude);
+   $('#btn-home').show();
 
 
    // Send via AJAX to Backend
@@ -72,6 +75,8 @@ if (navigator.geolocation) {
       console.log(data);
    }
    });
+
+   $('#btn-home').show();
    // alert("Error: " + errors[error.code]);
  }
 </script>
