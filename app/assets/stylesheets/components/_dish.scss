@@ -189,7 +189,7 @@
 }
 
 
-// test
+// manage tasks
 
 .task {
   background: $fresh-green;
@@ -205,7 +205,7 @@
   text-align: text-center;
   font-size: 15px;
   font-weight: lighter;
-  padding-top: 50px;
+  padding-top: 35px;
 }
 
 .task:hover,
@@ -216,9 +216,31 @@
   background-color: #787F56;
 }
 
+.task a,
+.task a:active,
+.task a:visited,
+.task a:focus {
+  color: white;
+  text-decoration: none;
+}
+
+.manage-link {
+  // position: absolute;
+  // top: 60%;
+  // left: 50%;
+
+}
+.manage-icon {
+  // position: absolute;
+  // top: 40%;
+  // left: 50%;
+
+}
+
+
 .dish-add:hover,
 .dish-add:active {
-  color: $fresh-yellow;
+  color: $fresh-orange;
   border: 2px dashed $fresh-yellow;
 
 }
