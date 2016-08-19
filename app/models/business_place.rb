@@ -43,5 +43,9 @@ class BusinessPlace < ActiveRecord::Base
     return bpu.user unless bpu.nil?
     return nil
   end
+
+  def today_items
+    self.items.where('start_datetime >= :start AND end_datetime <= :end', start: Date.today, end: Date.today + 1)
+  end
 end
 

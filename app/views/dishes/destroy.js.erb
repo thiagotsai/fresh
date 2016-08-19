@@ -1,4 +1,17 @@
+$(function () {
+   // Disable modal - Do not work on IOS Safari
+   $('#edit-dish-modal').modal('hide');
+
+   // Disable Modal - IOS Safari - DON'T WORK YET!!!!
+   $('body').removeClass('modal-open');
+   $('.modal-backdrop').remove();
+});
+
 $('#dish-id-<%= @dish.id%>').hide();
+
+<% @destroied_item_ids.each do |item_id| %>
+  $('#item-id-<%= item_id %>').slideUp();
+<% end %>
 
 //Hide item from the modal list
 //$('a[data-id=<%= @dish.id %>]').hide();
