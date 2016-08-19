@@ -19,10 +19,11 @@
               <% end %>
         <% else %>
           <h4>You have no dishes yet</h4>
+        <% end %>
+          <hr>
           <div>
             <%= link_to "Add Dish", "#", class: "btn btn-medium", data: { dismiss: "modal", toggle: "modal", target: "#add-dish-modal"} %>
           </div>
-        <% end %>
         </div>
       </div>
     </div>
