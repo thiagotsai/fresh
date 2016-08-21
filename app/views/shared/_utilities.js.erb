@@ -1,0 +1,13 @@
+//Edit SL: more universal
+// Code to refresh content of modals that open URL inside
+// So it does not to display what is in cache after first opening
+$(document).on('hidden.bs.modal', function (e) {
+    $(e.target).removeData('bs.modal');
+});
+
+// Code to still show scrollbar when a 2nd stacked modal is used
+$('.modal').on('hidden.bs.modal', function (e) {
+    if($('.modal').hasClass('in')) {
+    $('body').addClass('modal-open');
+    }
+});

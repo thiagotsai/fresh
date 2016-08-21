@@ -4,13 +4,29 @@
   $('#edit_dish_<%= @dish.id%>').html("<%= j render 'dishes/form', business_place: @business_place, dish: @dish %>");
 <% else %>
 
-  $(function () {
-     // Disable modal - Do not work on IOS Safari
-     $('#edit-dish-modal').modal('hide');
+ // Disable modal
+ $('#edit-dish-modal').modal('hide');
 
-     // Disable Modal - IOS Safari - DON'T WORK YET!!!!
-     $('body').removeClass('modal-open');
-     $('.modal-backdrop').remove();
+ // Update view if there is items using this changed dish
+
+ // Remove all items of the day with same changed dish
+ $('div[dish-id=<%= @dish.id %>]').remove();
+
+ // Append html elements of the changed items as hidden
+ <% @dish.today_items.each do |i| %>
+   var newItem<%= i.id %> = $("<%= j render '/business_places/item_show', item: i %>").hide();
+    $('.js-items-list').append(newItem<%= i.id %>);
+ <% end %>
+
+ // Animate to show these items
+ // Set animation to happen after modal hide
+ $('#edit-dish-modal').on('hidden.bs.modal', function (e) {
+    // after modal hide animation execute this
+    // Show the new item with slideDown
+    <% @dish.today_items.each do |i| %>
+      newItem<%= i.id %>.slideDown("slow");
+    <% end %>
   });
+
 <% end %>
 

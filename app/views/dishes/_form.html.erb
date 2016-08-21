@@ -4,6 +4,7 @@
   <%= f.input :price, placeholder: "Price" %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
+  <hr style="margin-top: 15px; margin-bottom: 15px;">
   <div style="display: flex; justify-content: space-between;">
     <div>
       <%= link_to "Delete", dish_path(@dish), class: "btn btn-medium", method: :delete, remote: true %>
@@ -14,3 +15,5 @@
     </div>
   </div>
 <% end %>
+
+

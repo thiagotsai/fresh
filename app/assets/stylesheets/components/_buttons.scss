@@ -47,6 +47,7 @@
     font-size: 15px;
   }
 
+  // White
   .btn-medium-white,
   .btn-medium-white:active,
   .btn-medium-white:focus,
@@ -61,6 +62,7 @@
     border: 1px solid white;
   }
 
+  // Yellow
   .btn-medium-yellow,
   .btn-medium-yellow:active,
   .btn-medium-yellow:focus,
@@ -68,7 +70,7 @@
     color: white;
     background-color: $brand-primary;
     opacity: 1;
-    border: 1px solid white;
+    border: 1px solid $brand-primary;
     outline: 0;
   }
 
@@ -76,6 +78,7 @@
     background-color: darken($brand-primary, 8%)
   }
 
+  // Green
   .btn-medium-green,
   .btn-medium-green:active,
   .btn-medium-green:focus,
@@ -91,6 +94,22 @@
     color: white;
   }
 
+  // Home button
+  .btn-medium-home,
+  .btn-medium-home:active,
+  .btn-medium-home:focus,
+  .btn-medium-home:visited {
+    color: white;
+    background-color: $brand-primary;
+    opacity: 1;
+    border: 1px solid white;
+    outline: 0;
+  }
+
+  .btn-medium-home:hover {
+    background-color: darken($brand-primary, 8%)
+  }
+
 #btn-home {
   font-weight: normal;
   padding: 6px 36px;
@@ -103,4 +122,18 @@
   bottom: 26vh;
 }
 
+
+// Get me there button from show to fix on top
+#btn-get-me-there.affix {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  z-index:10;
+  transition: all .6s ease-in-out;
+  -webkit-transition: all .6s ease-in-out;
+}
+
+#divider.affix {
+  margin-top: 70px;
+}
 

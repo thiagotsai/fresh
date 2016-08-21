@@ -19,6 +19,11 @@
   <%= render 'shared/footer' %>
 
   <%= javascript_include_tag 'application' %>
+
+  <script type="text/javascript">
+    <%= render 'shared/utilities.js.erb' %>
+  </script>
+
   <%= yield(:after_js) %>
 </body>
 </html>
