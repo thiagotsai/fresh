@@ -4,29 +4,19 @@
   $('#new_item').html("<%= j render 'items/form', business_place: @business_place, item: @item %>");
 <% else %>
 
-  $(function () {
-     // Disable modal - Do not work on IOS Safari
-     $('#add-dish-modal').modal('hide');
-
-     // Disable Modal - IOS Safari - DON'T WORK YET!!!!
-     $('body').removeClass('modal-open');
-     $('.modal-backdrop').remove();
-  });
-
-
-
-  function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-  }
-
-  // Capture what the html will need to display for the new item and hide it
+  // Add the html that will need to display for the new item and hide it
   var new_item = $("<%= j render '/business_places/item_show', item: @item %>").hide();
+  $('.js-items-list').append(new_item);
 
-  // Sleep for a momento to wait the modal animation, then append in
-  // the items list and make it appear with a slidedown
-  sleep(500).then(() => {
-      // Do something after the sleep!
-      $('.js-items-list').append(new_item);
-      new_item.slideDown("slow");
-  });
+
+  // Set animation to happen after modal hide
+  $('#add-dish-modal').on('hidden.bs.modal', function (e) {
+    // after modal hide animation execute this
+    // Show the new item with slideDown
+    new_item.slideDown("slow");
+  })
+
+  // Hide modal
+  $('#add-dish-modal').modal('hide');
+
 <% end %>
