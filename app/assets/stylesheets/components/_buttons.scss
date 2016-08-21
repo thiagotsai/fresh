@@ -8,11 +8,11 @@
 .btn-medium:active,
 .btn-medium:focus,
 .btn-medium:visited {
-  color: $brand-primary;
-  border: 1px solid $brand-primary;
+  color: #888;
+  border: 1px solid #888;
   padding: 5px 15px;
   border-radius: 50px;
-  font-weight: lighter;
+  font-weight: normal;
   opacity: 0.8;
   background-color: transparent;
 }
@@ -22,7 +22,7 @@
   text-decoration: none;
   color: white;
   border: 1px solid $brand-primary;
-  background-color: $fresh-yellow;
+  background-color: $brand-primary;
 }
 
   .btn-medium-sm {
@@ -54,14 +54,29 @@
   .btn-medium-yellow:focus,
   .btn-medium-yellow:visited {
     color: white;
-    background-color: $fresh-yellow;
+    background-color: $brand-primary;
     opacity: 1;
     border: 1px solid white;
     outline: 0;
   }
 
   .btn-medium-yellow:hover {
-    background-color: darken($fresh-yellow, 8%)
+    background-color: darken($brand-primary, 8%)
+  }
+
+  .btn-medium-green,
+  .btn-medium-green:active,
+  .btn-medium-green:focus,
+  .btn-medium-green:visited {
+    color: $fresh-green;
+    border: 1px solid $fresh-green;
+    background-color: transparent;
+  }
+
+  .btn-medium-green:hover {
+    border: 1px solid $fresh-green;
+    background-color: $fresh-green;
+    color: white;
   }
 
 #btn-home {
