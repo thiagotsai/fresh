@@ -1,3 +1,21 @@
+.btn-signup-yellow {
+    color: white;
+    background-color: $fresh-yellow;
+    border: none;
+    margin-bottom: 18px;
+}
+
+.btn-signup-yellow:hover {
+  background-color: darken($fresh-yellow, 8%);
+  color: white;
+}
+
+.btn-facebook-fresh:hover {
+  background-color: darken(#3B5998, 8%);
+  color: white;
+  border-color: none;
+}
+
 .btn-block {
     display: block;
     width: 100%;
@@ -28,12 +46,6 @@
   .btn-medium-sm {
     font-size: 15px;
   }
-
-  // .btn-medium:hover {
-  //   opacity: 1;
-  //   text-decoration: none;
-  //   color: white;
-  // }
 
   .btn-medium-white,
   .btn-medium-white:active,
@@ -90,3 +102,5 @@
   left: 4vw;
   bottom: 26vh;
 }
+
+
