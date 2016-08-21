@@ -21,7 +21,23 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? && current_user.business_places.include?(@business_place) && current_page?(controller: 'business_places', action: 'show')%>
-      <%= link_to "Manage #{@business_place.name}", "#", class:"navbar-wagon-link", data: { toggle: "modal", target: "#manage-bp-modal"} %>
+      <%#= link_to "Manage #{@business_place.name}", "#", class:"navbar-wagon-link", data: { toggle: "modal", target: "#manage-bp-modal"} %>
+      <div class="dropdown">
+      <%= link_to "Manage #{@business_place.name}", "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+            <%= link_to "#", data: { dismiss: "modal", toggle: "modal", target: "#edit-bp"} do %>
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
+            <span>&nbsp; Edit Basic Info</span>
+            <% end %>
+            <hr class="no-padding">
+            <%= link_to "#", data: { dismiss: "modal", toggle: "modal", target: "#manage-dishes-modal"} do %>
+            <i class="fa fa-spoon" aria-hidden="true"></i>
+            <span>&nbsp; Manage Dishes</span>
+            <% end %>
+        </li>
+      </ul>
+      </div>
     <% end %>
 
     <% if user_signed_in? %>
@@ -42,7 +58,9 @@
       <% if user_signed_in? && current_user.business_places.include?(@business_place) && current_page?(controller: 'business_places', action: 'show')%>
         <%= link_to "Add your Business", new_business_place_path , class: "navbar-wagon-link" %>
       <% else %>
+        <div class="navbar-wagon-item">
         <%= link_to "Add your Business", new_business_place_path , class: "btn-medium btn-medium-sm" %>
+        </div>
       <% end %>
 <!--     <div class="navbar-wagon-item">
       <div class="dropdown">
