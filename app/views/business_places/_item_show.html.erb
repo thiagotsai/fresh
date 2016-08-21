@@ -1,4 +1,4 @@
-<div class="wrapper-lightgrey" id="<%= "item-id-#{item.id}" %>">
+<div class="wrapper-lightgrey" id="item-id-<%= item.id %>" dish-id="<%= item.dish.id unless item.dish.nil? %>">
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
@@ -9,7 +9,7 @@
         <div class="col-sm-6">
           <div class="dish-show-container">
           <% if (user_signed_in? and current_user.business_places.include?(@business_place)) or @close_button %>
-            <%= link_to item_path(item), method: :delete, remote: true, class: "close close-large", aria: { label: "Close" } do %>
+            <%= link_to item_path(item), method: :delete, remote: true, class: "close close-lg", aria: { label: "Close" } do %>
               <span aria-hidden="true">&times;</span>
             <% end %>
           <% end %>

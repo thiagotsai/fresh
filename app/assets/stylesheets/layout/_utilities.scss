@@ -24,8 +24,10 @@
 
 .wrapper-white {
   background-color: white;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  // padding-top: 5vh;
+  // padding-bottom: 5vh;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .wrapper-white-lg {
@@ -102,24 +104,18 @@ a:visited {
   color: white;
 }
 
-.modal-open {
-  overflow-y: scroll;
-  padding-right: 0 !important;
+.close-md {
+  float: right;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
 }
 
-.modal {
-  margin-left: 17px;
-}
-
-.modal-scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-}
-
-.close-large {
+.close-lg {
   float: right;
   font-size: 40px;
   font-weight: 700;

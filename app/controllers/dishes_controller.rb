@@ -15,6 +15,16 @@ class DishesController < ApplicationController
     redirect_unauthorized_user
 
     if @dish.update(dish_params)
+
+      # Also update all today's items for this dish
+      @dish.today_items.each do |item|
+        item.name = @dish.name
+        item.description = @dish.description
+        item.price = @dish.price
+        item.remote_photo_url = @dish.photo_url
+        item.save
+      end
+
       respond_to do |format|
         format.html { redirect_to business_place_path(@business_place) }
         format.js  { render :edit }
