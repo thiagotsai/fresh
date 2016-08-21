@@ -5,7 +5,7 @@
         <div class="modal-body">
           <%- if devise_mapping.omniauthable? %>
             <%- resource_class.omniauth_providers.each do |provider| %>
-              <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook js-facebook-auth" do %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook btn-facebook-fresh js-facebook-auth" do %>
                 <span class="icon-container">
                   <i class="fa fa-facebook"></i>
                 </span>
@@ -32,7 +32,7 @@
               <% end -%>
             </div>
           </div>
-          <%= f.button :submit, "Log in", class: "btn btn-primary btn-block"%>
+          <%= f.button :submit, "Log in", class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-signup-yellow"%>
 
             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
             <hr>
@@ -41,7 +41,7 @@
                 <span>Don't have an account?</span>
               </div>
               <div>
-                <%= link_to "Sign up", "#", class: "btn btn-primary", data: { dismiss: "modal", toggle: "modal", target: "#signUpModal" } %>
+                <%= link_to "Sign up", "#", class: "btn-medium btn-medium-sm", data: { dismiss: "modal", toggle: "modal", target: "#signUpModal" } %>
               </div>
             </div>
             <% end -%>

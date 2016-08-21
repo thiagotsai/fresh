@@ -10,10 +10,10 @@
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
       <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
-      <% if user_signed_in? && current_user.business_places.include?(@business_place) %>
-        <%= link_to "Manage Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#manage-bp-modal"} %>
+      <%# if user_signed_in? && current_user.business_places.include?(@business_place) %>
+        <%#= link_to "Manage Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#manage-bp-modal"} %>
         <%#= link_to "Edit Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#edit-bp"} %>
-      <% end %>
+      <%# end %>
   </div>
   </div>
 

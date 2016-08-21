@@ -1,3 +1,21 @@
+.btn-signup-yellow {
+    color: white;
+    background-color: $fresh-yellow;
+    border: none;
+    margin-bottom: 18px;
+}
+
+.btn-signup-yellow:hover {
+  background-color: darken($fresh-yellow, 8%);
+  color: white;
+}
+
+.btn-facebook-fresh:hover {
+  background-color: darken(#3B5998, 8%);
+  color: white;
+  border-color: none;
+}
+
 .btn-block {
     display: block;
     width: 100%;
@@ -28,12 +46,6 @@
   .btn-medium-sm {
     font-size: 15px;
   }
-
-  // .btn-medium:hover {
-  //   opacity: 1;
-  //   text-decoration: none;
-  //   color: white;
-  // }
 
   // White
   .btn-medium-white,
@@ -110,6 +122,7 @@
   bottom: 26vh;
 }
 
+
 // Get me there button from show to fix on top
 #btn-get-me-there.affix {
   position: fixed;
@@ -123,3 +136,4 @@
 #divider.affix {
   margin-top: 70px;
 }
+

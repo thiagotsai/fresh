@@ -5,7 +5,7 @@
         <div class="modal-body">
           <%- if devise_mapping.omniauthable? %>
             <%- resource_class.omniauth_providers.each do |provider| %>
-              <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook" do %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook btn-facebook-fresh" do %>
                 <span class="icon-container">
                   <i class="fa fa-facebook"></i>
                 </span>
@@ -17,7 +17,7 @@
           <% end -%>
           <div class="text-center">or</div>
           <br>
-          <%= link_to new_registration_path(resource_name), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-signup-email" do %>
+          <%= link_to new_registration_path(resource_name), class: "btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-signup-yellow" do %>
                 <span class="text-container">
                   <%= "Sign up with email" %>
                 </span>
@@ -29,7 +29,7 @@
                 <span>Already a Fresh member?</span>
               </div>
               <div>
-                <%= link_to "Log in", "#", class: "btn-medium", data: { dismiss: "modal", toggle: "modal", target: "#loginModal" } %>
+                <%= link_to "Log in", "#", class: "btn-medium btn-medium-sm", data: { dismiss: "modal", toggle: "modal", target: "#loginModal" } %>
               </div>
             </div>
           <% end -%>
