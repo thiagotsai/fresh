@@ -1,7 +1,7 @@
 <%= simple_form_for [@business_place, @dish], remote: true do |f| %>
-  <%= f.input :name, placeholder: "Dish's name" %>
-  <%= f.input :description, placeholder: "Description" %>
-  <%= f.input :price, placeholder: "Price" %>
+  <%= f.input :name, label: false, placeholder: "Dish's name" %>
+  <%= f.input :description, label: false, placeholder: "Description" %>
+  <%= f.input :price, label: false, placeholder: "Price" %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <hr style="margin-top: 15px; margin-bottom: 15px;">
