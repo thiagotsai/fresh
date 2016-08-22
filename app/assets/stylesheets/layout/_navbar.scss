@@ -10,12 +10,7 @@
   justify-content: space-between;
 }
 
-// From 1024px of Window Width
-@media (min-width:1024px){
-
-}
-
-// Until 1023px of Window Width
+// Until 800px of Window Width
 @media (max-width:800px){
   .pages.home .navbar-wagon-brand img {
     display: none;
