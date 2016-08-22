@@ -23,13 +23,13 @@
 
   <!-- Get me there button  -->
 <div id="header-wrapper">
-  <div class="badge-yellow" id="btn-get-me-there">
+  <div class="" id="btn-get-me-there">
     <% if session[:lat].blank? and session[:lng].blank? %>
       <!-- Geo location NOT allowed -->
-      <%= link_to "Get me there", "#directions" %>
+      <%= link_to "Get me there", "#directions", class: "btn btn-primary btn-block btn-badge" %>
     <% else %>
       <!-- Geo location ALLOWED -->
-      <%= link_to "Get me there", "http://maps.google.com/maps/?saddr=#{session[:lat]},#{session[:lng]}&daddr=#{@business_place.latitude}, #{@business_place.longitude}&dirflg=w", target: "_blank"  %>
+      <%= link_to "Get me there", "http://maps.google.com/maps/?saddr=#{session[:lat]},#{session[:lng]}&daddr=#{@business_place.latitude}, #{@business_place.longitude}&dirflg=w", target: "_blank", class: "btn btn-primary btn-block btn-badge"   %>
     <% end %>
   </div>
 </div>
