@@ -26,17 +26,32 @@ class ItemsController < ApplicationController
       end
     end
 
-    #Calculate distance of user from each business_place
+
+    # Update session variables
     session[:lat] ||= params[:lat]
     session[:lng] ||= params[:lng]
+
+    # OLD VERSION
+    # Calculate distance of user from each business_place
+    # unless (session[:lat].blank? and session[:lng].blank?)
+    #   @items.each do |item|
+    #     if item.business_place.geocoded?
+    #       item.distance = item.business_place.distance_from([session[:lat],session[:lng]])
+    #       item.walking_time = item.distance / 0.08 #Walking pace is 5km/h or 0.08km/min
+    #     end
+    #   end
+    # end
+
+    # NEW VERSION WITH DIRECTIONS
     unless (session[:lat].blank? and session[:lng].blank?)
       @items.each do |item|
         if item.business_place.geocoded?
-          item.distance = item.business_place.distance_from([session[:lat],session[:lng]])
-          item.walking_time = item.distance / 0.08 #Walking pace is 5km/h or 0.08km/min
+          directions = FreshGoogleDirections.new("#{session[:lat]},#{session[:lng]}", "#{item.business_place.latitude},#{item.business_place.longitude}")
+          item.walking_time = directions.walking_time_in_minutes
         end
       end
     end
+
 
     if @sort == 0 #Name
       @items.sort! { |a,b| a.distance <=> b.distance }

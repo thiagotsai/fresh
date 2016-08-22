@@ -17,6 +17,21 @@
   overflow: hidden;
 }
 
+// Resolve problem of Google Address Autocomplete form inside modal bootstrap
+.pac-container {
+    background-color: #FFF;
+    z-index: 20;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+.modal{
+    z-index: 20;
+}
+.modal-backdrop{
+    z-index: 10;
+}​
+
 // Modal header customize to override Bootstrap
 .modal-header {
   padding:9px 15px;

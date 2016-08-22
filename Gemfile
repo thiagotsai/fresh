@@ -22,6 +22,7 @@ gem 'cloudinary'
 gem 'carrierwave'
 gem 'geocoder'
 gem 'country_select'
+gem 'google_directions'
 
 group :development, :test do
   gem 'binding_of_caller'

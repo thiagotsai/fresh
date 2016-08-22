@@ -16,7 +16,7 @@
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1001;
+  z-index: 15; // Must be below 20 for modal and google autocomplete
   width: 100%;
 }
 
