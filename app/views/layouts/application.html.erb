@@ -10,7 +10,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <!--  class="<%= [params[:controller], params[:action]].join(' ') %>" -->
-<body>
+<body class="<%= [params[:controller], params[:action]].join(' ')%>">
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
 
