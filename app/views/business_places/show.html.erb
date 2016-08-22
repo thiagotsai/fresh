@@ -29,7 +29,7 @@
       <%= link_to "Get me there", "#directions" %>
     <% else %>
       <!-- Geo location ALLOWED -->
-      <%= link_to "Get me there", "http://maps.google.com/maps/?saddr=#{session[:lat]},#{session[:lng]}&daddr=#{@business_place.latitude}, #{@business_place.longitude}&travel_model=walking", target: "_blank"  %>
+      <%= link_to "Get me there", "http://maps.google.com/maps/?saddr=#{session[:lat]},#{session[:lng]}&daddr=#{@business_place.latitude}, #{@business_place.longitude}&dirflg=w", target: "_blank"  %>
     <% end %>
   </div>
 </div>
@@ -164,6 +164,15 @@ $('#btn-get-me-there').affix({
     offset: {
       top: $('.banner-small').height() - $('.navbar-wagon').height()
     }
+});
+
+//Spinner animation while doing ajax requests
+$(".spinner").hide();
+
+$(document).ajaxStart(function() {
+  $(".spinner").fadeIn('slow');
+}).ajaxStop(function() {
+    $(".spinner").hide();
 });
 
 

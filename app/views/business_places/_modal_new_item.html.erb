@@ -53,6 +53,9 @@
 </div>
 
 <%= content_for(:after_js) do %>
+<!-- Custom file input -->
+<script src="js/custom-file-input.js"></script>
+
 <script>
   // Action for dish-copy-link to change hidden field and post the form
   $('.dish-copy-link').on('click', function(e) {
@@ -62,13 +65,5 @@
       $('#js-copy-form').submit();
   });
 
-  //Spinned test
-  $(".spinner").hide();
-
-  $(document).ajaxStart(function() {
-    $(".spinner").fadeIn('slow');
-  }).ajaxStop(function() {
-      $(".spinner").hide();
-  });
 </script>
 <% end %>
