@@ -40,6 +40,31 @@
   margin-bottom: 5vh;
 }
 
+// Until 1023px of Window Width
+@media (max-width:1023px){
+  .dish-name {
+    font-size: 3.5vh;
+    color: #424242;
+    text-shadow: none;
+    margin-left: 0;
+  }
+
+  .dish-price {
+    color: #FB8C00;
+    font-size: 2.8vh;
+    font-weight: normal;
+    margin-left: 0;
+  }
+
+  .dish-description {
+    font-size: 2.8vh;
+    color: #424242;
+    margin-left: 0;
+    padding-top: 4vh;
+    font-weight: lighter;
+  }
+}
+
 // From 1024px of Window Width
 @media (min-width:1024px){
   .dish-name {
@@ -65,30 +90,6 @@
   }
 }
 
-// Until 1023px of Window Width
-@media (max-width:1023px){
-  .dish-name {
-    font-size: 4vh;
-    color: #424242;
-    text-shadow: none;
-    margin-left: 0;
-  }
-
-  .dish-price {
-    color: #FB8C00;
-    font-size: 3vh;
-    font-weight: normal;
-    margin-left: 0;
-  }
-
-  .dish-description {
-    font-size: 3vh;
-    color: #424242;
-    margin-left: 0;
-    padding-top: 4vh;
-    font-weight: lighter;
-  }
-}
 
 
 

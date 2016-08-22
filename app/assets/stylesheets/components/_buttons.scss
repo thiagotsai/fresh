@@ -21,6 +21,22 @@
     width: 100%;
     padding: 10px 12px;
 }
+.btn-badge,
+.bbtn-badge:active,
+.btn-badge:focus,
+.btn-badge:visited {
+  color: white;
+  background-color: $brand-primary;
+  opacity: 1;
+  border: 1px solid $brand-primary;
+  outline: 0;
+  font-size: 20px;
+  padding: 6px;
+}
+
+.btn-badge:hover {
+  background-color: darken($brand-primary, 8%);
+}
 
 .btn-medium,
 .btn-medium:active,
@@ -75,7 +91,7 @@
   }
 
   .btn-medium-yellow:hover {
-    background-color: darken($brand-primary, 8%)
+    background-color: darken($brand-primary, 8%);
   }
 
   // Green
