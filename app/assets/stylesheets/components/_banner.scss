@@ -37,27 +37,78 @@
   box-sizing: border-box;
 }
 
-.banner-small-content h2 {
-  font-size: 45px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  bottom: 14vh;
-  left: 4vw;
+@media (max-width:1023px){
+  .banner-small-content h2 {
+    font-size: calc(100% + 2.5vw);
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 15vh;
+    left: 4vw;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+  }
+  .banner-small-content h3 {
+    font-size: calc(100% + 0.3vw);
+    font-weight: lighter;
+    position: absolute;
+    bottom: 11vh;
+    left: 4vw;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    color: lightgrey;
+  }
+  .banner-small-content p {
+    font-size: calc(90% + 0.1vw);
+    font-weight: lighter;
+    position: absolute;
+    bottom: 0.2vh;
+    left: 4vw;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    color: lightgrey;
+  }
+
+  #bp-address {
+    bottom: 4vh;
+    left: 4vw;
+
+  }
 }
-.banner-small-content h3 {
-  font-size: 25px;
-  font-weight: normal;
-  position: absolute;
-  bottom: 9vh;
-  left: 4vw;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+
+@media (min-width:1024px){
+  .banner-small-content h2 {
+    font-size: calc(100% + 2vw);
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 16vh;
+    left: 4vw;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+  }
+  .banner-small-content h3 {
+    font-size: calc(100% + 0.5vw);
+    font-weight: lighter;
+    position: absolute;
+    bottom: 11vh;
+    left: 4vw;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    color: lightgrey;
+  }
+  .banner-small-content p {
+    font-size: calc(90% + 0.1vw);
+    font-weight: lighter;
+    position: absolute;
+    bottom: 0.1vh;
+    left: 4vw;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    color: lightgrey;
+  }
+
+  #bp-address {
+    bottom: 4vh;
+    left: 4vw;
+  }
 }
-.banner-small-content p {
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  bottom: 1vh;
-  left: 4vw;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
+
