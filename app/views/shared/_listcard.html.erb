@@ -18,7 +18,11 @@
             <div>
             <% unless session[:lat].blank? and session[:lng].blank? %>
               <%= image_tag "icon_walk.svg" %>
-              <span style="vertical-align: bottom;"><%= Time.at(item.walking_time.round * 60).utc.strftime('%k h %M min') %></span>
+              <span style="vertical-align: bottom;">
+              <% time_format = "%_M min" #23min %>
+              <% time_format = "%k h %_M min" if item.walking_time.round > 60 #5h 23 min %>
+              <%= Time.at(item.walking_time.round * 60).utc.strftime(time_format) %>
+              </span>
             <% end %>
             </div>
             <!-- <div class="dishdetails-p"><%#= item.business_place.cuisine.name %></div> -->
