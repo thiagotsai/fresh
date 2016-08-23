@@ -25,6 +25,10 @@ class BusinessPlace < ActiveRecord::Base
 
   attr_accessor :current_user
 
+  def show_address
+    "#{address}, #{city}"
+  end
+
   def full_address
     "#{address}, #{zip_code} #{city} #{ISO3166::Country[country].name}"
   end

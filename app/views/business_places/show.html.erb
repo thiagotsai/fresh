@@ -26,7 +26,7 @@
       </div>
 
         <p id="bp-phone"><%= @business_place.phone_number %></p>
-        <p id="bp-address"><%= @business_place.full_address %></p>
+        <p id="bp-address"><%= @business_place.show_address %></p>
 
       <%# if user_signed_in? && current_user.business_places.include?(@business_place) %>
         <%#= link_to "Manage Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#manage-bp-modal"} %>
