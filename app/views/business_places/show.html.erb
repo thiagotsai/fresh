@@ -15,14 +15,18 @@
 <% end %>
 
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
-<div class="banner-small" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 55%), url('<%= image_url @business_place.cover_photo.url %>');">
+<div class="banner-small" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 55%), url('<%= image_url @business_place.cover_photo.url %>');">
   <div class="banner-small-content">
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
-      <a name= "1"></a>
+
       <%= social_share_button_tag(@business_place.name, :image => @business_place.cover_photo, :url => request.original_url) %>
       <!-- <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large" data-mobile-iframe="true"<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div> -->
-      <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
+
+        <p id="bp-phone"><%= @business_place.phone_number %></p>
+        <p id="bp-address"><%= @business_place.full_address %></p>
+
+
       <%# if user_signed_in? && current_user.business_places.include?(@business_place) %>
         <%#= link_to "Manage Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#manage-bp-modal"} %>
         <%#= link_to "Edit Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#edit-bp"} %>
@@ -32,13 +36,13 @@
 
   <!-- Get me there button  -->
 <div id="header-wrapper">
-  <div class="badge-yellow" id="btn-get-me-there">
+  <div class="" id="btn-get-me-there">
     <% if session[:lat].blank? and session[:lng].blank? %>
       <!-- Geo location NOT allowed -->
-      <%= link_to "Get me there", "#directions" %>
+      <%= link_to "Get me there", "#directions", class: "btn btn-primary btn-block btn-badge" %>
     <% else %>
       <!-- Geo location ALLOWED -->
-      <%= link_to "Get me there", "http://maps.google.com/maps/?saddr=#{session[:lat]},#{session[:lng]}&daddr=#{@business_place.latitude}, #{@business_place.longitude}&travel_model=walking", target: "_blank"  %>
+      <%= link_to "Get me there", "http://maps.google.com/maps/?saddr=#{session[:lat]},#{session[:lng]}&daddr=#{@business_place.latitude}, #{@business_place.longitude}&dirflg=w", target: "_blank", class: "btn btn-primary btn-block btn-badge"   %>
     <% end %>
   </div>
 </div>
@@ -152,6 +156,7 @@
       zoom: 16,
       center: myLatlng,
       scrollwheel: false,
+      draggable: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit.station.bus","elementType":"geometry","stylers":[{"visibility":"on"},{"hue":"#ff0000"}]},{"featureType":"transit.station.bus","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"transit.station.bus","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#4690ec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"}]}] // TODO: replace [] by array from https://snazzymaps.com/
 };
@@ -173,6 +178,15 @@ $('#btn-get-me-there').affix({
     offset: {
       top: $('.banner-small').height() - $('.navbar-wagon').height()
     }
+});
+
+//Spinner animation while doing ajax requests
+$(".spinner").hide();
+
+$(document).ajaxStart(function() {
+  $(".spinner").fadeIn('slow');
+}).ajaxStop(function() {
+    $(".spinner").hide();
 });
 
 

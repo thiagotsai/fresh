@@ -1,21 +1,82 @@
 <%= simple_form_for @business_place do |f| %>
-  <%= f.input :name, placeholder: "Enter the name" %>
-  <%= f.input :description, placeholder: "Enter a punch line description" %>
-  <%= f.input :phone_number, placeholder: "Enter the Phone Number" %>
-  <%= f.input :address %>
-  <%= f.input :zip_code %>
-  <%= f.input :city %>
-  <%= f.input :country, priority: [ 'PT' ] %>
-  <%#= f.input :average_cost, placeholder: "Enter the average cost e.g. 30 euros for 2 people", label: "Cost" %>
-  <%#= f.input :opening_time, placeholder: "Enter working time e.g. 12pm - 9pm", label: "Opening Time" %>
-  <%= f.input :cover_photo %>
-  <%= f.input :cover_photo_cache, as: :hidden %>
-  <%= f.input :cuisine_id, collection: @cuisines, prompt: "Select the main cuisine", label: "Main cuisine" %>
-  <%# f.input :cuisine_id, collection: @cuisines, selected: @business_place.cuisine.id, prompt: "Select the main cuisine", label: "Main cuisine" %>
-  <%#= f.association :cuisines, as: :check_boxes, label: "What other cuisines does it have?" %>
-  <%= f.button :submit, class: "btn btn-primary btn-block" %>
+
+<div class="form-row-inline">
+  <span class="label-inline">Name</span>
+  <div>
+    <%= f.input :name, label: false, placeholder: "Enter the name" %>
+
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Description</span>
+  <div>
+    <%= f.input :description, label: false, placeholder: "Enter a punch line description" %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Cuisine</span>
+  <div>
+    <%= f.input :cuisine_id, label: false, collection: @cuisines, prompt: "Select the main cuisine" %>
+    <%# f.input :cuisine_id, collection: @cuisines, selected: @business_place.cuisine.id, prompt: "Select the main cuisine", label: "Main cuisine" %>
+    <%#= f.association :cuisines, as: :check_boxes, label: "What other cuisines does it have?" %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Phone</span>
+  <div>
+    <%= f.input :phone_number, label: false, placeholder: "Enter the Phone Number" %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Address</span>
+  <div>
+    <%= f.input :address, label: false %>
+    <%#= f.input :average_cost, placeholder: "Enter the average cost e.g. 30 euros for 2 people", label: "Cost" %>
+    <%#= f.input :opening_time, placeholder: "Enter working time e.g. 12pm - 9pm", label: "Opening Time" %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Zip code</span>
+  <div>
+    <%= f.input :zip_code, label: false %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">City</span>
+  <div>
+    <%= f.input :city, label: false %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Country</span>
+  <div>
+    <%= f.input :country, label: false, priority: [ 'PT' ] %>
+  </div>
+</div>
+
+<div class="form-row-inline">
+  <span class="label-inline">Cover photo</span>
+  <div>
+    <%= f.input :cover_photo, label: false %>
+    <%= f.input :cover_photo_cache, as: :hidden %>
+  </div>
+</div>
+
+
+
+
+
+
+<%= f.button :submit, class: "btn btn-primary btn-block" %>
 <% end %>
 
 <%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE"></script>
 <% end %>

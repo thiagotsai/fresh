@@ -2,12 +2,13 @@
   background-color: $fresh-yellow;
   padding: 0;
   color: white;
+  //height: 10vh;
+  //height: 80px;
 }
-.footer hr {
-  margin: 0;
-  width: auto;
-  margin: 0 25vw;
-}
+// .footer hr {
+//   width: auto;
+//   margin: 1vh 30vh 0vh 30vh;
+// }
 
 .footer a {
   color: white;
@@ -15,7 +16,7 @@
   text-align: center;
   transition: color 0.5s ease;
   text-decoration: none;
-  padding: 0px 8px;
+  padding: 0px 10px;
 }
 .footer a:hover{
   color: #EF6C00;
@@ -37,30 +38,36 @@
   margin: 0;
   font-size: 15px;
 }
+
 .footer-link a {
   font-size: 15px;
 }
 
-#footer-about {
-  // text-align: right;
-  // font-size: 20px;
-  // font-weight: lighter;
-  padding-right: 2vw;
-  text-align: right;
+.footer-icon {
+  margin-top: 0;
+  text-align: center;
+  padding: 0;
+
+}
+.footer-icons {
+  position: absolute;
+  // bottom: 2vh;
+  // left: 3vh;
+}
+
+// .footer-links-position {
+//   position: absolute;
+//   bottom: 2vh;
+// }
+
+.footer-about {
+  text-align: center;
   font-size: 15px;
   font-weight: lighter;
   color: white;
-}
-
-.no-padding {
-  padding: 0;
-}
-.no-margin {
-  margin: 0;
-}
-
-#about-link {
-  padding: 0;
+  // position: absolute;
+  // bottom: 2vh;
+  // right: 3vh;
 }
 
 //To make the footer stick to the bottom

@@ -33,6 +33,9 @@
 .wrapper-white h2 {
   margin-top: 11px;
   margin-bottom: 11px;
+  font-size: 30px;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  color: #333;
 }
 
 .wrapper-white-lg {
@@ -49,6 +52,15 @@
   margin-bottom: 2.5vh;
 }
 
+.wrapper-yellow-no-margin {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 15px;
+  //padding-top: 2vh;
+  //padding-bottom: 2vh;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .wrapper-transp-grey {
   background-color: rgba(0,0,0,0.5);
   width: 100%;
