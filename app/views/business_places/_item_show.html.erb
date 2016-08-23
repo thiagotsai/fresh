@@ -1,3 +1,4 @@
+<a name="item-anchor-<%= item.id %>"></a>
 <div class="wrapper-lightgrey" id="item-id-<%= item.id %>" dish-id="<%= item.dish.id unless item.dish.nil? %>">
   <div class="container">
     <div class="row">
@@ -17,9 +18,20 @@
           <div class="dish-name"><%= item.name %></div>
           <div class="dish-price">Price: <%= item.price.round %>€</div>
           <div class="dish-description"><%= item.description %></div>
+          <%= social_share_button_tag(@item.name, :url => request.original_url + "#item-anchor-#{item.id}") %>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div style="height: 2px; background-color: white;"></div>
+
+<%= content_for(:meta_business_place) do %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:domain" content="<%= request.original_url %>"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" itemprop="image primaryImageOfPage" content="<%= item.photo.url %>" />
+  <meta name="twitter:title" property="og:title" itemprop="title name" content="<%= item.name %>" />
+  <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @business_place.description %>" />
+  <meta property="og:url" content="<%= request.original_url %>"/>
+<% end %>
