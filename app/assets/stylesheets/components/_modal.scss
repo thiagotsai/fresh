@@ -71,10 +71,15 @@
   z-index: 10;
 }
 
-// add-business modal content
+// Modal form styles
+
+.form-row-inline {
+  vertical-align: center;
+}
 
 .label-inline {
     /* Other styling.. */
+    //padding-top: 8px;
     text-align: left;
     clear: both;
     float:left;
@@ -120,3 +125,5 @@
     width: 71%;
   }
 }
+
+
