@@ -14,7 +14,7 @@
         </form>
         <div class="modal-body">
         <% unless @dishes.empty? %>
-            <h4>Select a Previous Dish</h4>
+            <h4 style="margin-top: 3px; margin-bottom: 15px;">Select a Previous Dish</h4>
             <div class="row-fluid">
               <div class="col-lg-12 col-md-10 ">
                   <div class="cover-container">
@@ -29,7 +29,7 @@
                   </div>
               </div>
             </div>
-            &nbsp;
+            <span style="font-size: 1px;">&nbsp;</span>
             <div style="width: 100%; height: 12px; border-bottom: 1px solid #ddd; text-align: center;">
               <span style="background-color: white; padding: 0 10px;">
                 or <!--Padding is optional-->
@@ -37,7 +37,7 @@
             </div>
             <% end %>
             <div class="js-new-dish-form">
-            <h4>Create Today's Dish</h4>
+            <h4 style="padding-top: 10px;">Create Today's Dish</h4>
             <%= render 'items/form' %>
             </div>
         </div>
