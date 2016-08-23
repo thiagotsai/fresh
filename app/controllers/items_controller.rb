@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
 
 
     if @sort == 0 #Name
-      @items.sort! { |a,b| a.distance <=> b.distance }
+      @items.sort! { |a,b| a.walking_time <=> b.walking_time }
     elsif @sort == 1 #Name
       @items.sort! { |a,b| a.name <=> b.name }
     elsif @sort == 2 #Low to High
