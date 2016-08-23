@@ -7,7 +7,7 @@ class BusinessPlace < ActiveRecord::Base
   has_many :dishes, dependent: :destroy
   has_many :items, dependent: :destroy
   validates :name, presence: true, uniqueness: { scope: [:address, :city] }
-  validates :description, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 35 }
   validates :address, presence: true
   validates :zip_code, presence: true
   validates :city, presence: true
