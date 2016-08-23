@@ -2,7 +2,7 @@
 <div class="banner" style="background-image: url(<%= image_url "food_home_01.jpg" %>);" id="home-banner">
   <div class="banner-content">
     <div class= "logo"><%= image_tag "logo_white.png" %></div>
-    <p>Let's eat a fresh food today!</p>
+    <p>Let's eat fresh food today!</p>
     <form action="items/search" class="form-inline" method="get">
     <input type="hidden" name="location" value="<%= @city.blank? ? "Lisboa" : @city %>">
     <input type="hidden" name="lat" value="<%= session[:lat] %>">
