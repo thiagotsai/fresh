@@ -15,7 +15,7 @@
   text-align: center;
   transition: color 0.5s ease;
   text-decoration: none;
-  padding: 0px 10px;
+  padding: 0px 8px;
 }
 .footer a:hover{
   color: #EF6C00;
@@ -45,7 +45,7 @@
   text-align: right;
   font-size: 20px;
   font-weight: lighter;
-  padding-right: 15px;
+  padding-right: 2vw;
 }
 
 .no-padding {
@@ -53,4 +53,8 @@
 }
 .no-margin {
   margin: 0;
+}
+
+#about-link {
+  padding: 0;
 }

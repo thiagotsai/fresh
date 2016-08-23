@@ -4,11 +4,24 @@
 <%= render "modal_edit_business_place" %>
 <%= render "modal_manage_business_place" %>
 
+<%= content_for(:meta_business_place) do %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:domain" content="<%= request.original_url %>"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" itemprop="image primaryImageOfPage" content="<%= @business_place.cover_photo.url %>" />
+  <meta name="twitter:title" property="og:title" itemprop="title name" content="<%= @business_place.name %>" />
+  <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @business_place.description %>" />
+  <meta property="og:url" content="<%= request.original_url %>"/>
+<% end %>
+
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
 <div class="banner-small" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 55%), url('<%= image_url @business_place.cover_photo.url %>');">
   <div class="banner-small-content">
       <h2><%= @business_place.name %></h2>
       <h3><%= @business_place.description %></h3>
+      <a name= "1"></a>
+      <%= social_share_button_tag(@business_place.name, :image => @business_place.cover_photo, :url => request.original_url) %>
+      <!-- <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large" data-mobile-iframe="true"<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div> -->
       <p><%= @business_place.phone_number %>   |   <%= @business_place.full_address %></p>
       <%# if user_signed_in? && current_user.business_places.include?(@business_place) %>
         <%#= link_to "Manage Business Place", "#", class: "btn-medium btn-medium-white", id: "cover-button", data: { toggle: "modal", target: "#manage-bp-modal"} %>

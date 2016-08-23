@@ -4,13 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta property="fb:app_id" content="1782341115312101" />
+  <%= yield(:meta_business_place) %>
   <title>fresh</title>
   <%= csrf_meta_tags %>
-
   <%= stylesheet_link_tag    'application', media: 'all' %>
+
 </head>
 <!--  class="<%= [params[:controller], params[:action]].join(' ') %>" -->
 <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1782341115312101";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
 
@@ -19,10 +30,6 @@
   <%= render 'shared/footer' %>
 
   <%= javascript_include_tag 'application' %>
-
-  <script type="text/javascript">
-    <%= render 'shared/utilities.js.erb' %>
-  </script>
 
   <%= yield(:after_js) %>
 </body>

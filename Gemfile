@@ -23,6 +23,9 @@ gem 'carrierwave'
 gem 'geocoder'
 gem 'country_select'
 
+gem 'coffee-script'
+gem 'social-share-button'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
