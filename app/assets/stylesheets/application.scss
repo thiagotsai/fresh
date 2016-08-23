@@ -24,3 +24,16 @@ $size: 40px;
     width: $size;
   }
 }
+
+@media (max-width:623px){
+  .social-share-button {
+  .ssb-icon {
+    background-size: 50px 50px;
+    height: 50px;
+    width: 50px;
+  }
+}
+  .social-share-button a {
+    margin-right: 10px;
+  }
+}
