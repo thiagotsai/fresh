@@ -53,10 +53,13 @@
 }
 
 .wrapper-yellow-no-margin {
-  margin-bottom: 0;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  position: relative;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 15px;
+  //padding-top: 2vh;
+  //padding-bottom: 2vh;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .wrapper-transp-grey {
   background-color: rgba(0,0,0,0.5);

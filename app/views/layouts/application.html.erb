@@ -9,21 +9,17 @@
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
-<!--  class="<%= [params[:controller], params[:action]].join(' ') %>" -->
 <body class="<%= [params[:controller], params[:action]].join(' ')%>">
+  <div class="content">
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
-
-  <%= yield %>
-
+    <%= yield %>
+  </div>
   <%= render 'shared/footer' %>
-
   <%= javascript_include_tag 'application' %>
-
   <script type="text/javascript">
     <%= render 'shared/utilities.js.erb' %>
   </script>
-
   <%= yield(:after_js) %>
 </body>
 </html>
