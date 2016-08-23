@@ -18,7 +18,10 @@
           <div class="dish-name"><%= item.name %></div>
           <div class="dish-price">Price: <%= item.price.round %>€</div>
           <div class="dish-description"><%= item.description %></div>
-          <%= social_share_button_tag(@item.name, :url => request.original_url + "#item-anchor-#{item.id}") %>
+          <div class="dish-social">
+            <%= social_share_button_tag(@item.name, :url => request.original_url + "#item-anchor-#{item.id}") %>
+          </div>
+
         </div>
       </div>
     </div>
