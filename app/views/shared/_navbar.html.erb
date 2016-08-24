@@ -90,7 +90,7 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <%# raise %>
-        <% if user_signed_in? && current_user.photo %>
+        <% if user_signed_in? && current_user.photo.url %>
           <%= image_tag current_user.photo.url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% elsif user_signed_in? && current_user.facebook_picture_url %>
           <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
