@@ -13,7 +13,7 @@
     <!-- Today's Dish meta data for facebook and twitter -->
     <meta property="og:image" itemprop="image primaryImageOfPage" content="<%= @show_item.photo.url %>" />
     <meta name="twitter:title" property="og:title" itemprop="title name" content="<%= @show_item.name %>" />
-    <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @show_item.description %>" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @show_item.description %> @ <%= @business_place.name %>" />
     <meta property="og:url" content="<%= request.original_url + "?item=#{@show_item.id}" %>"/>
   <% else %>
     <!-- Business Place meta data for facebook and twitter -->
