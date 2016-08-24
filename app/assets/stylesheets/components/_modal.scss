@@ -145,21 +145,23 @@ input[type=file]{
 
 // Makes style to the input file button in all forms
 input[type="file" i]::-webkit-file-upload-button {
-   border: 1px solid lightgrey;
-   border-radius: 6px;
+   border: 1px solid #888;
+   border-radius: 25px;
+   padding-right: 17px;
+   padding-left: 17px;
    text-decoration:none;
    outline:none;
-   color: #555;
+   color: #999;
    height: 35px;
    /* For any browser that can't create a gradient  */
     background-color: transparent;
-    /*//mozilla*/
-    background: -moz-linear-gradient(top, #FFF, #CCC);
-    /* Chrome/Safari     */
-    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#CCC));
-    /*IE 6/7 */ filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFF',EndColorStr='#CCC');
-    /*IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF, endColorstr=#CCC)";
+    // /*//mozilla*/
+    // background: -moz-linear-gradient(top, #FFF, #CCC);
+    // /* Chrome/Safari     */
+    // background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#CCC));
+    // /*IE 6/7 */ filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFF',EndColorStr='#CCC');
+    // /*IE 8 */
+    // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF, endColorstr=#CCC)";
 }
 
 // Makes
