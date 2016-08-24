@@ -18,6 +18,7 @@
           <div class="dish-name"><%= item.name %></div>
           <div class="dish-price">Price: <%= item.price.round %>€</div>
           <div class="dish-description"><%= item.description %></div>
+          <div class="share-social"><i class="fa fa-share" aria-hidden="true"> <span style="font-family: 'Open Sans', 'Helvetica', 'sans-serif'">share</span></i></div>
           <div class="dish-social">
             <%= social_share_button_tag("The #{item.name} served at #{@business_place.name} today is looking good!") %>
             <%#= social_share_button_tag(@item.name, image: @item.photo.url, url: request.original_url + "#item-anchor-#{item.id}", desc: @business_place.name) %>
