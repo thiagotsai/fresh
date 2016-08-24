@@ -15,7 +15,6 @@ class BusinessPlacesController < ApplicationController
     # Find only the dishes of today to show
     @items = @business_place.today_items
 
-
     # Prepare previous dishes for the modal new item view
     @dishes = @business_place.dishes.where(status: "active")
 
@@ -36,8 +35,11 @@ class BusinessPlacesController < ApplicationController
     @item = Item.new
     @item.business_place = @business_place
 
-    # Prepare the button get directions to google directions
-    # TODO transform user geocoding to its street location
+    # To use for facebook share
+    if params[:item]
+      @show_item = Item.find(params[:item])
+    end
+
   end
 
   def create

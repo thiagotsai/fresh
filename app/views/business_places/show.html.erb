@@ -8,10 +8,18 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:domain" content="<%= request.original_url %>"/>
   <meta property="og:type" content="website" />
-  <meta property="og:image" itemprop="image primaryImageOfPage" content="<%= @business_place.cover_photo.url %>" />
-  <meta name="twitter:title" property="og:title" itemprop="title name" content="<%= @business_place.name %>" />
-  <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @business_place.description %>" />
-  <meta property="og:url" content="<%= request.original_url %>"/>
+  <% if @show_item %>
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="<%= @show_item.photo.url %>" />
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="<%= @show_item.name %>" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @show_item.description %>" />
+    <meta property="og:url" content="<%= request.original_url + "?item=#{@show_item.id}" %>"/>
+  <% else %>
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="<%= @business_place.cover_photo.url %>" />
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="<%= @business_place.name %>" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="<%= @business_place.description %>" />
+    <meta property="og:url" content="<%= request.original_url %>"/>
+  <% end %>
+
 <% end %>
 
 <!-- <div class="banner-small" style="background-image: url('<%# @business_place.cover_photo.url %>');"> -->
