@@ -21,6 +21,10 @@
   <span class="label-inline">Photo</span>
   <div>
   <%= f.input :photo, label: false %>
+  <div class="input-file-feedback">
+      <span class="label-inline">&nbsp;</span>
+      <span id="dishUploadFile"></span>
+  </div>
   <%= f.input :photo_cache, as: :hidden %>
   </div>
 </div>
@@ -37,3 +41,11 @@
 <% end %>
 
 
+<%= content_for(:after_js) do %>
+  <script>
+    // To change the display of the button after selection
+    $("#dish_photo").change(function () {
+        $("#dishUploadFile").text("1 photo selected");
+    });
+  </script>
+<% end %>
