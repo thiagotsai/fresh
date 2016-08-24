@@ -21,6 +21,18 @@
     width: 100%;
     padding: 10px 12px;
 }
+
+@media (max-width:623px){
+  #search-go {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 3px;
+    margin-top: 15px;
+  }
+}
+
+
 .btn-badge,
 .bbtn-badge:active,
 .btn-badge:focus,
