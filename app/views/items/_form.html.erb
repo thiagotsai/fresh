@@ -8,7 +8,21 @@
   <%# f.input :start_datetime, default: Date.today + 1.minute %>
   <%# f.input :end_datetime, default: Date.today + 1 - 1.minute %>
   <%= f.input :photo %>
+  <div class="input-file-feedback">
+      <span id="itemUploadFile"></span>
+  </div>
   <%= f.input :photo_cache, as: :hidden %>
   <%# f.association :ingredients, as: :check_boxes, label: "Which ingredients does it have?" %>
   <%= f.button :submit, class: "btn btn-primary btn-block" %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+
+<script>
+  // To change the display of the button after selection
+  $("#item_photo").change(function () {
+      $("#itemUploadFile").text("1 photo selected");
+  });
+</script>
+
 <% end %>

@@ -64,7 +64,11 @@
 
   <span class="label-inline">Cover</span>
   <div>
-    <%= f.input :cover_photo, label: false %>
+    <%= f.input_field :cover_photo, label: false %>
+    <div class="input-file-feedback">
+      <span class="label-inline">&nbsp;</span>
+      <span id="businessPlaceUploadFile"></span>
+    </div>
     <%= f.input :cover_photo_cache, as: :hidden %>
   </div>
 
@@ -74,4 +78,13 @@
 
 <%= content_for(:after_js) do %>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyANIX5OkPPRTJZkKRUF80Nso8xQvwEY2mE"></script>
+
+
+<script>
+  // To change the display of the button after selection
+  $("#business_place_cover_photo").change(function () {
+      $("#businessPlaceUploadFile").text("1 photo selected");
+  });
+</script>
+
 <% end %>
