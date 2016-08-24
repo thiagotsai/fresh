@@ -116,6 +116,9 @@ class ItemsController < ApplicationController
   def copy
     dish = Dish.find(params[:dish_id])
 
+    # Prepate business_place for the item_show view (share button)
+    @business_place = dish.business_place
+
     # Create a new item based on the dish
     @item = Item.new(name: dish.name, description: dish.description,
                      price: dish.price,
