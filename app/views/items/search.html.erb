@@ -12,20 +12,22 @@ We found <%= pluralize @items.count, "fresh dish" %> nearby
 
   <!-- combo_box -->
   <div class="container">
-    <form action="search" class="form-inline" method="get">
+  <div class="row">
+    <div class="col-xs-12">
+      <form action="search" class="form-inline" method="get">
       <input type="text" name="query" value="<%= params[:query] %>" class="form-control" placeholder="What do you want to eat today?" size="30">
-      <select name="location" class="form-control">
+      <select name="location" class="form-control selectwidthauto">
           <% BusinessPlace.select(:city).distinct.order(:city).each do |e| %>
             <option value="<%= e.city.downcase %>" <%= "selected" if e.city.downcase == @city %>><%= e.city.capitalize %></option>
           <% end %>
       </select>
-      <select name="cuisine_id" class="form-control">
+      <select name="cuisine_id" class="form-control selectwidthauto">
           <option value="0">All Cuisines</option>
           <% Cuisine.all.order(:name).each do |cuisine| %>
             <option value="<%= cuisine.id %>" <%= "selected" if @cuisine_id == cuisine.id %>><%= cuisine.name.capitalize %></option>
           <% end %>
       </select>
-      &nbsp; Sort by: &nbsp;
+     <div class="sort-by-label">&nbsp; Sort by: &nbsp;</div>
       <select name="sort" class="form-control">
         <% if not session[:lat].blank? and not session[:lng].blank? %>
           <option value="0" <%= "selected" if @sort.blank? or @sort == 0 %>>Distance</option>
@@ -34,8 +36,11 @@ We found <%= pluralize @items.count, "fresh dish" %> nearby
         <option value="2" <%= "selected" if @sort == 2 %>>Price Low to High</option>
         <option value="3" <%= "selected" if @sort == 3 %>>Price High to Low</option>
       </select>
-        <input type="submit" value="Go" class="btn-medium btn-medium-sm btn-medium-yellow">
+        <input type="submit" value="Go" id="search-go" class="btn-medium btn-medium-sm btn-medium-yellow">
       </form>
+    </div>
+  </div>
+
   </div>
 
   <div class="container">
