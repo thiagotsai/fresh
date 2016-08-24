@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :business_place_users
   has_many :business_places, through: :business_place_users
+  mount_uploader :photo, PhotoUploader
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
