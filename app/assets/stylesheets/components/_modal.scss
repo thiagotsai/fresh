@@ -147,11 +147,11 @@ input[type="file" i]::-webkit-file-upload-button {
    /* For any browser that can't create a gradient  */
     background-color: transparent;
     /*//mozilla*/
-    background: -moz-linear-gradient(top, #FFF, #efefef);
+    background: -moz-linear-gradient(top, #FFF, #CCC);
     /* Chrome/Safari     */
-    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EFEFEF));
-    /*IE 6/7 */ filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFF',EndColorStr='#EFEFEF');
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#CCC));
+    /*IE 6/7 */ filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFF',EndColorStr='#CCC');
     /*IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF, endColorstr=#EFEFEF)";
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF, endColorstr=#CCC)";
 }
 
