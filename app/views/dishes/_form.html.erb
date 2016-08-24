@@ -21,11 +21,13 @@
   <span class="label-inline">Photo</span>
   <div>
   <%= f.input :photo, label: false %>
+  <%= f.input :photo_cache, as: :hidden %>
   <div class="input-file-feedback">
       <span class="label-inline">&nbsp;</span>
       <span id="dishUploadFile"></span>
   </div>
-  <%= f.input :photo_cache, as: :hidden %>
+  <!-- Placeholder space for the layout not to break -->
+  <span id="space-holder">&nbsp;</span>
   </div>
 </div>
   <hr style="margin-top: 15px; margin-bottom: 15px;">
@@ -45,6 +47,8 @@
   <script>
     // To change the display of the button after selection
     $("#dish_photo").change(function () {
+        // Fix layout bug
+        $("#space-holder").hide();
         $("#dishUploadFile").text("1 photo selected");
     });
   </script>
