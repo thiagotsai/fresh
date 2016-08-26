@@ -17,7 +17,12 @@
             <!-- <div class="dishdetails-h2"><%= item.business_place.cuisine.name %></div> -->
             <div>
             <% unless session[:lat].blank? and session[:lng].blank? %>
+              <!-- You should render this as a partial html.erb if you want to dynamic change the colors and apply hover and etc -->
+              <%#= render 'shared/icons/icon_walk' %>
+
+              <!-- SVG as an image - You lose the dynamic changes you can do in a vector when you do like this. But we will do anyway because of lack of time -->
               <%= image_tag "icon_walk.svg" %>
+
               <span style="vertical-align: bottom;">
               <% time_format = "%_M min" #23min %>
               <% time_format = "%k h %_M min" if item.walking_time.round > 60 #5h 23 min %>
