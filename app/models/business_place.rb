@@ -49,7 +49,7 @@ class BusinessPlace < ActiveRecord::Base
   end
 
   def today_items
-    self.items.where('start_datetime >= :start AND end_datetime <= :end', start: Date.today, end: Date.today + 1)
+    self.items.where('start_datetime <= :start AND end_datetime >= :end', start: Date.today, end: Date.today + 1)
   end
 end
 

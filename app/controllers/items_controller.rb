@@ -16,12 +16,12 @@ class ItemsController < ApplicationController
     if @cuisine_id == 0
       # Filter ignoring Cuisine
       BusinessPlace.near(@city).each do |bp|
-        @items += bp.items.where("start_datetime >= :start AND end_datetime <= :end AND (lower(description) LIKE :query OR lower(name) LIKE :query)", query: "%#{params[:query]}%", start: Date.today, end: Date.today + 1).flatten
+        @items += bp.items.where("start_datetime <= :start AND end_datetime >= :end AND (lower(description) LIKE :query OR lower(name) LIKE :query)", query: "%#{params[:query]}%", start: Date.today, end: Date.today + 1).flatten
       end
     else
       # Filter only Business Places with the cuisine selected
       BusinessPlace.where(cuisine_id: @cuisine_id).near(@city).each do |bp|
-        @items += bp.items.where("start_datetime >= :start AND end_datetime <= :end AND (lower(description) LIKE :query OR lower(name) LIKE :query)", query: "%#{params[:query]}%", start: Date.today, end: Date.today + 1).flatten
+        @items += bp.items.where("start_datetime <= :start AND end_datetime >= :end AND (lower(description) LIKE :query OR lower(name) LIKE :query)", query: "%#{params[:query]}%", start: Date.today, end: Date.today + 1).flatten
         # bp.cuisines.where(name: params[:cuisines].each do
       end
     end
