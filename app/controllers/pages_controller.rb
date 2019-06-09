@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   def home
     # Geocoder gem provides additional method to request like location
-    @city = request.location.city #Will return in english Lisbon
+    #@city = request.location.city #Will return in english Lisbon
+    @city = 'Lisbon'
   end
 
   def about
